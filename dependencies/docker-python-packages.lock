@@ -1,0 +1,9 @@
+# Installed through /isaac-sim/python.sh by docker/Dockerfile.
+# Resolve exact versions from the final strict-5.1 image and update this file
+# after the first successful clean build.
+jupyter
+lightwheel-sdk
+onnxruntime
+pytest
+typing_extensions
+vuer[all]

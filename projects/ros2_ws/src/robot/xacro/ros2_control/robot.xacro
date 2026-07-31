@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<robot name="r1" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:include filename="$(find r1_description)/xacro/r1_macro.xacro" />
+  <xacro:include filename="$(find r1_description)/xacro/ros2_control/r1_base.ros2_control.xacro" />
+  <xacro:include filename="$(find r1_description)/xacro/ros2_control/r1_body.ros2_control.xacro" />
+  <xacro:include filename="$(find r1_description)/xacro/ros2_control/r1_arm.ros2_control.xacro" />
+  <xacro:include filename="$(find r1_description)/xacro/ros2_control/r1_gripper.ros2_control.xacro" />
+
+  <xacro:arg name="ros2_control_hardware_type" default="mock" />
+  <xacro:property name="hw_type" value="$(arg ros2_control_hardware_type)" />
+
+  <xacro:r1 />
+
+  <xacro:if value="${hw_type == 'isaac'}">
+    <ros2_control name="r1_arm_isaac" type="system">
+      <hardware>
+        <plugin>topic_based_ros2_control/TopicBasedSystem</plugin>
+        <param name="joint_commands_topic">/arm_joint_cmd</param>
+        <param name="joint_states_topic">/joint_states</param>
+        <param name="initialize_commands_from_state">true</param>
+      </hardware>
+      <xacro:r1_arm_ros2_control name="left" />
+      <xacro:r1_arm_ros2_control name="right" />
+    </ros2_control>
+  </xacro:if>
+
+  <xacro:unless value="${hw_type == 'isaac'}">
+    <ros2_control name="r1_mock_system" type="system">
+      <hardware>
+        <plugin>mock_components/GenericSystem</plugin>
+      </hardware>
+      <xacro:r1_base_ros2_control />
+      <xacro:r1_body_ros2_control />
+      <xacro:r1_arm_ros2_control name="left" />
+      <xacro:r1_arm_ros2_control name="right" />
+      <xacro:r1_gripper_ros2_control name="left" />
+      <xacro:r1_gripper_ros2_control name="right" />
+    </ros2_control>
+  </xacro:unless>
+
+</robot>

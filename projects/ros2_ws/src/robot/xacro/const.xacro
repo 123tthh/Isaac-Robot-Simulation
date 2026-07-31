@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<xacro:property name="robot_name" value="r1" />
+	<xacro:property name="PI" value="3.1415926535897931" />
+
+
+	<!--Left
+	front wheel installation, unit m-->
+	<xacro:property name="wheel_L_x" value="0.0" />
+	<xacro:property name="wheel_L_y" value="0.242" />
+	<xacro:property name="wheel_L_z" value="0.0" />
+
+	<xacro:property name="caster_LF_x" value="0.22881" />
+	<xacro:property name="caster_LF_y" value="0.17515" />
+	<xacro:property name="caster_LF_z" value="-0.04528" />
+
+	<!--Make
+	the tire larger than the actual value-->
+	<xacro:property name="wheel_radius" value="0.0825" />
+	<xacro:property name="wheel_length" value="0.078" />
+
+	<xacro:property name="caster_radius" value="0.0375" />
+	<xacro:property name="caster_length" value="0.078" />
+
+</robot>

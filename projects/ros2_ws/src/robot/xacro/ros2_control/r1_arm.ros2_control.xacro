@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="r1_arm_ros2_control" params="name">
+    <xacro:property name="prefix" value="${name + '_' if name else ''}" />
+    <xacro:property name="joint1_initial" value="${-1.57086253166 if name == 'left' else 1.5710 if name == 'right' else 0.0}" />
+    <xacro:property name="joint2_initial" value="${1.57073485851 if name == 'left' else 1.5710 if name == 'right' else 0.0}" />
+    <xacro:property name="joint3_initial" value="${-1.57081544399 if name == 'left' else -1.5708 if name == 'right' else 0.0}" />
+    <xacro:property name="joint4_initial" value="${1.5704407692 if name == 'left' else -1.5702 if name == 'right' else 0.0}" />
+    <xacro:property name="joint5_initial" value="${4.17368974013e-05 if name == 'left' else 0.0 if name == 'right' else 0.0}" />
+    <xacro:property name="joint6_initial" value="${1.56915736198 if name == 'left' else -1.5677 if name == 'right' else 0.0}" />
+    <xacro:property name="joint7_initial" value="${-4.12942608818e-05 if name == 'left' else 3.1416 if name == 'right' else 0.0}" />
+
+    <joint name="${prefix}joint1">
+      <command_interface name="position" />
+      <state_interface name="position">
+        <param name="initial_value">${joint1_initial}</param>
+      </state_interface>
+      <state_interface name="velocity" />
+      <state_interface name="effort" />
+    </joint>
+
+    <joint name="${prefix}joint2">
+      <command_interface name="position" />
+      <state_interface name="position">
+        <param name="initial_value">${joint2_initial}</param>
+      </state_interface>
+      <state_interface name="velocity" />
+      <state_interface name="effort" />
+    </joint>
+
+    <joint name="${prefix}joint3">
+      <command_interface name="position" />
+      <state_interface name="position">
+        <param name="initial_value">${joint3_initial}</param>
+      </state_interface>
+      <state_interface name="velocity" />
+      <state_interface name="effort" />
+    </joint>
+
+    <joint name="${prefix}joint4">
+      <command_interface name="position" />
+      <state_interface name="position">
+        <param name="initial_value">${joint4_initial}</param>
+      </state_interface>
+      <state_interface name="velocity" />
+      <state_interface name="effort" />
+    </joint>
+
+    <joint name="${prefix}joint5">
+      <command_interface name="position" />
+      <state_interface name="position">
+        <param name="initial_value">${joint5_initial}</param>
+      </state_interface>
+      <state_interface name="velocity" />
+      <state_interface name="effort" />
+    </joint>
+
+    <joint name="${prefix}joint6">
+      <command_interface name="position" />
+      <state_interface name="position">
+        <param name="initial_value">${joint6_initial}</param>
+      </state_interface>
+      <state_interface name="velocity" />
+      <state_interface name="effort" />
+    </joint>
+
+    <joint name="${prefix}joint7">
+      <command_interface name="position" />
+      <state_interface name="position">
+        <param name="initial_value">${joint7_initial}</param>
+      </state_interface>
+      <state_interface name="velocity" />
+      <state_interface name="effort" />
+    </joint>
+  </xacro:macro>
+</robot>

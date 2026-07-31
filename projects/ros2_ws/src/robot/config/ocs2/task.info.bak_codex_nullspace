@@ -1,0 +1,252 @@
+; OCS2 task configuration for R1 dual-arm robot (parking mode, fixed base)
+; Arms: 2x RM-75 7-DOF -> 14 total arm DOFs
+; Base: fixed (waist/body joints removed from planning)
+
+model_information
+{
+  ; 0 = defaultManipulator (fixed-base arm, no mobile base)
+  manipulatorModelType    0
+
+  ; Joints to exclude from OCS2 planning.
+  ; Fixed joints are excluded automatically; list the non-fixed joints to ignore.
+  removeJoints
+  {
+    ; Torso (fixed in parking mode)
+    [0]  "waist_joint"
+    [1]  "body_joint"
+
+    ; Head
+    [2]  "head_camera_joint"
+
+    ; Drive wheels
+    [3]  "wheel_L_joint"
+    [4]  "wheel_R_joint"
+
+    ; Caster wheels
+    [5]  "caster_LF_joint"
+    [6]  "caster_RF_joint"
+    [7]  "caster_LB_joint"
+    [8]  "caster_RB_joint"
+
+    ; Grippers (discrete, controlled separately)
+    [9]  "left_PGIA_joint1"
+    [10] "left_PGIA_joint2"
+    [11] "right_PGIA_joint1"
+    [12] "right_PGIA_joint2"
+  }
+
+  ; Root frame of the kinematic chain
+  baseFrame                   "base_link"
+
+  ; End-effector frames for dual-arm planning
+  eeFrame                     "left_flange_link"
+  eeFrame1                    "right_flange_link"
+}
+
+model_settings
+{
+  usePreComputation           true
+  recompileLibraries          true
+}
+
+ddp
+{
+  algorithm                   SLQ
+  nThreads                    3
+  threadPriority              50
+  maxNumIterations            1
+  minRelCost                  0.1
+  constraintTolerance         1e-3
+  displayInfo                 false
+  displayShortSummary         false
+  checkNumericalStability     false
+  debugPrintRollout           false
+  debugCaching                false
+  AbsTolODE                   1e-5
+  RelTolODE                   1e-3
+  maxNumStepsPerSecond        100000
+  timeStep                    1e-3
+  backwardPassIntegratorType  ODE45
+  constraintPenaltyInitialValue   20.0
+  constraintPenaltyIncreaseRate   2.0
+  preComputeRiccatiTerms      true
+  useFeedbackPolicy           false
+  strategy                    LINE_SEARCH
+  lineSearch
+  {
+    minStepLength             1e-2
+    maxStepLength             1.0
+    hessianCorrectionStrategy DIAGONAL_SHIFT
+    hessianCorrectionMultiple 1e-3
+  }
+}
+
+rollout
+{
+  AbsTolODE                   1e-5
+  RelTolODE                   1e-3
+  timeStep                    1e-2
+  integratorType              ODE45
+  maxNumStepsPerSecond        100000
+  checkNumericalStability     false
+}
+
+mpc
+{
+  timeHorizon                 1.0
+  solutionTimeWindow          0.2
+  coldStart                   false
+  debugPrint                  false
+  mpcDesiredFrequency         50
+  mrtDesiredFrequency         200
+}
+
+initialState
+{
+  arm
+  {
+    (0,0)   0.0
+    (1,0)   0.0
+    (2,0)   0.0
+    (3,0)   0.0
+    (4,0)   0.0
+    (5,0)   0.0
+    (6,0)   0.0
+    (7,0)   0.0
+    (8,0)   0.0
+    (9,0)   0.0
+    (10,0)  0.0
+    (11,0)  0.0
+    (12,0)  0.0
+    (13,0)  0.0
+  }
+}
+
+inputCost
+{
+  R
+  {
+    arm
+    {
+      scaling 1e-3
+      (0,0)   1.0
+      (1,1)   1.0
+      (2,2)   1.0
+      (3,3)   1.0
+      (4,4)   1.0
+      (5,5)   1.0
+      (6,6)   1.0
+      (7,7)   1.0
+      (8,8)   1.0
+      (9,9)   1.0
+      (10,10) 1.0
+      (11,11) 1.0
+      (12,12) 1.0
+      (13,13) 1.0
+    }
+  }
+}
+
+endEffector
+{
+  dualArmMode                 true
+  leftArm
+  {
+    muPosition                10.0
+    muOrientation              5.0
+  }
+  rightArm
+  {
+    muPosition                10.0
+    muOrientation              5.0
+  }
+}
+
+finalEndEffector
+{
+  dualArmMode                 true
+  leftArm
+  {
+    muPosition                10.0
+    muOrientation              5.0
+  }
+  rightArm
+  {
+    muPosition                10.0
+    muOrientation              5.0
+  }
+}
+
+jointPositionLimits
+{
+  activate  true
+  mu        0.1
+  delta     1e-2
+}
+
+jointVelocityLimits
+{
+  mu      0.01
+  delta   1e-3
+
+  lowerBound
+  {
+    arm
+    {
+      (0,0)   -1.5708
+      (1,0)   -1.5708
+      (2,0)   -1.5708
+      (3,0)   -1.5708
+      (4,0)   -1.5708
+      (5,0)   -1.5708
+      (6,0)   -1.5708
+      (7,0)   -1.5708
+      (8,0)   -1.5708
+      (9,0)   -1.5708
+      (10,0)  -1.5708
+      (11,0)  -1.5708
+      (12,0)  -1.5708
+      (13,0)  -1.5708
+    }
+  }
+
+  upperBound
+  {
+    arm
+    {
+      (0,0)   1.5708
+      (1,0)   1.5708
+      (2,0)   1.5708
+      (3,0)   1.5708
+      (4,0)   1.5708
+      (5,0)   1.5708
+      (6,0)   1.5708
+      (7,0)   1.5708
+      (8,0)   1.5708
+      (9,0)   1.5708
+      (10,0)  1.5708
+      (11,0)  1.5708
+      (12,0)  1.5708
+      (13,0)  1.5708
+    }
+  }
+}
+
+selfCollision
+{
+  activate  false
+
+  collisionObjectPairs {}
+
+  ; Key cross-arm pairs to enable later:
+  ; [0] "left_Link5, right_Link5"
+  ; [1] "left_Link6, right_Link6"
+  ; [2] "left_Link7, right_Link7"
+  ; [3] "left_Link4, right_Link4"
+  collisionLinkPairs {}
+
+  minimumDistance    0.05
+  activationDistance 0.15
+  mu                 1e-2
+  delta              1e-4
+}

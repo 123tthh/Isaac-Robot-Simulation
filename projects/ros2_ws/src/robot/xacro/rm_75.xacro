@@ -1,0 +1,195 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="rm_75">
+  <xacro:macro name="rm_75" params="
+    prefix:=''
+    attach_to:=''
+    attach_xyz:='0 0 0'
+    attach_rpy:='0 0 0'">
+    <xacro:if value="${attach_to != ''}">
+      <joint name="${prefix}attach_joint" type="fixed">
+        <parent link="${attach_to}" />
+        <child link="${prefix}base_link" />
+        <origin xyz="${attach_xyz}" rpy="${attach_rpy}" />
+      </joint>
+    </xacro:if>
+
+    <link name="${prefix}base_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://r1_description/meshes/rm_75_arm/base_link.dae" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://r1_description/meshes/rm_75_arm/base_link.STL" />
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}Link1">
+      <visual>
+        <origin xyz="0 0 0" rpy="1.5708 0 0" />
+        <geometry>
+          <mesh filename="package://r1_description/meshes/rm_75_arm/Link_1.dae" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://r1_description/meshes/rm_75_arm/Link1.STL" />
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="${prefix}joint1" type="revolute">
+      <origin xyz="0 0 0.2405" rpy="-1.5708 0 0" />
+      <parent link="${prefix}base_link" />
+      <child link="${prefix}Link1" />
+      <axis xyz="0 -1 0" />
+      <limit lower="-3.107" upper="3.107" effort="100" velocity="1" />
+    </joint>
+
+    <link name="${prefix}Link2">
+      <visual>
+        <origin xyz="0 0 0" rpy="-1.5708 0 0" />
+        <geometry>
+          <mesh filename="package://r1_description/meshes/rm_75_arm/Link_2.dae" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://r1_description/meshes/rm_75_arm/Link2.STL" />
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="${prefix}joint2" type="revolute">
+      <origin xyz="0 0 0" rpy="1.5708 0 0" />
+      <parent link="${prefix}Link1" />
+      <child link="${prefix}Link2" />
+      <axis xyz="0 1 0" />
+      <limit lower="-2.269" upper="2.269" effort="100" velocity="1" />
+    </joint>
+
+    <link name="${prefix}Link3">
+      <visual>
+        <origin xyz="0 0.103 0" rpy="1.5708 0 0" />
+        <geometry>
+          <mesh filename="package://r1_description/meshes/rm_75_arm/Link_3.dae" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://r1_description/meshes/rm_75_arm/Link3.STL" />
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="${prefix}joint3" type="revolute">
+      <origin xyz="0 0 0.256" rpy="-1.5708 0 0" />
+      <parent link="${prefix}Link2" />
+      <child link="${prefix}Link3" />
+      <axis xyz="0 -1 0" />
+      <limit lower="-1.8962" upper="1.8962" effort="100" velocity="1" />
+    </joint>
+
+    <link name="${prefix}Link4">
+      <visual>
+        <origin xyz="0 0 0" rpy="-1.5708 0 0" />
+        <geometry>
+          <mesh filename="package://r1_description/meshes/rm_75_arm/Link_4.dae" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://r1_description/meshes/rm_75_arm/Link4.STL" />
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="${prefix}joint4" type="revolute">
+      <origin xyz="0 0 0" rpy="1.5708 0 0" />
+      <parent link="${prefix}Link3" />
+      <child link="${prefix}Link4" />
+      <axis xyz="0 1 0" />
+      <limit lower="-2.356" upper="2.356" effort="100" velocity="1" />
+    </joint>
+
+    <link name="${prefix}Link5">
+      <visual>
+        <origin xyz="0 0 0" rpy="1.5708 0 0" />
+        <geometry>
+          <mesh filename="package://r1_description/meshes/rm_75_arm/Link_5.dae" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://r1_description/meshes/rm_75_arm/Link5.STL" />
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="${prefix}joint5" type="revolute">
+      <origin xyz="0 0 0.21" rpy="-1.5708 0 0" />
+      <parent link="${prefix}Link4" />
+      <child link="${prefix}Link5" />
+      <axis xyz="0 -1 0" />
+      <limit lower="-3.107" upper="3.107" effort="100" velocity="1" />
+    </joint>
+
+    <link name="${prefix}Link6">
+      <visual>
+        <origin xyz="0 0 0" rpy="-1.5708 0 0" />
+        <geometry>
+          <mesh filename="package://r1_description/meshes/rm_75_arm/Link_6.dae" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://r1_description/meshes/rm_75_arm/Link6.STL" />
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="${prefix}joint6" type="revolute">
+      <origin xyz="0 0 0" rpy="1.5708 0 0" />
+      <parent link="${prefix}Link5" />
+      <child link="${prefix}Link6" />
+      <axis xyz="0 1 0" />
+      <limit lower="-2.234" upper="2.234" effort="100" velocity="1" />
+    </joint>
+
+    <link name="${prefix}Link7">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://r1_description/meshes/rm_75_arm/Link_7_6FB.dae" />
+        </geometry>
+        <material name="">
+          <color rgba="0.75 0.75 0.75 1.0" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://r1_description/meshes/rm_75_arm/Link7_6f.STL" />
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="${prefix}joint7" type="revolute">
+      <origin xyz="0 0 0.1612" rpy="0 0 0" />
+      <parent link="${prefix}Link6" />
+      <child link="${prefix}Link7" />
+      <axis xyz="0 0 1" />
+      <limit lower="-6.283" upper="6.283" effort="100" velocity="1" />
+    </joint>
+  </xacro:macro>
+</robot>

@@ -1,0 +1,7 @@
+scope	path	url	commit	dirty	required_for_core
+core	projects/ros2_ws/src/robot_descriptions	https://github.com/fiveages-sim/robot_descriptions	fff4d08cf07cff966747986bbc01af75ff23e2ad	false	true
+optional	projects/IsaacLab-Arena	https://github.com/isaac-sim/IsaacLab-Arena.git	dc0bbd7b4a3abe4fe8964c09952364ae834c2145	true	false
+optional	projects/IsaacLab-Arena/submodules/IsaacLab	https://github.com/isaac-sim/IsaacLab.git	6acdd82a1633732d32bb575e3d792e34fdeb437e	false	false
+optional	projects/IsaacLab-Arena/submodules/Isaac-GR00T	https://github.com/NVIDIA/Isaac-GR00T.git	3bce5530b3af0ce3619d5fda041385f9b732dca8	false	false
+optional	projects/IsaacLab-Arena/isaaclab_arena/r1_description	https://git.robotplusplus.com.cn/mobile-manipulator/r1/r1_description.git	e089913bee6e9f80013c22f5b20279552d08f635	true	false
+optional	projects/IsaacLab-Arena/isaaclab_arena/r1_description_full	https://git.robotplusplus.com.cn/mobile-manipulator/r1/r1_description.git	e089913bee6e9f80013c22f5b20279552d08f635	true	false

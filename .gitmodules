@@ -1,0 +1,4 @@
+[submodule "projects/ros2_ws/src/robot_descriptions"]
+	path = projects/ros2_ws/src/robot_descriptions
+	url = https://github.com/fiveages-sim/robot_descriptions
+	branch = main

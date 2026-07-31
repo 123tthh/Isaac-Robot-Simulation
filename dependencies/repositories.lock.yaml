@@ -1,0 +1,80 @@
+schema_version: 1
+generated: "2026-07-24"
+
+core:
+  robot_descriptions:
+    path: projects/ros2_ws/src/robot_descriptions
+    url: https://github.com/fiveages-sim/robot_descriptions
+    commit: fff4d08cf07cff966747986bbc01af75ff23e2ad
+    required_for_core_build: true
+    local_changes: false
+
+optional:
+  isaac_lab_arena:
+    path: projects/IsaacLab-Arena
+    url: https://github.com/isaac-sim/IsaacLab-Arena.git
+    commit: dc0bbd7b4a3abe4fe8964c09952364ae834c2145
+    required_for_core_build: false
+    local_changes: true
+    recovery:
+      tracked_patch: reproducibility/patches/IsaacLab-Arena.tracked.patch
+      untracked_archive: reproducibility/artifacts/IsaacLab-Arena.untracked.tar.zst
+  isaac_lab:
+    path: projects/IsaacLab-Arena/submodules/IsaacLab
+    url: https://github.com/isaac-sim/IsaacLab.git
+    commit: 6acdd82a1633732d32bb575e3d792e34fdeb437e
+    required_for_core_build: false
+    local_changes: false
+  isaac_groot:
+    path: projects/IsaacLab-Arena/submodules/Isaac-GR00T
+    url: https://github.com/NVIDIA/Isaac-GR00T.git
+    commit: 3bce5530b3af0ce3619d5fda041385f9b732dca8
+    required_for_core_build: false
+    local_changes: false
+  arena_r1_description:
+    path: projects/IsaacLab-Arena/isaaclab_arena/r1_description
+    url: https://git.robotplusplus.com.cn/mobile-manipulator/r1/r1_description.git
+    commit: e089913bee6e9f80013c22f5b20279552d08f635
+    required_for_core_build: false
+    local_changes: true
+    recovery:
+      tracked_patch: reproducibility/patches/arena_r1_description.tracked.patch
+      untracked_archive: reproducibility/artifacts/arena_r1_description.untracked.tar.zst
+  arena_r1_description_full:
+    path: projects/IsaacLab-Arena/isaaclab_arena/r1_description_full
+    url: https://git.robotplusplus.com.cn/mobile-manipulator/r1/r1_description.git
+    commit: e089913bee6e9f80013c22f5b20279552d08f635
+    required_for_core_build: false
+    local_changes: true
+    recovery:
+      tracked_patch: reproducibility/patches/arena_r1_description_full.tracked.patch
+      untracked_archive: reproducibility/artifacts/arena_r1_description_full.untracked.tar.zst
+
+runtime:
+  isaac_sim:
+    version: 5.1.0
+    host_default: /home/gtk/isaac-sim-5.1
+    configurable_environment: ISAAC_SIM_ROOT
+  ros:
+    host_runtime_distribution: humble
+    strict_docker_distribution: jazzy
+    documentation_distribution: rolling
+  docker:
+    required_base:
+      reference: nvcr.io/nvidia/isaac-sim:5.1.0
+      platform: linux/amd64
+      digest: sha256:93b0f99635ab126fb5b33298d513c11520f119f0ee60ff8414ccef67ea977829
+    final_tags:
+      - issac_ocs_docker:latest
+      - issac_ocs_docker:20260724-full
+    image_id: sha256:3fc6e462bfc8c269e77818342698b477b060adc18c041dde89067d4bf182582e
+    archived_image_actual_isaac_sim: 5.0.0-rc.45
+    archived_image_ros_distribution: humble
+    strict_image_ros_distribution: jazzy
+    dockerfile_base_tag: nvcr.io/nvidia/isaac-sim:5.1.0
+    note: >-
+      The core source tree does not require IsaacLab-Arena. The existing
+      20260724-full image was inherited from a legacy 5.0.0-rc.45 Arena image
+      and is retained only as a historical runnable artifact. A strict
+      reproducible rebuild must use the required 5.1.0 base and receive a new
+      image tag and SHA-256.

@@ -1,0 +1,8 @@
+#!/usr/bin/env python3
+# Reference: /home/gtk/ai_docs/docs.ros.org/en/rolling/Tutorials/Intermediate/RViz/RViz-User-Guide/RViz-User-Guide.md
+
+from r1_lerobot_sim.pose_path_replay_node import main
+
+
+if __name__ == "__main__":
+    main()

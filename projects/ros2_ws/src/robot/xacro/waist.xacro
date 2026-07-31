@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="waist">
+    <xacro:macro name="waist" params="prefix:='' parent">
+          <link
+            name="${prefix}waist_link">
+            <inertial>
+            <origin
+                xyz="0.0696476571713048 -0.00509600363616028 0.00739809006225189"
+                rpy="0 0 0" />
+            <mass
+                value="2.5681513236014" />
+            <inertia
+                ixx="0.00707725275214103"
+                ixy="1.13216950535114E-05"
+                ixz="0.000655883104593847"
+                iyy="0.00859921109980081"
+                iyz="7.07008283043277E-06"
+                izz="0.00756908237806158" />
+            </inertial>
+            <visual>
+            <origin
+                xyz="0 0 0"
+                rpy="0 0 0" />
+            <geometry>
+                <mesh
+                filename="package://r1_description/meshes/waist_link.STL" />
+            </geometry>
+            <material
+                name="">
+                <color
+                rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+            </material>
+            </visual>
+            <collision>
+            <origin
+                xyz="0 0 0"
+                rpy="0 0 0" />
+            <geometry>
+                <mesh
+                filename="package://r1_description/meshes/waist_link.STL" />
+            </geometry>
+            </collision>
+        </link>
+          <joint
+            name="${prefix}waist_joint"
+            type="prismatic">
+            <origin
+                xyz="0.0472 -0.0002489 0.88638"
+                rpy="0 0 0" />
+            <parent
+                link="${parent}" />
+            <child
+                link="${prefix}waist_link" />
+            <axis
+                xyz="0 0 1" />
+            <limit
+                lower="-0.5"
+                upper="0"
+                effort="0"
+                velocity="0" />
+        </joint>
+    </xacro:macro>
+</robot>

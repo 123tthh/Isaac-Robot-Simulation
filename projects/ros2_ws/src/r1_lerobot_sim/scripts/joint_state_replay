@@ -1,0 +1,8 @@
+#!/usr/bin/env python3
+# Reference: /home/gtk/ai_docs/docs.ros.org/en/rolling/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher-py.md
+
+from r1_lerobot_sim.joint_state_replay_node import main
+
+
+if __name__ == "__main__":
+    main()

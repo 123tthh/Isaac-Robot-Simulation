@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="wheel">
+    <xacro:macro name="wheel" params="prefix:='' parent *origin *axis">
+        <link name="wheel_${prefix}_link">
+            <inertial>
+                <origin
+                    xyz="-1.90978949257462E-17 -2.77555756156289E-17 -6.93889390390723E-18"
+                    rpy="0 0 0" />
+                <mass
+                    value="0.234059655910212" />
+                <inertia
+                    ixx="0.000712849893005476"
+                    ixy="2.41658910268529E-18"
+                    ixz="9.72939861698675E-33"
+                    iyy="0.00136574067372132"
+                    iyz="2.63170842016248E-18"
+                    izz="0.000712849893005476" />
+            </inertial>
+            <visual>
+                <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+                <geometry>
+                    <mesh
+                        filename="package://r1_description/meshes/wheel_link.STL" />
+                </geometry>
+                <material
+                    name="">
+                    <color
+                        rgba="0.941176470588235 0.674509803921569 0.117647058823529 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+                <geometry>
+                    <mesh
+                        filename="package://r1_description/meshes/wheel_link.STL" />
+                </geometry>
+            </collision>
+        </link>
+
+        <joint name="wheel_${prefix}_joint" type="continuous">
+            <parent link="${parent}" />
+            <child link="wheel_${prefix}_link" />
+            <xacro:insert_block name="origin" />
+            <xacro:insert_block name="axis" />
+        </joint>
+    </xacro:macro>
+</robot>

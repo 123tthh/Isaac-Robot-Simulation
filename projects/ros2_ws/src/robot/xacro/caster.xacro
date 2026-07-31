@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="caster">
+    <xacro:macro name="caster" params="prefix:='' parent *origin *axis">
+        <link name="caster_${prefix}_link">
+            <inertial>
+                <origin
+                    xyz="-2.77555756156289E-17 -1.06845470845829E-05 -6.67868538251071E-17"
+                    rpy="0 0 0" />
+                <mass
+                    value="0.0928345359349965" />
+                <inertia
+                    ixx="3.67961925533286E-05"
+                    ixy="6.77103753019945E-18"
+                    ixz="-1.44222576055576E-17"
+                    iyy="7.07883523666349E-05"
+                    iyz="2.12228219818785E-16"
+                    izz="3.6796192553347E-05" />
+            </inertial>
+            <visual>
+                <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+                <geometry>
+                    <mesh
+                        filename="package://r1_description/meshes/caster_link.STL" />
+                </geometry>
+                <material
+                    name="">
+                    <color
+                        rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin
+                    xyz="0 0 0"
+                    rpy="0 0 0" />
+                <geometry>
+                    <mesh
+                        filename="package://r1_description/meshes/caster_link.STL" />
+                </geometry>
+            </collision>
+        </link>
+
+        <joint name="caster_${prefix}_joint" type="continuous">
+            <parent link="${parent}" />
+            <child link="caster_${prefix}_link" />
+            <xacro:insert_block name="origin" />
+            <xacro:insert_block name="axis" />
+        </joint>
+    </xacro:macro>
+</robot>

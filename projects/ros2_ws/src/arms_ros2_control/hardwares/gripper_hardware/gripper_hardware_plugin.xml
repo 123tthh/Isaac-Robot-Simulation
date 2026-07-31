@@ -1,0 +1,8 @@
+<library path="gripper_hardware">
+  <class name="gripper_hardware/GripperHardware" type="gripper_hardware::GripperHardware" base_class_type="hardware_interface::SystemInterface">
+    <description>
+      ROS2 control hardware interface for gripper based on topics.
+      Subscribes to gripper state and publishes gripper commands.
+    </description>
+  </class>
+</library>

@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+    <xacro:macro name="rm_75_force_sensor" params="name:='rm_75_force_sensor' prefix:=''">
+        <ros2_control name="${name}" type="sensor">
+            <hardware>
+                <!-- Real RM force sensor hardware interface -->
+                <plugin>rm_hardware/RMSixForceHardware</plugin>
+                <param name="frame_id">${prefix}tool0</param>
+                <param name="sensor_name">tcp_fts_sensor</param>
+                <param name="sensor_topic">/rm_driver/udp_six_zero_force</param>
+                <param name="sensor_timeout">1.0</param>
+                <param name="update_rate">200.0</param>
+                <param name="filter_alpha">0.3</param> <!-- Low-pass filter alpha parameter (0.0 - 1.0) LPF  --> 
+                <!-- one euro filter parameters -->
+                <param name="filter_freq">200.0</param> <!-- Filter frequency in Hz -->
+                <param name="filter_min_cutoff">1.5</param> <!-- Minimum cutoff frequency -->
+                <param name="filter_beta">0.1</param> <!-- Beta parameter -->
+                <param name="filter_d_cutoff">1.0</param> <!-- Derivative cutoff frequency -->
+
+                <!-- Deadzone parameters (absolute values below this threshold will be set to 0) -->
+                <param name="deadzone_0">0.1</param>  <!-- force.x deadzone -->
+                <param name="deadzone_1">0.1</param>  <!-- force.y deadzone -->
+                <param name="deadzone_2">0.1</param>  <!-- force.z deadzone -->
+                <param name="deadzone_3">0.1</param> <!-- torque.x deadzone -->
+                <param name="deadzone_4">0.1</param> <!-- torque.y deadzone -->
+                <param name="deadzone_5">0.1</param> <!-- torque.z deadzone -->
+                
+                <!-- Bias parameters (zero drift compensation) -->
+                <param name="bias_0">0.0</param>      <!-- force.x bias -->
+                <param name="bias_1">0.0</param>      <!-- force.y bias -->
+                <param name="bias_2">0.0</param>      <!-- force.z bias -->
+                <param name="bias_3">0.0</param>      <!-- torque.x bias -->
+                <param name="bias_4">0.0</param>      <!-- torque.y bias -->
+                <param name="bias_5">0.0</param>      <!-- torque.z bias -->
+            </hardware>
+            
+            <!-- Force/Torque Sensor -->
+            <sensor name="rm_ft_sensor">
+                <state_interface name="force.x"/>
+                <state_interface name="force.y"/>
+                <state_interface name="force.z"/>
+                <state_interface name="torque.x"/>
+                <state_interface name="torque.y"/>
+                <state_interface name="torque.z"/>
+            </sensor>
+        </ros2_control>
+    </xacro:macro>
+
+</robot>

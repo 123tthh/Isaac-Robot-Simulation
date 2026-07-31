@@ -1,0 +1,740 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+
+<robot
+  xmlns:xacro="http://www.ros.org/wiki/xacro" name="rm_75">
+
+  <link
+    name="base_link">
+ 
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_hardware/meshes/base_link.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_hardware/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Link1">
+
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5708 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_hardware/meshes/Link_1.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_hardware/meshes/Link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint1"
+    type="revolute">
+    <origin
+      xyz="0 0 0.2405"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link1" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-3.107"
+      upper="3.107"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="Link2">
+  
+  <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="-1.5708 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_hardware/meshes/Link_2.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_hardware/meshes/Link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint2"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="1.5708 0 0" />
+    <parent
+      link="Link1" />
+    <child
+      link="Link2" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-2.269"
+      upper="2.269"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="Link3">
+   
+ <visual>
+      <origin
+        xyz="0 0.103 0"
+        rpy="1.5708 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_hardware/meshes/Link_3.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_hardware/meshes/Link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint3"
+    type="revolute">
+    <origin
+      xyz="0 0 0.256"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="Link2" />
+    <child
+      link="Link3" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-1.8962"
+      upper="1.8962"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="Link4">
+  
+   <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="-1.5708 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_hardware/meshes/Link_4.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_hardware/meshes/Link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint4"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="1.5708 0 0" />
+    <parent
+      link="Link3" />
+    <child
+      link="Link4" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-2.356"
+      upper="2.356"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="Link5">
+ 
+  <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5708 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_hardware/meshes/Link_5.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_hardware/meshes/Link5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint5"
+    type="revolute">
+    <origin
+      xyz="0 0 0.21"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="Link4" />
+    <child
+      link="Link5" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-3.107"
+      upper="3.107"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="Link6">
+  
+   <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="-1.5708 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_hardware/meshes/Link_6.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_hardware/meshes/Link6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint6"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="1.5708 0 0" />
+    <parent
+      link="Link5" />
+    <child
+      link="Link6" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-2.234"
+      upper="2.234"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="Link7">
+ 
+  <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_hardware/meshes/Link_7_6FB.dae" />
+      </geometry>
+      <material name="">
+    <color rgba="0.75 0.75 0.75 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_hardware/meshes/Link7_6f.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint7"
+    type="revolute">
+    <origin
+      xyz="0 0 0.1612"
+      rpy="0 0 0" />
+    <parent
+      link="Link6" />
+    <child
+      link="Link7" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-6.283"
+      upper="6.283"
+      effort="100"
+      velocity="1" />
+  </joint>
+  
+  <!-- Link8 - positioned 1cm above Link7 in z-axis -->
+  <link name="Link8">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="0.01 0.01 0.01" />
+      </geometry>
+      <material name="grey">
+        <color rgba="0.5 0.5 0.5 1.0"/>
+      </material>
+    </visual>
+    <!-- No collision geometry as requested -->
+  </link>
+  
+  <joint
+    name="joint8"
+    type="fixed">
+    <origin
+      xyz="0 0 0.01"
+      rpy="0 0 0" />
+    <parent
+      link="Link7" />
+    <child
+      link="Link8" />
+  </joint>
+  
+  <!-- <origin rpy="0  -1.57079632679 0 " xyz="-0.0925 0.0325 0.0286"/>    orign pose -->
+
+  
+
+  <link name="camera">   </link>
+  <joint name="camera_joint" type="fixed">
+    <parent link="Link7"/>
+    <child link="camera"/>
+    <origin rpy="0  -0.9599310886 0 " xyz="-0.1125 0.0325 0.0286"/>
+  </joint>
+
+  <link name="Link_eef">  </link>
+  <joint name="eef_joint" type="fixed">
+    <parent link="Link7"/>
+    <child link="Link_eef"/>
+    <origin rpy="0  0  0" xyz="0 0.0 0.135"/>
+  </joint>   
+
+  <link name="d435"> 
+  <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_hardware/meshes/d435.dae" />
+      </geometry>
+            <material name="">
+    <color rgba="0.75 0.75 0.75 1.0"/>
+      </material>
+    </visual>
+    </link>
+  <joint name="d435_joint" type="fixed">
+  <parent link="camera"/>
+    <child link="d435"/>
+    <origin rpy="1.57079632679  0  1.57079632679 " xyz="0.0044 -0.0325 0.0"/>
+  </joint>
+  <link
+    name="Camera_Connection_Plate">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_hardware/meshes/Camera_Connection_Plate.STL" />
+      </geometry>
+            <material name="">
+    <color rgba="0.75 0.75 0.75 1.0"/>
+      </material>
+    </visual>
+    <!-- 
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_hardware/meshes/Camera_Connection_Plate.STL" />
+      </geometry>
+    </collision> -->
+  </link>
+  
+  <joint
+    name="joint00"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 3.14159" />
+    <parent
+      link="Link7" />
+    <child
+      link="Camera_Connection_Plate" />
+  </joint>
+    
+  
+  <link
+    name="a_4C2_baselink">
+  
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_hardware/meshes/a_4C2_baselink.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0. 0. 0. 1" />
+      </material>
+    </visual>
+     
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_hardware/meshes/a_4C2_baselink.STL" />
+      </geometry>
+    </collision> 
+  </link>
+  
+  <joint
+    name="joint000"
+    type="fixed">
+    <origin
+      xyz="0 0 0.008"
+      rpy="0 0 1.5708" />
+    <parent
+      link="Camera_Connection_Plate" />
+    <child
+      link="a_4C2_baselink" />
+  </joint>
+  
+  <link
+    name="a_4C2_Link1">
+   
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_hardware/meshes/a_4C2_Link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0. 0. 0. 1" />
+      </material>
+    </visual>
+    <!--  
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_hardware/meshes/a_4C2_Link1.STL" />
+      </geometry>
+    </collision>-->
+  </link>
+  <joint
+    name="a_4C2_Joint1"
+    type="fixed">
+    <origin
+      xyz="-0.04 -0.009 0.079"
+      rpy="0 0 0" />
+    <parent
+      link="a_4C2_baselink" />
+    <child
+      link="a_4C2_Link1" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="0.82"
+      effort="100"
+      velocity="1" />
+    
+  </joint>
+  <link
+    name="a_4C2_Link5">
+ 
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_hardware/meshes/a_4C2_Link5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0. 0. 0. 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_hardware/meshes/a_4C2_Link5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="a_4C2_Joint5"
+    type="fixed">
+    <origin
+      xyz="0.0223 0.003 0.035591"
+      rpy="0 0 0" />
+    <parent
+      link="a_4C2_Link1" />
+    <child
+      link="a_4C2_Link5" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0.82"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="a_4C2_Link2">
+   
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_hardware/meshes/a_4C2_Link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0. 0. 0. 1" />
+      </material>
+    </visual>
+    <!--  
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_hardware/meshes/a_4C2_Link2.STL" />
+      </geometry>
+    </collision>-->
+  </link>
+  <joint
+    name="a_4C2_Joint2"
+    type="fixed">
+    <origin
+      xyz="-0.03 -0.009 0.081"
+      rpy="0 0 0" />
+    <parent
+      link="a_4C2_baselink" />
+    <child
+      link="a_4C2_Link2" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="0.82"
+      effort="100"
+      velocity="1" />
+   
+  </joint>
+  <link
+    name="a_4C2_Link3">
+   
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_hardware/meshes/a_4C2_Link3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0. 0. 0. 1" />
+      </material>
+    </visual>
+    <!-- 
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_hardware/meshes/a_4C2_Link3.STL" />
+      </geometry>
+    </collision> -->
+  </link>
+  <joint
+    name="a_4C2_Joint3"
+    type="fixed">
+    <origin
+      xyz="0.03 -0.009 0.081"
+      rpy="0 0 0" />
+    <parent
+      link="a_4C2_baselink" />
+    <child
+      link="a_4C2_Link3" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-0.82"
+      upper="0"
+      effort="100"
+      velocity="1" />
+
+  </joint>
+  <link
+    name="a_4C2_Link4">
+   
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_hardware/meshes/a_4C2_Link4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0. 0. 0. 1" />
+      </material>
+    </visual>
+    <!-- 
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_hardware/meshes/a_4C2_Link4.STL" />
+      </geometry>
+    </collision> -->
+  </link>
+  <joint
+    name="a_4C2_Joint4"
+    type="fixed">
+    <origin
+      xyz="0.04 -0.009 0.079"
+      rpy="0 0 0" />
+    <parent
+      link="a_4C2_baselink" />
+    <child
+      link="a_4C2_Link4" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-0.82"
+      upper="0"
+      effort="100"
+      velocity="1" />
+
+  </joint>
+  <link
+    name="a_4C2_Link6">
+ 
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_hardware/meshes/a_4C2_Link6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0. 0. 0. 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rm_hardware/meshes/a_4C2_Link6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="a_4C2_Joint6"
+    type="fixed">
+    <origin
+      xyz="-0.0223 0.003 0.035591"
+      rpy="0 0 0" />
+    <parent
+      link="a_4C2_Link4" />
+    <child
+      link="a_4C2_Link6" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="0.82"
+      effort="100"
+      velocity="1" />
+
+  </joint>
+
+</robot>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="rm_75">
+
+  <!-- Import RM-75 URDF description -->
+  <xacro:include filename="$(find rm_hardware)/urdf/rm_75_with_gripper.urdf.xacro"/>
+  <!-- Fixed joint from world to base_link -->
+  <link name="world" />
+  <joint name="world_to_base" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="world" />
+    <child link="base_link" />
+  </joint>
+ 
+
+  <!-- Import RM-75 ros2_control configuration -->
+  <xacro:include filename="$(find rm_hardware)/urdf/rm_75.ros2_control.xacro" />
+  
+  <!-- Import force/torque sensor ros2_control configuration -->
+  <xacro:include filename="$(find rm_hardware)/urdf/ft_sensor.ros2_control.xacro" />
+
+  <!-- Instantiate RM-75 ros2_control -->
+  <xacro:rm_75_ros2_control name="rm_75_control" initial_positions_file="$(find rm_hardware)/config/initial_positions.yaml" />
+  
+  <!-- Instantiate force sensor ros2_control -->
+  <xacro:rm_75_force_sensor name="rm_75_force_sensor" prefix="" />
+
+</robot>

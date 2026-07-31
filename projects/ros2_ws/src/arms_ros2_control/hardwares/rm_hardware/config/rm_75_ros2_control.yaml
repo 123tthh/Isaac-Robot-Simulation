@@ -1,0 +1,242 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 200  # Hz
+
+    # Controllers for 7-DOF RM-75
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    position_controller:
+      type: position_controllers/JointGroupPositionController
+
+    trajectory_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    force_torque_sensor_broadcaster:
+      type: force_torque_sensor_broadcaster/ForceTorqueSensorBroadcaster
+    
+    rm_admittance_controller:
+      type: rm_admittance_controller/AdmittanceController
+
+# Joint State Broadcaster Configuration - 7-DOF RM-75
+joint_state_broadcaster:
+  ros__parameters:
+    joints:
+      - joint1
+      - joint2
+      - joint3
+      - joint4
+      - joint5
+      - joint6
+      - joint7
+    interfaces:
+      - position
+      - velocity
+  
+    use_local_topics: false
+    # joint_states_topic: /joint_states
+
+
+
+position_controller:
+  ros__parameters:
+    joints:
+      - rm_admittance_controller/joint1
+      - rm_admittance_controller/joint2
+      - rm_admittance_controller/joint3
+      - rm_admittance_controller/joint4
+      - rm_admittance_controller/joint5
+      - rm_admittance_controller/joint6
+      - rm_admittance_controller/joint7
+
+
+# Trajectory Controller Configuration - 7-DOF RM-75
+trajectory_controller:
+  ros__parameters:
+    joints:
+      - joint1
+      - joint2
+      - joint3
+      - joint4
+      - joint5
+      - joint6
+      - joint7
+    
+    command_joints:
+      - rm_admittance_controller/joint1
+      - rm_admittance_controller/joint2
+      - rm_admittance_controller/joint3
+      - rm_admittance_controller/joint4
+      - rm_admittance_controller/joint5
+      - rm_admittance_controller/joint6
+      - rm_admittance_controller/joint7
+
+    # The command interfaces are now the chainable interfaces of the admittance controller
+    command_interfaces:
+      - position
+      
+    
+    # The state interfaces are read directly from the hardware
+    state_interfaces:
+      - position
+      - velocity 
+      
+    state_publish_rate: 200.0
+    action_monitor_rate: 200.0
+
+    interpolation_method: "splines"
+    # interpolate_from_desired_state : false
+    allow_integration_in_goal_trajectories: false
+    allow_partial_joints_goal: true
+    open_loop_control: false
+
+    constraints:
+      stopped_velocity_tolerance: 0.01
+      goal_time: 0.0
+      velocity: 2.0
+      acceleration: 3.0
+
+
+
+
+# Force Torque Sensor Broadcaster Configuration
+force_torque_sensor_broadcaster:
+  ros__parameters:
+    sensor_name: rm_ft_sensor
+    state_interface_names:
+      - rm_ft_sensor/force.x
+      - rm_ft_sensor/force.y
+      - rm_ft_sensor/force.z
+      - rm_ft_sensor/torque.x
+      - rm_ft_sensor/torque.y
+      - rm_ft_sensor/torque.z
+    frame_id: Link_eef
+    topic_name: /force_torque_sensor_broadcaster/wrench
+
+
+rm_admittance_controller:
+  # contains minimal needed parameters for rm 75
+  ros__parameters:
+    is_admittance: false
+    update_rate: 200  # Hz
+    joints:
+      - joint1
+      - joint2
+      - joint3
+      - joint4
+      - joint5
+      - joint6
+      - joint7
+
+    command_joints:
+      - joint1
+      - joint2
+      - joint3
+      - joint4
+      - joint5
+      - joint6
+      - joint7
+    # Command interfaces sent to the hardware
+    command_interfaces:
+      - position
+
+    # State interfaces read from the hardware
+    state_interfaces:
+      - position
+      - velocity
+
+    # Interfaces that are chained to from other controllers 
+    chainable_command_interfaces:
+      - position
+      - velocity
+
+    kinematics:
+      plugin_name: kinematics_interface_kdl/KinematicsInterfaceKDL
+      plugin_package: kinematics_interface
+      base: base_link # Assumed to be stationary
+      tip: Link_eef
+      group_name: arm
+      alpha: 0.0005
+
+    ft_sensor:
+      name: rm_ft_sensor
+      frame:
+        id: Link_eef  # 力传感器测量值所在坐标系
+        external: false # force torque frame exists within URDF kinematic chain
+      filter_coefficient: 1.000  
+      ft_threshold:
+        - 0.0   #阈值  超过这个力 力矩才会起导纳作用， 导纳参数有问题  先给它取消掉
+        - 0.0
+      ft_offset: # 力的零偏 在力传感器坐标系下减掉的
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+
+    control:
+      frame:
+        id: Link_eef # Admittance calcs (displacement etc) are done in this frame. Usually the tool or end-effector
+        external: false # control frame exists within URDF kinematic chain
+
+    fixed_world_frame:   # Gravity points down (neg. Z) in this frame (Usually: world or base_link)
+      frame:
+        id: base_link # Admittance calcs (displacement etc) are done in this frame. Usually the tool or end-effector
+        external: false # control frame exists within URDF kinematic chain
+
+    gravity_compensation:
+      frame:
+        id: Link_eef  #质心参数相对的坐标系 ，一定得是力传感器坐标系 
+        external: false
+    
+      CoG: # specifies the center of gravity of the end effector
+        pos: # 质心位置
+          - 0.0000 # x
+          - 0.0000 # y
+          - 0.0000 # z
+        force: 0.0 # mass * 9.81
+
+      OriG:
+        - 0.00 # U
+        - 0.00 # V
+ 
+
+    admittance:
+      is_admittance: true
+      selected_axes:
+        - true  # x
+        - true  # y
+        - true  # z
+        - false # rx
+        - false # ry
+        - false # rz
+
+      # Having ".0" at the end is MUST, otherwise there is a loading error
+      # F = M*a + D*v + S*(x - x_d)
+      stiffness:
+        - 500.0
+        - 500.0
+        - 800.0
+        - 80.0
+        - 80.0
+        - 80.0
+
+      mass:
+        - 8.444
+        - 8.444
+        - 8.444
+        - 1.666
+        - 1.666
+        - 1.666
+
+      damping_ratio: # damping can be used instead: zeta = D / (2 * sqrt( M * S )) 
+        - 25.900 # x
+        - 25.900 # y
+        - 25.900 # z
+        - 2.600 # rx
+        - 2.600 # ry
+        - 2.600 # rz
+
+      joint_damping: 5.0
+    enable_parameter_update_without_reactivation: true

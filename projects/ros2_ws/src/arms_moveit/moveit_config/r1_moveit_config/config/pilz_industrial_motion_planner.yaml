@@ -1,0 +1,7 @@
+pilz_industrial_motion_planner:
+  ros__parameters:
+    planners:
+      - name: LIN
+        type: pilz_industrial_motion_planner/Lin
+      - name: PTP
+        type: pilz_industrial_motion_planner/Ptp

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="trunk">
+    <xacro:macro name="trunk" params="prefix:='' parent">
+        <link name="${prefix}trunk_link">
+            <inertial>
+            <origin
+                xyz="-0.00764348040583242 -0.00160468555803839 0.440661675429722"
+                rpy="0 0 0" />
+            <mass
+                value="46.0855659455378" />
+            <inertia
+                ixx="66.8239333989133"
+                ixy="-0.113832693431628"
+                ixz="1.59639428219901"
+                iyy="66.6688807025641"
+                iyz="4.62378025996998"
+                izz="1.50449011791902" />
+            </inertial>
+            <visual>
+            <origin
+                xyz="0 0 0"
+                rpy="0 0 0" />
+            <geometry>
+                <mesh
+                filename="package://r1_description/meshes/base_link.STL" />
+            </geometry>
+            <material
+                name="">
+                <color
+                rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+            </material>
+            </visual>
+            <collision>
+            <origin
+                xyz="0 0 0"
+                rpy="0 0 0" />
+            <geometry>
+                <mesh
+                filename="package://r1_description/meshes/base_link_lite.STL" scale="1.05 1.05 1.05"/>
+            </geometry>
+            </collision>
+        </link>
+        <joint name="${prefix}trunk_joint" type="fixed">
+            <parent link="${parent}" />
+            <child link="${prefix}trunk_link" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </joint>
+    </xacro:macro>
+</robot>

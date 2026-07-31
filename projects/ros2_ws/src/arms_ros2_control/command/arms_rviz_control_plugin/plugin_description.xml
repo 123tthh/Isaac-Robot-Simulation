@@ -1,0 +1,20 @@
+<?xml version="1.0"?><library path="arms_rviz_control_plugin">
+  <class
+    name="arms_rviz_control_plugin/OCS2FSMPanel"
+    type="arms_rviz_control_plugin::OCS2FSMPanel"
+    base_class_type="rviz_common::Panel">
+    <description>OCS2 Arm Controller FSM state switching panel</description>
+  </class>
+  <class
+    name="arms_rviz_control_plugin/GripperControlPanel"
+    type="arms_rviz_control_plugin::GripperControlPanel"
+    base_class_type="rviz_common::Panel">
+    <description>Gripper Control Panel for robot arms</description>
+  </class>
+  <class
+    name="arms_rviz_control_plugin/JointControlPanel"
+    type="arms_rviz_control_plugin::JointControlPanel"
+    base_class_type="rviz_common::Panel">
+    <description>Joint Control Panel for adjusting joint positions when command is 3 or 4</description>
+  </class>
+</library>

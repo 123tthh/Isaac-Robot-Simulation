@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="arm_attach">
+    <xacro:macro name="arm_attach" params="prefix:='' parent *origin">
+        <link name="arm_attach_${prefix}_link">
+        </link>
+        <joint name="arm_attach_${prefix}_joint" type="fixed">
+            <parent link="${parent}" />
+            <child link="arm_attach_${prefix}_link" />
+            <xacro:insert_block name="origin" />
+        </joint>
+    </xacro:macro>
+</robot>

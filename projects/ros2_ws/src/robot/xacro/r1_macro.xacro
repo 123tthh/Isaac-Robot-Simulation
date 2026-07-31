@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="r1">
+    <xacro:macro name="r1">
+        <xacro:include filename="$(find r1_description)/xacro/trunk.xacro" />
+        <xacro:include filename="$(find r1_description)/xacro/wheel.xacro" />
+        <xacro:include filename="$(find r1_description)/xacro/caster.xacro" />
+        <xacro:include filename="$(find r1_description)/xacro/waist.xacro" />
+        <xacro:include filename="$(find r1_description)/xacro/body.xacro" />
+        <xacro:include filename="$(find r1_description)/xacro/lidar.xacro" />
+        <xacro:include filename="$(find r1_description)/xacro/laser.xacro" />
+        <xacro:include filename="$(find r1_description)/xacro/arm_attach.xacro" />
+        <xacro:include filename="$(find r1_description)/xacro/rm_75.xacro" />
+        <xacro:include filename="$(find r1_description)/xacro/flange.xacro" />
+        <xacro:include filename="$(find r1_description)/xacro/head_camera_link.xacro" />
+        <xacro:include filename="$(find r1_description)/xacro/realsense2_description/_d435i.urdf.xacro" />
+        <xacro:include filename="$(find r1_description)/xacro/realsense2_description/_d455.urdf.xacro" />
+        <xacro:include filename="$(find r1_description)/xacro/pgia_gripper.xacro" />
+
+        <link name="base_link" />
+        <xacro:trunk parent="base_link" />
+        <xacro:waist parent="trunk_link" />
+        <xacro:body parent="waist_link" />
+        <xacro:arm_attach prefix="L" parent="body_link">
+            <origin xyz="0 0.05 0.228" rpy="1.570796327 0 -3.141592654" />
+        </xacro:arm_attach>
+        <xacro:arm_attach prefix="R" parent="body_link">
+            <origin xyz="0 -0.05 0.228" rpy="1.570796327 0 0" />
+        </xacro:arm_attach>
+
+        <!-- camera -->
+        <xacro:sensor_d435i name="camera_F" parent="base_link" use_nominal_extrinsics="true">
+            <origin xyz="0.3121 -0.00010397 0.192" rpy="0 0 0" />
+        </xacro:sensor_d435i>
+        <xacro:sensor_d435i name="camera_B" parent="base_link" use_nominal_extrinsics="true">
+            <origin xyz="-0.3121 -0.00010397 0.192" rpy="0 0 -3.141592654" />
+        </xacro:sensor_d435i>
+
+        <xacro:head_camera_link parent="body_link" />
+        <xacro:sensor_d455 name="camera_H" parent="head_camera_link" use_nominal_extrinsics="true">
+            <origin xyz="0.0642049999999998 0 -0.0144999999999402" rpy="0 0 0" />
+        </xacro:sensor_d455>
+
+        <!-- lidar -->
+        <xacro:lidar parent="base_link">
+            <origin xyz="0.255030554256742 0.184784404253932 0.263500000000111" rpy="0 0 0" />
+        </xacro:lidar>
+        <!-- laser -->
+        <xacro:laser parent="base_link">
+            <origin xyz="-0.258971244623324 -0.192715555818273 0.266567577028169" rpy="0 0 3.14159250586306" />
+        </xacro:laser>
+        <!--wheel-->
+        <xacro:wheel prefix="L" parent="base_link">
+            <origin xyz="0 0.2419 0" rpy="0 0 0" />
+            <axis xyz="0 -1 0" />
+        </xacro:wheel>
+        <xacro:wheel prefix="R" parent="base_link">
+            <origin xyz="0 -0.2419 0" rpy="0 0 0" />
+            <axis xyz="0 -1 0" />
+        </xacro:wheel>
+
+        <!--caster-->
+        <xacro:caster prefix="LF" parent="base_link">
+            <origin xyz="0.22881 0.17515 -0.04528" rpy="0 0 0" />
+            <axis xyz="0 -1 0" />
+        </xacro:caster>
+        <xacro:caster prefix="RF" parent="base_link">
+            <origin xyz="0.22881 -0.17515 -0.04528" rpy="0 0 0" />
+            <axis xyz="0 -1 0" />
+        </xacro:caster>
+        <xacro:caster prefix="LB" parent="base_link">
+            <origin xyz="-0.22881 0.17515 -0.04528" rpy="0 0 0" />
+            <axis xyz="0 -1 0" />
+        </xacro:caster>
+        <xacro:caster prefix="RB" parent="base_link">
+            <origin xyz="-0.22881 -0.17515 -0.04528" rpy="0 0 0" />
+            <axis xyz="0 -1 0" />
+        </xacro:caster>
+
+        <!--arm-->
+        <xacro:rm_75 prefix="left_" attach_to="arm_attach_L_link" attach_xyz="0 0 0"
+            attach_rpy="0 0 1.57" />
+        <xacro:flange prefix="left_" parent="left_Link7">
+            <origin xyz="0 0 0" rpy="0 -1.570796327 0" />
+        </xacro:flange>
+        <xacro:PGIA_Gripper prefix="left_" />
+        <joint name="ee_left_joint" type="fixed">
+            <origin xyz="0 0 0" rpy="1.570796327 0 1.570796327" />
+            <parent link="left_flange_link" />
+            <child link="left_PGIA_base_link" />
+        </joint>
+        <xacro:sensor_d455 name="camera_L" parent="left_flange_link"
+            use_nominal_extrinsics="true">
+            <origin xyz="0.032791 0 0.074317" rpy="0 0.34907 0" />
+        </xacro:sensor_d455>
+
+
+        <xacro:rm_75 prefix="right_" attach_to="arm_attach_R_link" attach_xyz="0 0 0"
+            attach_rpy="0 0 1.57" />
+        <xacro:flange prefix="right_" parent="right_Link7">
+            <origin xyz="0 0 0" rpy="0 -1.570796327 0" />
+        </xacro:flange>
+        <xacro:PGIA_Gripper prefix="right_" />
+        <joint name="ee_right_joint" type="fixed">
+            <origin xyz="0 0 0" rpy="1.570796327 0 1.570796327" />
+            <parent link="right_flange_link" />
+            <child link="right_PGIA_base_link" />
+        </joint>
+        <xacro:sensor_d455 name="camera_R" parent="right_flange_link"
+            use_nominal_extrinsics="true">
+            <origin xyz="0.032791 0 0.074317" rpy="0 0.34907 0" />
+        </xacro:sensor_d455>
+
+
+    </xacro:macro>
+</robot>

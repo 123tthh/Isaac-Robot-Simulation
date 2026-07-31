@@ -1,0 +1,33 @@
+schema_version: 1
+project:
+  name: isaac_ocs_project
+  normalized_root: .
+  root_resolution: directory_containing_project_manifest
+runtime:
+  isaac_sim: 5.1.0
+  ros_supported_default: humble
+  ros_requested_docs: rolling
+  isaac_lab_arena_source: optional
+  canonical_robot_source: projects/ros2_ws/src/robot
+container:
+  workspace: /workspace
+  ros2_ws: /workspace/projects/ros2_ws
+  trajectory_dir: /workspace/projects/Trajectory
+  sim1_dir: /workspace/projects/Trajectory/SIM1
+  ros2_log_dir: /workspace/data/ros2_log
+  isaac_usd_path: /workspace/assets/scenes/scene.usd
+  output_dir: /workspace/outputs
+trace_retention:
+  short_threshold_seconds: 30
+  retained:
+    - manual_ocs2_keyboard_trace_20260715_133454
+  july_policy: keep_explicit_success_only
+lerobot:
+  v21_user_data: removed
+  v21_generation: optional
+  v21_generation_env: SIM1_GENERATE_LEROBOT_V21
+  dataset_path_env: LEROBOT_DATASET_PATH
+  npz_path_env: LEROBOT_NPZ_PATH
+documentation:
+  isaac_sim: /home/gtk/ai_docs/docs.isaacsim.omniverse.nvidia.com/5.1.0
+  ros2: /home/gtk/ai_docs/docs.ros.org/en/rolling

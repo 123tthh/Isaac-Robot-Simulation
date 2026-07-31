@@ -1,0 +1,19 @@
+<library path="rm_hardware">
+  <class name="rm_hardware/RMRos2ControlHardware"
+         type="rm_hardware::RMRos2ControlHardware"
+         base_class_type="hardware_interface::SystemInterface">
+    <description>
+      ROS2 Control System Driver for the RM Robots series.
+    </description>
+  </class>
+  <class name="rm_hardware/RMSixForceHardware"
+         type="rm_hardware::RMSixForceHardware"
+         base_class_type="hardware_interface::SensorInterface">
+    <description>
+      The ros2_control using external Six Force Sensor for RM robots.
+    </description>
+  </class>
+</library>
+
+
+

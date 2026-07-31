@@ -1,0 +1,13 @@
+# Python packages installed into the Isaac Sim 5.1.0 container Python.
+# Local documentation references:
+# /home/gtk/ai_docs/docs.isaacsim.omniverse.nvidia.com/5.1.0/installation/install_container.md
+#
+# Keep top-level runtime tooling pinned so Docker rebuilds do not float to
+# newer PyPI releases. Transitive wheels remain resolved by pip for the
+# Isaac Sim CPython 3.11 environment.
+jupyter==1.1.1
+lightwheel-sdk==1.0.3
+onnxruntime==1.28.0
+pytest==9.1.1
+typing_extensions==4.16.0
+vuer==0.1.6

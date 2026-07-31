@@ -1,0 +1,115 @@
+diff --git a/docker/Dockerfile.isaaclab_arena b/docker/Dockerfile.isaaclab_arena
+index 76b399fa..83372483 100644
+--- a/docker/Dockerfile.isaaclab_arena
++++ b/docker/Dockerfile.isaaclab_arena
+@@ -1,4 +1,4 @@
+-ARG BASE_IMAGE=nvcr.io/nvidia/isaac-sim:5.0.0
++ARG BASE_IMAGE=nvcr.io/nvidia/isaac-sim:5.1.0
+ 
+ FROM ${BASE_IMAGE}
+ 
+diff --git a/docker/run_docker.sh b/docker/run_docker.sh
+index 5a98226f..86789567 100755
+--- a/docker/run_docker.sh
++++ b/docker/run_docker.sh
+@@ -8,11 +8,11 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+ WORKDIR="/workspaces/isaaclab_arena"
+ 
+ # Default mount directory on the host machine for the datasets
+-DATASETS_HOST_MOUNT_DIRECTORY="$HOME/datasets"
++DATASETS_HOST_MOUNT_DIRECTORY="$HOME/IssacLab_arena_assets/datasets"
+ # Default mount directory on the host machine for the models
+-MODELS_HOST_MOUNT_DIRECTORY="$HOME/models"
++MODELS_HOST_MOUNT_DIRECTORY="$HOME/IssacLab_arena_assets/models"
+ # Default mount directory on the host machine for the evaluation directory
+-EVAL_HOST_MOUNT_DIRECTORY="$HOME/eval"
++EVAL_HOST_MOUNT_DIRECTORY="$HOME/IssacLab_arena_assets/eval"
+ # Default GR00T installation settings (false means no GR00T installation)
+ INSTALL_GROOT="false"
+ GROOT_DEPS_GROUP="base"
+@@ -128,44 +128,42 @@ if [ "$( docker container inspect -f '{{.State.Running}}' $DOCKER_IMAGE_NAME'-'$
+   docker exec -it $DOCKER_IMAGE_NAME-$DOCKER_VERSION_TAG su $(id -un)
+ else
+     DOCKER_RUN_ARGS=("--name" "$DOCKER_IMAGE_NAME-$DOCKER_VERSION_TAG"
+-                    "--privileged"
+-                    "--ulimit" "memlock=-1"
+-                    "--ulimit" "stack=-1"
+-                    "--ipc=host"
+-                    "--net=host"
+-                    "--runtime=nvidia"
+-                    "--gpus=all"
+-                    "-v" "./docs:${WORKDIR}/docs"
+-                    "-v" "./isaaclab_arena:${WORKDIR}/isaaclab_arena"
+-                    "-v" "./isaaclab_arena_g1:${WORKDIR}/isaaclab_arena_g1"
+-                    "-v" "./isaaclab_arena_gr00t:${WORKDIR}/isaaclab_arena_gr00t"
+-                    "-v" "./submodules/IsaacLab:${WORKDIR}/submodules/IsaacLab"
+-                    $(add_volume_if_it_exists $DATASETS_HOST_MOUNT_DIRECTORY /datasets)
+-                    $(add_volume_if_it_exists $MODELS_HOST_MOUNT_DIRECTORY /models)
+-                    $(add_volume_if_it_exists $EVAL_HOST_MOUNT_DIRECTORY /eval)
+-                    "-v" "$HOME/.bash_history:/home/$(id -un)/.bash_history"
+-                    "-v" "$HOME/.config/osmo:/home/$(id -un)/.config/osmo"
+-                    "-v" "$HOME/.cache:/home/$(id -un)/.cache"
+-                    "-v" "/tmp:/tmp"
+-                    "-v" "/tmp/.X11-unix:/tmp/.X11-unix:rw"
+-                    "-v" "/var/run/docker.sock:/var/run/docker.sock"
+-                    "-v" "$HOME/.Xauthority:/root/.Xauthority"
+-                    # Mount host SSL certificate store so the container trusts CA certs
+-                    "-v" "/etc/ssl/certs:/etc/ssl/certs:ro"
+-                    "--env" "DISPLAY"
+-                    "--env" "ACCEPT_EULA=Y"
+-                    "--env" "PRIVACY_CONSENT=Y"
+-                    "--env" "DOCKER_RUN_USER_ID=$(id -u)"
+-                    "--env" "DOCKER_RUN_USER_NAME=$(id -un)"
+-                    "--env" "DOCKER_RUN_GROUP_ID=$(id -g)"
+-                    "--env" "DOCKER_RUN_GROUP_NAME=$(id -gn)"
+-                    # Setting envs for XR: https://isaac-sim.github.io/IsaacLab/v2.1.0/source/how-to/cloudxr_teleoperation.html#run-isaac-lab-with-the-cloudxr-runtime
+-                    "--env" "XDG_RUNTIME_DIR=${WORKDIR}/submodules/IsaacLab/openxr/run"
+-                    "--env" "XR_RUNTIME_JSON=${WORKDIR}/submodules/IsaacLab/openxr/share/openxr/1/openxr_cloudxr.json"
+-                    "--env" "ISAACLAB_PATH=${WORKDIR}/submodules/IsaacLab"
+-                    # Tell requests/urllib3 to use the system cert bundle
+-                    "--env" "REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt"
+-                    )
++                        "--privileged"
++                        "--ulimit" "memlock=-1"
++                        "--ulimit" "stack=-1"
++                        "--ipc=host"
++                        "--net=host"
++                        "--runtime=nvidia"
++                        "--gpus=all"
++                        "-v" "$SCRIPT_DIR/../docs:${WORKDIR}/docs"
++                        "-v" "$SCRIPT_DIR/../isaaclab_arena:${WORKDIR}/isaaclab_arena"
++                        "-v" "$SCRIPT_DIR/../isaaclab_arena_g1:${WORKDIR}/isaaclab_arena_g1"
++                        "-v" "$SCRIPT_DIR/../isaaclab_arena_gr00t:${WORKDIR}/isaaclab_arena_gr00t"
++                        "-v" "$SCRIPT_DIR/../submodules/IsaacLab:${WORKDIR}/submodules/IsaacLab"
++                        "-v" "$HOME/Desktop/user_scripts:${WORKDIR}/user_scripts"
++                        $(add_volume_if_it_exists $DATASETS_HOST_MOUNT_DIRECTORY /datasets)
++                        $(add_volume_if_it_exists $MODELS_HOST_MOUNT_DIRECTORY /models)
++                        $(add_volume_if_it_exists $EVAL_HOST_MOUNT_DIRECTORY /eval)
++                        "-v" "$HOME/.bash_history:/home/$(id -un)/.bash_history"
++                        "-v" "$HOME/.config/osmo:/home/$(id -un)/.config/osmo"
++                        "-v" "$HOME/.cache:/home/$(id -un)/.cache"
++                        "-v" "/tmp:/tmp"
++                        "-v" "/tmp/.X11-unix:/tmp/.X11-unix:rw"
++                        "-v" "/var/run/docker.sock:/var/run/docker.sock"
++                        "-v" "$HOME/.Xauthority:/root/.Xauthority"
++                        "-v" "/etc/ssl/certs:/etc/ssl/certs:ro"
++                        "--env" "DISPLAY"
++                        "--env" "ACCEPT_EULA=Y"
++                        "--env" "PRIVACY_CONSENT=Y"
++                        "--env" "DOCKER_RUN_USER_ID=$(id -u)"
++                        "--env" "DOCKER_RUN_USER_NAME=$(id -un)"
++                        "--env" "DOCKER_RUN_GROUP_ID=$(id -g)"
++                        "--env" "DOCKER_RUN_GROUP_NAME=$(id -gn)"
++                        "--env" "XDG_RUNTIME_DIR=${WORKDIR}/submodules/IsaacLab/openxr/run"
++                        "--env" "XR_RUNTIME_JSON=${WORKDIR}/submodules/IsaacLab/openxr/share/openxr/1/openxr_cloudxr.json"
++                        "--env" "ISAACLAB_PATH=${WORKDIR}/submodules/IsaacLab"
++                        "--env" "REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt"
++                        )
+ 
+     # map omniverse auth or config so we have connection to the dev nucleus
+     if [ -n "$OMNI_PASS" ]; then
+@@ -186,3 +184,4 @@ else
+ 
+     docker run "${DOCKER_RUN_ARGS[@]}" --interactive --rm --tty ${DOCKER_IMAGE_NAME}:${DOCKER_VERSION_TAG} "${@}"
+ fi
++

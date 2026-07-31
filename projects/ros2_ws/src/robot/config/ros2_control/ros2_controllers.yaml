@@ -1,0 +1,97 @@
+# Example ros2_control setup for the vendored PGIA description.
+controller_manager:
+  ros__parameters:
+    update_rate: 100
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    diff_drive_controller:
+      type: diff_drive_controller/DiffDriveController
+
+    torso_controller:
+      type: forward_command_controller/ForwardCommandController
+
+    left_arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    right_arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    left_gripper_controller:
+      type: forward_command_controller/ForwardCommandController
+
+    right_gripper_controller:
+      type: forward_command_controller/ForwardCommandController
+
+diff_drive_controller:
+  ros__parameters:
+    left_wheel_names: ["wheel_L_joint"]
+    right_wheel_names: ["wheel_R_joint"]
+    wheel_separation: 0.373
+    wheel_radius: 0.07948
+    publish_rate: 50.0
+    odom_frame_id: odom
+    base_frame_id: base_link
+    enable_odom_tf: false
+    linear.x.has_velocity_limits: true
+    linear.x.max_velocity: 1.0
+    angular.z.has_velocity_limits: true
+    angular.z.max_velocity: 5.0
+
+torso_controller:
+  ros__parameters:
+    joints:
+      - waist_joint
+      - body_joint
+    interface_name: position
+
+left_arm_controller:
+  ros__parameters:
+    joints:
+      - left_joint1
+      - left_joint2
+      - left_joint3
+      - left_joint4
+      - left_joint5
+      - left_joint6
+      - left_joint7
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    state_publish_rate: 50.0
+    action_monitor_rate: 20.0
+    allow_partial_joints_goal: false
+
+right_arm_controller:
+  ros__parameters:
+    joints:
+      - right_joint1
+      - right_joint2
+      - right_joint3
+      - right_joint4
+      - right_joint5
+      - right_joint6
+      - right_joint7
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    state_publish_rate: 50.0
+    action_monitor_rate: 20.0
+    allow_partial_joints_goal: false
+
+left_gripper_controller:
+  ros__parameters:
+    joints:
+      - left_PGIA_joint1
+    interface_name: position
+
+right_gripper_controller:
+  ros__parameters:
+    joints:
+      - right_PGIA_joint1
+    interface_name: position

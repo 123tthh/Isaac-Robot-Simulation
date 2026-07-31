@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="body"> 
+    <xacro:macro name="body" params="prefix:='' parent">
+        <link
+            name="${prefix}body_link">
+            <inertial>
+            <origin
+                xyz="0.0150765455581802 0.00336463483920306 0.178929362177327"
+                rpy="0 0 0" />
+            <mass
+                value="4.18988483190596" />
+            <inertia
+                ixx="0.0575694122086487"
+                ixy="5.10738593521528E-07"
+                ixz="-0.000984161025240537"
+                iyy="0.0383582870510264"
+                iyz="9.9810698026403E-06"
+                izz="0.029653852116452" />
+            </inertial>
+            <visual>
+            <origin
+                xyz="0 0 0"
+                rpy="0 0 0" />
+            <geometry>
+                <mesh
+                filename="package://r1_description/meshes/body_link.STL" />
+            </geometry>
+            <material
+                name="">
+                <color
+                rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+            </material>
+            </visual>
+            <collision>
+            <origin
+                xyz="0 0 0"
+                rpy="0 0 0" />
+            <geometry>
+                <mesh
+                filename="package://r1_description/meshes/body_link.STL" scale="1.05 1.05 1.05"/>
+            </geometry>
+            </collision>
+        </link>
+        <joint
+            name="${prefix}body_joint"
+            type="revolute">
+            <origin
+            xyz="0.14 -0.00025 -0.00068316"
+            rpy="0 0.043633 0" />
+            <parent
+                link="${parent}" />
+            <child
+                link="${prefix}body_link" />
+            <axis
+                xyz="0 1 0" />
+            <limit
+                lower="0"
+                upper="1.5708"
+                effort="0"
+                velocity="0" />
+        </joint>
+    </xacro:macro>
+</robot>

@@ -1,0 +1,70 @@
+# Python caches and local environments
+**/__pycache__/
+**/*.py[cod]
+**/.pytest_cache/
+**/.mypy_cache/
+**/.venv/
+**/venv/
+
+# ROS 2 host and container overlays
+projects/ros2_ws/build/
+projects/ros2_ws/install/
+projects/ros2_ws/log/
+projects/ros2_ws/build_docker/
+projects/ros2_ws/install_docker/
+projects/ros2_ws/log_docker/
+projects/ros2_ws/build*/
+projects/ros2_ws/install*/
+projects/ros2_ws/log*/
+build/
+install/
+log/
+CMakeFiles/
+
+# Runtime output, logs, backups and retained datasets are packaged separately
+outputs/*
+!outputs/.gitkeep
+data/ros2_log/*
+!data/ros2_log/.gitkeep
+backups/
+projects/Trajectory/SIM1/trace_data/
+projects/Trajectory/SIM1/trace_data_backup_*/
+
+# Duplicate/optional source trees; see dependencies/repositories.lock.yaml
+projects/IsaacLab-Arena/
+projects/Trajectory/robot/
+
+# Historical migration/repair scripts are retained locally; current workflows live in scripts/.
+scripts/archive/
+
+# Retain the project's portable analysis environment; ignore other local environments.
+!物理仿真与参数获取/.venv/
+!物理仿真与参数获取/.venv/**
+
+# Image archives are distributed outside Git; use Dockerfile and the documented workflow.
+*.tar
+*.tar.*
+*.img
+*.oci
+
+# Demonstration recordings stay local; they are not required for reproduction.
+视频/
+*.mp4
+*.wmv
+*.webm
+
+# General runtime/editor noise
+*.log
+*.log.*
+*.tmp
+*.swp
+*~
+.DS_Store
+.idea/
+.vscode/
+
+# Reproducibility packages generated locally
+reproducibility/artifacts/*.tar
+reproducibility/artifacts/*.tar.*
+reproducibility/artifacts/*.zst
+reproducibility/artifacts/*.oci

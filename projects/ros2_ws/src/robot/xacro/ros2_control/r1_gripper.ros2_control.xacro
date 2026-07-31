@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="r1_gripper_ros2_control" params="name">
+    <xacro:property name="prefix" value="${name + '_' if name else ''}" />
+
+    <!-- The second finger follows this joint via the URDF mimic tag. -->
+    <joint name="${prefix}PGIA_joint1">
+      <command_interface name="position" />
+      <state_interface name="position">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="velocity" />
+      <state_interface name="effort" />
+    </joint>
+  </xacro:macro>
+</robot>

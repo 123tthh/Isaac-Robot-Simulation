@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="head_camera_link">
+    <xacro:macro name="head_camera_link" params="prefix:='' parent">
+        <link name="${prefix}head_camera_link">
+            <inertial>
+            <origin
+                xyz="0.0406800125246291 -1.91708628138887E-15 0.00123325600893165"
+                rpy="0 0 0" />
+            <mass
+                value="0.103126397988822" />
+            <inertia
+                ixx="0.000158368847040402"
+                ixy="3.71672421139758E-19"
+                ixz="-2.64791203210969E-06"
+                iyy="8.9959670468589E-05"
+                iyz="1.68113188561234E-20"
+                izz="0.000214666132350569" />
+            </inertial>
+            <visual>
+            <origin
+                xyz="0 0 0"
+                rpy="0 0 0" />
+            <geometry>
+                <mesh
+                filename="package://r1_description/meshes/head_camera_link.STL" />
+            </geometry>
+            <material
+                name="">
+                <color
+                rgba="1 1 1 1" />
+            </material>
+            </visual>
+            <collision>
+            <origin
+                xyz="0 0 0"
+                rpy="0 0 0" />
+            <geometry>
+                <mesh
+                filename="package://r1_description/meshes/head_camera_link.STL" />
+            </geometry>
+            </collision>
+        </link>
+        <joint name="${prefix}head_camera_joint" type="continuous">
+            <parent link="${parent}" />
+            <child link="${prefix}head_camera_link" />
+            <origin xyz="0.00999999999994472 0 0.528500000000003" rpy="0 -0.13978614933633 0" />
+            <axis xyz="0 1 0" />
+        </joint>
+    </xacro:macro>
+</robot>

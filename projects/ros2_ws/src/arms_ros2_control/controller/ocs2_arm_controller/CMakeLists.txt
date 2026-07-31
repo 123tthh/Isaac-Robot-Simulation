@@ -1,0 +1,77 @@
+cmake_minimum_required(VERSION 3.14)
+project(ocs2_arm_controller)
+
+if (CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+    add_compile_options(-Wall -Wextra -Wpedantic)
+endif ()
+
+set(CMAKE_BUILD_TYPE Release)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+set(CONTROLLER_INCLUDE_DEPENDS
+        pluginlib
+        rcpputils
+        controller_interface
+
+        ocs2_mobile_manipulator
+        ocs2_ros_interfaces
+        ocs2_self_collision_visualization
+        arms_controller_common
+        tf2_ros
+        tf2_geometry_msgs
+        nav_msgs
+)
+
+# find dependencies
+find_package(ament_cmake REQUIRED)
+foreach (Dependency IN ITEMS ${CONTROLLER_INCLUDE_DEPENDS})
+    find_package(${Dependency} REQUIRED)
+endforeach ()
+
+add_library(${PROJECT_NAME} SHARED
+        src/Ocs2ArmController.cpp
+
+        src/control/CtrlComponent.cpp
+        src/control/PoseBasedReferenceManager.cpp
+        src/control/Visualizer.cpp
+
+        src/FSM/StateHome.cpp
+        src/FSM/StateOCS2.cpp
+        src/FSM/StateHold.cpp
+        src/FSM/StateMoveJ.cpp
+)
+
+target_include_directories(${PROJECT_NAME}
+        PUBLIC
+        "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+        "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
+        PRIVATE
+        src)
+ament_target_dependencies(${PROJECT_NAME}
+        ${CONTROLLER_INCLUDE_DEPENDS}
+)
+
+pluginlib_export_plugin_description_file(controller_interface ocs2_arm_controller.xml)
+
+install(
+        DIRECTORY include/
+        DESTINATION include/${PROJECT_NAME}
+)
+
+install(
+        TARGETS ${PROJECT_NAME}
+        EXPORT export_${PROJECT_NAME}
+        ARCHIVE DESTINATION lib/${PROJECT_NAME}
+        LIBRARY DESTINATION lib/${PROJECT_NAME}
+        RUNTIME DESTINATION bin
+)
+
+install(
+        DIRECTORY launch config
+        DESTINATION share/${PROJECT_NAME}/
+)
+
+ament_export_dependencies(${CONTROLLER_INCLUDE_DEPENDS})
+ament_export_targets(export_${PROJECT_NAME} HAS_LIBRARY_TARGET)
+
+ament_package() 

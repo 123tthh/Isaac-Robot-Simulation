@@ -1,0 +1,31 @@
+move_group:
+  ros__parameters:
+
+    default_planning_pipeline: ompl
+
+    planning_pipelines: ["ompl", "pilz_industrial_motion_planner", "chomp"]
+
+    # -----------------------
+    # OMPL PIPELINE
+    # -----------------------
+    ompl:
+      planning_plugin: ompl_interface/OMPLPlanner
+      request_adapters: >-
+        default_planner_request_adapters/AddTimeParameterization
+      start_state_max_bounds_error: 0.1
+
+    # -----------------------
+    # STOMP PIPELINE
+    # -----------------------
+    # stomp:
+    #   planning_plugin: stomp_moveit/StompPlanner
+    #   request_adapters: >-
+    #     default_planner_request_adapters/AddTimeParameterization
+
+    # -----------------------
+    # PILZ PIPELINE（LIN / PTP）
+    # -----------------------
+    pilz_industrial_motion_planner:
+      planning_plugin: pilz_industrial_motion_planner/CommandPlanner
+      request_adapters: >-
+        default_planner_request_adapters/AddTimeParameterization

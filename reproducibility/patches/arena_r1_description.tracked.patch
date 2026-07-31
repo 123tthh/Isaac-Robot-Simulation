@@ -1,0 +1,176 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 2620692..e3a267a 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -3,7 +3,7 @@ project(r1_description)
+ 
+ find_package(ament_cmake REQUIRED)
+ install (
+-	DIRECTORY launch meshes xacro rviz
++	DIRECTORY launch meshes xacro rviz config urdf 
+ 	DESTINATION share/${PROJECT_NAME}
+ )
+ 
+diff --git a/launch/view_robot.launch.py b/launch/view_robot.launch.py
+index a7f75ae..be976b3 100644
+--- a/launch/view_robot.launch.py
++++ b/launch/view_robot.launch.py
+@@ -7,7 +7,7 @@ from ament_index_python.packages import get_package_share_directory
+ 
+ def generate_launch_description():
+ 
+-    robot_description_urdf = os.path.join(get_package_share_directory("r1_description"), "xacro", "r1.xacro")
++    robot_description_urdf = os.path.join(get_package_share_directory("r1_description"), "xacro", "r1_new_gripper.xacro")
+     robot_description = xacro.process_file(robot_description_urdf).toxml()
+ 
+     rviz_config_file = os.path.join(get_package_share_directory("r1_description"), "rviz", "urdf.rviz")
+diff --git a/package.xml b/package.xml
+index 622afec..fef96f6 100644
+--- a/package.xml
++++ b/package.xml
+@@ -4,7 +4,7 @@
+     <name>r1_description</name>
+     <version>0.0.0</version>
+     <description>r1_description</description>
+-    <maintainer email="shaojiale@robotplusplus.com.cn">shaojiale</maintainer>
++    <maintainer email="bert.shi@goertek.com">bert.shi</maintainer>
+     <license>BSD-3-Clause</license>
+ 
+     <buildtool_depend>ament_cmake</buildtool_depend>
+diff --git a/xacro/body.xacro b/xacro/body.xacro
+index f10eb07..002aa9f 100644
+--- a/xacro/body.xacro
++++ b/xacro/body.xacro
+@@ -37,13 +37,13 @@
+                 rpy="0 0 0" />
+             <geometry>
+                 <mesh
+-                filename="package://r1_description/meshes/body_link.STL" />
++                filename="package://r1_description/meshes/body_link.STL" scale="1.05 1.05 1.05"/>
+             </geometry>
+             </collision>
+         </link>
+         <joint
+             name="${prefix}body_joint"
+-            type="revolute">
++            type="fixed">
+             <origin
+             xyz="0.14 -0.00025 -0.00068316"
+             rpy="0 0.043633 0" />
+diff --git a/xacro/caster.xacro b/xacro/caster.xacro
+index 544b3fa..09274c0 100644
+--- a/xacro/caster.xacro
++++ b/xacro/caster.xacro
+@@ -42,7 +42,7 @@
+             </collision>
+         </link>
+ 
+-        <joint name="caster_${prefix}_joint" type="continuous">
++        <joint name="caster_${prefix}_joint" type="fixed">
+             <parent link="${parent}" />
+             <child link="caster_${prefix}_link" />
+             <xacro:insert_block name="origin" />
+diff --git a/xacro/r1_macro.xacro b/xacro/r1_macro.xacro
+index aacb27b..e54a688 100644
+--- a/xacro/r1_macro.xacro
++++ b/xacro/r1_macro.xacro
+@@ -8,11 +8,13 @@
+         <xacro:include filename="$(find r1_description)/xacro/body.xacro" />
+         <xacro:include filename="$(find r1_description)/xacro/lidar.xacro" />
+         <xacro:include filename="$(find r1_description)/xacro/arm_attach.xacro" />
+-        <xacro:include filename="$(find r1_description)/xacro/rm_75_macro.xacro" />
++        <xacro:include filename="$(find r1_description)/xacro/rm_75.xacro" />
+         <xacro:include filename="$(find r1_description)/xacro/flange.xacro" />
+         <xacro:include filename="$(find realsense2_description)/urdf/_d435i.urdf.xacro" />
+         <xacro:include filename="$(find realsense2_description)/urdf/_d455.urdf.xacro" />
+-
++        <!-- <xacro:include filename="$(find crt_ctag2f120_gripper_visualization)/urdf/crt_ctag2f120.xacro" /> -->
++        <xacro:include filename="$(find changingtek_description)/xacro/AG2F120S.xacro"/>
++        <xacro:include filename="$(find r1_description)/xacro/pgia_gripper.xacro" />
+         <link name="base_link" />
+         <xacro:trunk parent="base_link" />
+         <xacro:waist parent="trunk_link" />
+@@ -38,7 +40,7 @@
+ 
+         <!-- lidar -->
+         <xacro:lidar parent="base_link">
+-            <origin xyz="0.00018392 -0.00010397 1.533" rpy="0 0 0" />
++            <origin xyz="0.00018392 -0.00010397 1.533" rpy="0.011 0.018 0" />
+         </xacro:lidar>
+ 
+         <!--wheel-->
+@@ -75,10 +77,22 @@
+         <xacro:flange prefix="left_" parent="left_Link7">
+             <origin xyz="0 0 0" rpy="0 -1.570796327 0" />
+         </xacro:flange>
+-        <xacro:sensor_d435i name="camera_L" parent="left_flange_link"
++        
++        <!-- <xacro:crt_ctag2f120 prefix="left_" parent="left_flange_link">
++            <origin xyz="0.024 0 0" rpy="1.570796327 0 1.570796327" />
++        </xacro:crt_ctag2f120> -->
++
++        <xacro:AG2F120S name="left"/>
++        <joint name="ee_left_joint" type="fixed">
++			<origin xyz="0.024 0 0" rpy="1.570796327 0 1.570796327"/>
++			<parent link="left_flange_link"/>
++			<child link="left_gripper_base"/>
++		</joint>
++
++        <xacro:sensor_d455 name="camera_L" parent="left_flange_link"
+             use_nominal_extrinsics="true">
+             <origin xyz="0.032791 0 0.074317" rpy="0 0.34907 0" />
+-        </xacro:sensor_d435i>
++        </xacro:sensor_d455>
+ 
+ 
+         <xacro:rm_75 prefix="right_" attach_to="arm_attach_R_link" attach_xyz="0 0 0"
+@@ -86,10 +100,21 @@
+         <xacro:flange prefix="right_" parent="right_Link7">
+             <origin xyz="0 0 0" rpy="0 -1.570796327 0" />
+         </xacro:flange>
+-        <xacro:sensor_d435i name="camera_R" parent="right_flange_link"
++
++        <!-- <xacro:crt_ctag2f120 prefix="right_" parent="right_flange_link">
++            <origin xyz="0.024 0 0" rpy="1.570796327 0 1.570796327" />
++        </xacro:crt_ctag2f120> -->
++
++        <xacro:AG2F120S name="right"/>
++        <joint name="ee_right_joint" type="fixed">
++			<origin xyz="0.024 0 0" rpy="1.570796327 0 1.570796327"/>
++			<parent link="right_flange_link"/>
++			<child link="right_gripper_base"/>
++		</joint>        
++        <xacro:sensor_d455 name="camera_R" parent="right_flange_link"
+             use_nominal_extrinsics="true">
+             <origin xyz="0.032791 0 0.074317" rpy="0 0.34907 0" />
+-        </xacro:sensor_d435i>
++        </xacro:sensor_d455>
+ 
+ 
+     </xacro:macro>
+diff --git a/xacro/trunk.xacro b/xacro/trunk.xacro
+index f0e91a1..17717d9 100644
+--- a/xacro/trunk.xacro
++++ b/xacro/trunk.xacro
+@@ -36,7 +36,7 @@
+                 rpy="0 0 0" />
+             <geometry>
+                 <mesh
+-                filename="package://r1_description/meshes/trunk_link.STL" />
++                filename="package://r1_description/meshes/trunk_link.STL" scale="1.05 1.05 1.05"/>
+             </geometry>
+             </collision>
+         </link>
+diff --git a/xacro/waist.xacro b/xacro/waist.xacro
+index 57d00a0..4f4e093 100644
+--- a/xacro/waist.xacro
++++ b/xacro/waist.xacro
+@@ -44,7 +44,7 @@
+         </link>
+           <joint
+             name="${prefix}waist_joint"
+-            type="prismatic">
++            type="fixed">
+             <origin
+                 xyz="0.0472 -0.0002489 0.88638"
+                 rpy="0 0 0" />

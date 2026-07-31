@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="lidar">
+    <xacro:macro name="lidar" params="prefix:='' parent *origin">
+        <link name="${prefix}lidar_link">
+            <inertial>
+            <origin
+                xyz="-0.000199679647184732 -6.15174943394348E-06 -0.0249683217541896"
+                rpy="0 0 0" />
+            <mass
+                value="0.141886079814024" />
+            <inertia
+                ixx="4.17970952806503E-05"
+                ixy="-5.55956527301778E-09"
+                ixz="3.05488004791589E-07"
+                iyy="4.50768418642806E-05"
+                iyz="-6.78788623447499E-10"
+                izz="6.87988700000013E-05" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://r1_description/meshes/lidar_link.STL" />
+                </geometry>
+                <material name="">
+                    <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://r1_description/meshes/lidar_link.STL" />
+                </geometry>
+            </collision>
+        </link>
+        
+        <joint name="${prefix}lidar_joint" type="fixed">
+            <xacro:insert_block name="origin" />
+            <parent link="${parent}" />
+            <child link="${prefix}lidar_link" />
+        </joint>
+
+		<link name="${prefix}lidar_imu_link" />
+		<joint name="${prefix}_imu_joint" type="fixed">
+			<parent link="${prefix}lidar_link" />
+			<child link="${prefix}lidar_imu_link" />
+            <origin xyz="0.011 0.02329 -0.04412" rpy="0 0 0" />
+		</joint>
+    </xacro:macro>
+</robot>

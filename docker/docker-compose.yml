@@ -1,0 +1,44 @@
+services:
+  demo-vla:
+    image: ${IMAGE_NAME:-issac_ocs_docker}
+    command: /bin/bash
+    container_name: ${CONTAINER_NAME:-demo_vla}
+    privileged: true
+    network_mode: host
+    ipc: host
+    pid: host
+    user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
+    gpus: all
+    mem_limit: 500g
+    shm_size: 100g
+    tmpfs:
+      - /tmp:rw,exec,nosuid,size=4g
+    stdin_open: true
+    tty: true
+    volumes:
+      - ${HOST_PROJECT_ROOT:-..}:/workspace
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ${HOST_XAUTHORITY:-/dev/null}:/tmp/.docker.xauthority:ro
+    environment:
+      WORKSPACE: /workspace
+      ROS2_WS: /workspace/projects/ros2_ws
+      ROS2_INSTALL_DIR: /workspace/projects/ros2_ws/install_docker
+      TRAJECTORY_DIR: /workspace/projects/Trajectory
+      SIM1_DIR: /workspace/projects/Trajectory/SIM1
+      ROS2_LOG_DIR: /workspace/data/ros2_log
+      ISAAC_USD_PATH: /workspace/assets/scenes/scene.usd
+      OUTPUT_DIR: /workspace/outputs
+      LEROBOT_DATASET_PATH: ${LEROBOT_DATASET_PATH:-}
+      LEROBOT_NPZ_PATH: ${LEROBOT_NPZ_PATH:-}
+      SIM1_GENERATE_LEROBOT_V21: ${SIM1_GENERATE_LEROBOT_V21:-0}
+      ROS_DOMAIN_ID: ${ROS_DOMAIN_ID:-0}
+      RMW_IMPLEMENTATION: ${RMW_IMPLEMENTATION:-rmw_fastrtps_cpp}
+      ROS_DISTRO_TARGET: ${ROS_DISTRO_TARGET:-jazzy}
+      DISPLAY: ${DISPLAY:-:1}
+      QT_X11_NO_MITSHM: "1"
+      XAUTHORITY: /tmp/.docker.xauthority
+      HOME: /home/joe
+      XDG_RUNTIME_DIR: /tmp/runtime-${HOST_UID:-1000}
+      NVIDIA_VISIBLE_DEVICES: all
+      NVIDIA_DRIVER_CAPABILITIES: compute,utility,graphics,display
+      ACCEPT_EULA: ${ACCEPT_EULA:-Y}

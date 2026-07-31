@@ -1,0 +1,11 @@
+**
+!docker/
+!docker/**
+!scripts/
+!scripts/docker_env_check.sh
+!dependencies/
+!dependencies/docker-python-requirements.lock
+!dependencies/docker-wheelhouse/
+!dependencies/docker-wheelhouse/**
+!dependencies/docker_source_cache/
+!dependencies/docker_source_cache/onnxruntime-linux-x64-1.19.0.tgz

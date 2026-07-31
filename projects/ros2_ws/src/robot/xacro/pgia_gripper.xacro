@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="PGIA_Gripper">
+  <xacro:macro name="PGIA_Gripper" params="prefix:='' ">
+    <link name="${prefix}PGIA_base_link">
+      <inertial>
+        <origin xyz="-2.436E-05 -0.0013887 0.065598" rpy="0 0 0" />
+        <mass value="1.1631" />
+        <inertia
+          ixx="0.00164137"
+          ixy="0.00000009"
+          ixz="0.00000088"
+          iyy="0.00106267"
+          iyz="-0.00002203"
+          izz="0.00124422" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://r1_description/meshes/pgia_gripper/PGIA_base_link.STL" />
+        </geometry>
+        <material name="">
+          <color rgba="0.75294 0.75294 0.75294 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://r1_description/meshes/pgia_gripper/PGIA_base_link.STL" />
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}PGIA_link1">
+      <inertial>
+        <origin xyz="0.0091685 -0.01124 0.0019898" rpy="0 0 0" />
+        <mass value="0.33762" />
+        <inertia
+          ixx="0.00064565"
+          ixy="-0.00005391"
+          ixz="0.00007134"
+          iyy="0.00133953"
+          iyz="0.00018232"
+          izz="0.00113024" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://r1_description/meshes/pgia_gripper/PGIA_link1.STL" />
+        </geometry>
+        <material name="">
+          <color rgba="0.75294 0.75294 0.75294 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://r1_description/meshes/pgia_gripper/PGIA_link1.STL" />
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="${prefix}PGIA_joint1" type="prismatic">
+      <origin xyz="0 0 0.141" rpy="0 0 0" />
+      <parent link="${prefix}PGIA_base_link" />
+      <child link="${prefix}PGIA_link1" />
+      <axis xyz="0 -1 0" />
+      <limit lower="0" upper="0.04" effort="140" velocity="1" />
+    </joint>
+
+    <link name="${prefix}PGIA_link2">
+      <inertial>
+        <origin xyz="-0.0095108 0.0067293 0.0078617" rpy="0 0 0" />
+        <mass value="0.2601" />
+        <inertia
+          ixx="0.00068887"
+          ixy="-0.00005118"
+          ixz="-0.00007692"
+          iyy="0.00054406"
+          iyz="-0.00021786"
+          izz="0.00023902" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://r1_description/meshes/pgia_gripper/PGIA_link2.STL" />
+        </geometry>
+        <material name="">
+          <color rgba="0.75294 0.75294 0.75294 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://r1_description/meshes/pgia_gripper/PGIA_link2.STL" />
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="${prefix}PGIA_joint2" type="prismatic">
+      <origin xyz="0 0 0.141" rpy="0 0 0" />
+      <parent link="${prefix}PGIA_base_link" />
+      <child link="${prefix}PGIA_link2" />
+      <axis xyz="0 1 0" />
+      <limit lower="0" upper="0.04" effort="140" velocity="1" />
+      <mimic joint="${prefix}PGIA_joint1" multiplier="1" offset="0" />
+    </joint>
+  </xacro:macro>
+</robot>
