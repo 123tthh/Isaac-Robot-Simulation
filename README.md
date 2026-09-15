@@ -4,6 +4,18 @@ Portable working copy for Isaac Sim 5.1.0, ROS 2/OCS2 and SIM1 trace
 handling. IsaacLab-Arena is an optional experiment source, not a core runtime
 dependency.
 
+## Simulation demos
+
+Two animated excerpts show the Isaac Sim robot working in the simulation scene.
+
+### Part 1
+
+![Part 1: robot interacting with the simulation scene](docs/demo/test_part1.gif)
+
+### Part 2
+
+![Part 2: close-up of the robot handling an object](docs/demo/test_part2.gif)
+
 ## Start here
 
 Canonical host startup:

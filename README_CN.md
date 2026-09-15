@@ -4,6 +4,18 @@
 
 本工程是 Isaac Sim 5.1.0、ROS 2、OCS2 和 SIM1 双臂/夹爪/底盘仿真项目的可迁移工作副本。唯一仿真入口是 `assets/scenes/scene.usd`；`assets/scenes/615scene_20260723/` 是它的依赖层，不是第二个启动场景。
 
+## 仿真演示视频
+
+下面是 Isaac Sim 中机械臂与仿真场景交互的两段动图演示。
+
+### 第一部分
+
+![第一部分：机械臂与仿真场景交互](docs/demo/test_part1.gif)
+
+### 第二部分
+
+![第二部分：机械臂操作物体的近景](docs/demo/test_part2.gif)
+
 当前基线：
 
 | 项目 | 值 |
