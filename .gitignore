@@ -50,6 +50,7 @@ scripts/archive/
 # Demonstration recordings stay local; they are not required for reproduction.
 视频/
 *.mp4
+!docs/demo/*.mp4
 *.wmv
 *.webm
 

@@ -6,11 +6,11 @@
 
 ## 仿真演示视频
 
-下面是 Isaac Sim 中机械臂与仿真场景交互的两段动图演示。
+下面是 Isaac Sim 中机械臂与仿真场景交互的两段动图演示。点击第一段可观看完整录像。
 
 ### 第一部分
 
-![第一部分：机械臂与仿真场景交互](docs/demo/test_part1.gif)
+[![第一部分：机械臂与仿真场景交互](docs/demo/test_part1.gif)](docs/demo/test_part1.mp4)
 
 ### 第二部分
 
