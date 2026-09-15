@@ -35,11 +35,11 @@ from historical handoff and diagnosis notes.
 
 | Directory | Content | Original source |
 | --- | --- | --- |
-| `projects/ros2_ws` | ROS 2 and OCS2 source workspace | `/home/gtk/ros2_ws` |
-| `projects/Trajectory` | SIM1 and trajectory tools | `/home/gtk/Trajectory` |
-| `projects/IsaacLab-Arena` | Optional Arena experiments; excluded from core Git | `/home/gtk/Desktop/isaaclab_arena/IsaacLab-Arena` |
-| `data/ros2_log` | Historical runtime and diagnosis logs | `/home/gtk/ros2_log` |
-| `assets/datasets/sac-m` | USD/dataset assets | `/home/gtk/Desktop/IssacLab_arena_assets/datasets/sac-m` |
+| `projects/ros2_ws` | ROS 2 and OCS2 source workspace | `projects/ros2_ws` |
+| `projects/Trajectory` | SIM1 and trajectory tools | `projects/Trajectory` |
+| `projects/IsaacLab-Arena` | Optional Arena experiments; excluded from core Git | `projects/IsaacLab-Arena` |
+| `data/ros2_log` | Historical runtime and diagnosis logs | `data/ros2_log` |
+| `assets/datasets/sac-m` | USD/dataset assets | `assets/datasets/sac-m` |
 | `docker` | Container configuration and usage | consolidated |
 | `backups/dockerize` | Pre-change runtime files with `.bak_dockerize` suffix | generated |
 | `reports` | Cleanup and audit reports | generated |

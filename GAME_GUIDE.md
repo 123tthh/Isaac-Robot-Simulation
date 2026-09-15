@@ -2,9 +2,8 @@
 
 更新日期：2026-07-24
 
-本文件是 `/home/gtk/isaac_ocs_project` 的当前操作入口。启动、构建和数据路径
-以本文件为准；不要再从旧的 `/home/gtk/Trajectory`、`/home/gtk/ros2_ws`
-或 `/home/gtk/ros2_log` 实体目录启动任务。
+本文件是项目根目录的当前操作入口。启动、构建和数据路径
+以本文件为准；所有路径均相对于项目根目录。
 
 ## 1. 当前运行基线
 
@@ -12,20 +11,20 @@
 - 宿主机 ROS 运行环境：ROS 2 Humble
 - API/设计参考：本地 ROS 2 Rolling 文档
 - 唯一运行场景：
-  `/home/gtk/isaac_ocs_project/assets/scenes/scene.usd`
+  `assets/scenes/scene.usd`
 - ROS 2 工作区：
-  `/home/gtk/isaac_ocs_project/projects/ros2_ws`
+  `projects/ros2_ws`
 - SIM1 控制工程：
-  `/home/gtk/isaac_ocs_project/projects/Trajectory/SIM1`
+  `projects/Trajectory/SIM1`
 - ROS 日志：
-  `/home/gtk/isaac_ocs_project/data/ros2_log`
+  `data/ros2_log`
 
 以下旧路径仅作为观察期兼容链接保留：
 
 ```text
-/home/gtk/Trajectory -> /home/gtk/isaac_ocs_project/projects/Trajectory
-/home/gtk/ros2_ws    -> /home/gtk/isaac_ocs_project/projects/ros2_ws
-/home/gtk/ros2_log   -> /home/gtk/isaac_ocs_project/data/ros2_log
+legacy Trajectory -> projects/Trajectory
+legacy ros2_ws    -> projects/ros2_ws
+legacy ros2_log   -> data/ros2_log
 ```
 
 新脚本、配置和说明文档必须使用工程内路径或环境变量，不应继续写死上述旧路径。
@@ -82,7 +81,7 @@ Script Node 应使用 `position_cmds -> positionCommand`。旧版
 进入工程：
 
 ```bash
-cd /home/gtk/isaac_ocs_project
+cd /path/to/Isaac-Robot-Simulation
 ```
 
 检查场景、Isaac、GPU、ROS 包和 SIM1 入口：
@@ -122,14 +121,14 @@ Docker：projects/ros2_ws/{build_docker,install_docker,log_docker}
 终端 A：
 
 ```bash
-cd /home/gtk/isaac_ocs_project
+cd /path/to/Isaac-Robot-Simulation
 ./scripts/project_control_20260723.sh start-isaac
 ```
 
 不带额外参数时，统一入口会自动加载：
 
 ```text
-/home/gtk/isaac_ocs_project/assets/scenes/scene.usd
+assets/scenes/scene.usd
 ```
 
 打开后在 Isaac Sim GUI 中按 **Play**。未按 Play 时，相机 topic、关节状态和
@@ -148,7 +147,7 @@ cd /home/gtk/isaac_ocs_project
 终端 B：
 
 ```bash
-cd /home/gtk/isaac_ocs_project
+cd /path/to/Isaac-Robot-Simulation
 ./scripts/project_control_20260723.sh launch-ocs2
 ```
 
@@ -159,7 +158,7 @@ cd /home/gtk/isaac_ocs_project
 
 ```bash
 source /opt/ros/humble/setup.bash
-source /home/gtk/isaac_ocs_project/projects/ros2_ws/install/setup.bash
+source projects/ros2_ws/install/setup.bash
 ros2 control list_controllers
 ```
 
@@ -175,7 +174,7 @@ ocs2_arm_controller active
 终端 C：
 
 ```bash
-cd /home/gtk/isaac_ocs_project
+cd /path/to/Isaac-Robot-Simulation
 ./scripts/project_control_20260723.sh sim1-check
 ```
 
@@ -277,7 +276,7 @@ Q/Esc  结束记录并请求复位
 回放最近一次成功示教：
 
 ```bash
-cd /home/gtk/isaac_ocs_project
+cd /path/to/Isaac-Robot-Simulation
 ./scripts/project_control_20260723.sh sim1-demo
 ```
 
@@ -298,7 +297,7 @@ TRACE=/absolute/path/to/trace.csv \
 只打开六路相机监看器：
 
 ```bash
-cd /home/gtk/isaac_ocs_project/projects/Trajectory/SIM1
+cd /path/to/Isaac-Robot-Simulation/projects/Trajectory/SIM1
 ./game_control.sh camera-grid
 ```
 
@@ -308,7 +307,7 @@ cd /home/gtk/isaac_ocs_project/projects/Trajectory/SIM1
 独立底盘记录和路径演示：
 
 ```bash
-cd /home/gtk/isaac_ocs_project/projects/Trajectory/SIM1
+cd /path/to/Isaac-Robot-Simulation/projects/Trajectory/SIM1
 ./game_control.sh base-record --base-record-rate 50
 ./game_control.sh base-path-demo --base-speed 0.5 --base-turn-wait 6.0
 ```
@@ -319,7 +318,7 @@ cd /home/gtk/isaac_ocs_project/projects/Trajectory/SIM1
 LeRobot 关节直连回放：
 
 ```bash
-cd /home/gtk/isaac_ocs_project/projects/Trajectory/SIM1
+cd /path/to/Isaac-Robot-Simulation/projects/Trajectory/SIM1
 LEROBOT_NPZ_PATH=/absolute/path/to/episode.npz ./game_control.sh direct-demo
 ```
 
@@ -366,7 +365,7 @@ SIM1_GENERATE_LEROBOT_V21=1 \
 手动处理已有 episode：
 
 ```bash
-cd /home/gtk/isaac_ocs_project/projects/Trajectory/SIM1
+cd /path/to/Isaac-Robot-Simulation/projects/Trajectory/SIM1
 ./trace_cleaning/scripts/process_sim1_episode.py \
   trace_data/raw/manual_ocs2_keyboard_trace_YYYYmmdd_HHMMSS.csv
 ```
@@ -374,7 +373,7 @@ cd /home/gtk/isaac_ocs_project/projects/Trajectory/SIM1
 ROS 与夹爪运行日志统一写入：
 
 ```text
-/home/gtk/isaac_ocs_project/data/ros2_log
+data/ros2_log
 ```
 
 活动脚本使用 `ROS2_LOG_DIR`。临时改写日志位置时应设置该变量，不要修改脚本
@@ -401,7 +400,7 @@ image ID: 3fc6e462bfc8c269e77818342698b477b060adc18c041dde89067d4bf182582e
 启动或替换容器：
 
 ```bash
-cd /home/gtk/isaac_ocs_project
+cd /path/to/Isaac-Robot-Simulation
 bash docker/run_isaac_ocs_docker.sh --replace
 docker exec -it demo_vla bash
 ```
@@ -431,7 +430,7 @@ Docker launcher 已包含 GPU、host network、host IPC/PID、宿主 UID/GID、
 完整重建：
 
 ```bash
-cd /home/gtk/isaac_ocs_project
+cd /path/to/Isaac-Robot-Simulation
 docker build --no-cache \
   -t issac_ocs_docker:20260724-full \
   -f docker/Dockerfile .
@@ -447,7 +446,7 @@ network/IPC 通信。
 优先使用统一复位入口：
 
 ```bash
-cd /home/gtk/isaac_ocs_project
+cd /path/to/Isaac-Robot-Simulation
 ./scripts/project_control_20260723.sh sim1-reset
 ```
 
@@ -455,7 +454,7 @@ cd /home/gtk/isaac_ocs_project
 
 ```bash
 source /opt/ros/humble/setup.bash
-source /home/gtk/isaac_ocs_project/projects/ros2_ws/install/setup.bash
+source projects/ros2_ws/install/setup.bash
 ros2 service type /reset_simulation
 ros2 service call /reset_simulation \
   simulation_interfaces/srv/ResetSimulation "{scope: 255}"
@@ -527,13 +526,13 @@ ros2 topic info -v /right_gripper_controller/commands
 打开 **Window → Script Editor**，执行：
 
 ```python
-exec(open('/home/gtk/isaac_ocs_project/scripts/inspect_repair_615scene_camera_script_editor_20260724.py', encoding='utf-8').read())
+exec(open('scripts/inspect_repair_615scene_camera_script_editor_20260724.py', encoding='utf-8').read())
 ```
 
 脚本默认只读，报告写入：
 
 ```text
-/home/gtk/isaac_ocs_project/reports/615scene_camera_script_editor_20260724.md
+reports/615scene_camera_script_editor_20260724.md
 ```
 
 只有报告确认需要修复时，才按脚本说明启用写入模式；脚本会先备份 USD。

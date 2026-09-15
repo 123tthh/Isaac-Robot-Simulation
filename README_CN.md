@@ -46,7 +46,7 @@ reports/                      迁移与验证报告
 reproducibility/              冷启动复现材料
 ~~~
 
-旧的 `/home/gtk/Trajectory`、`/home/gtk/ros2_ws`、`/home/gtk/ros2_log` 仅作为兼容链接保留。新脚本不得写死这些路径。IsaacLab-Arena 不是核心 OCS2/SIM1 依赖。
+旧的外部兼容路径已迁入项目内的 `projects/Trajectory`、`projects/ros2_ws` 和 `data/ros2_log`。新脚本使用项目相对路径，不依赖原电脑用户名。IsaacLab-Arena 不是核心 OCS2/SIM1 依赖。
 
 ## 环境依赖
 
@@ -76,7 +76,7 @@ nvcr.io/nvidia/isaac-sim:5.1.0@sha256:93b0f99635ab126fb5b33298d513c11520f119f0ee
 当前镜像已经完整构建，并通过冷路径 ROS 构建和场景烟雾测试。运行：
 
 ~~~bash
-cd /home/gtk/isaac_ocs_project
+cd /path/to/Isaac-Robot-Simulation
 bash docker/run_isaac_ocs_docker.sh --replace
 docker exec -it demo_vla bash
 ~~~
@@ -127,7 +127,7 @@ ROS_DISTRO_TARGET=jazzy
 
 ~~~bash
 mkdir -p /tmp/isaac_ocs_reproduce_test
-rsync -a --delete   --exclude 'projects/ros2_ws/build*'   --exclude 'projects/ros2_ws/install*'   --exclude 'projects/ros2_ws/log*'   /home/gtk/isaac_ocs_project/ /tmp/isaac_ocs_reproduce_test/
+rsync -a --delete   --exclude 'projects/ros2_ws/build*'   --exclude 'projects/ros2_ws/install*'   --exclude 'projects/ros2_ws/log*'   ./ /tmp/isaac_ocs_reproduce_test/
 ~~~
 
 构建核心包：
@@ -161,7 +161,7 @@ test -f /workspace/assets/scenes/scene.usd
 预检和构建：
 
 ~~~bash
-cd /home/gtk/isaac_ocs_project
+cd /path/to/Isaac-Robot-Simulation
 ./scripts/verify_project_layout.sh
 ./scripts/project_control_20260723.sh preflight
 ./scripts/project_control_20260723.sh build
