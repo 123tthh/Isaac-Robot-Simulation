@@ -7,7 +7,7 @@ dependency.
 ## Simulation demos
 
 Two animated excerpts show the Isaac Sim robot working in the simulation scene.
-Click the first preview to watch its full recording.
+Click either preview to watch its full recording.
 
 ### Part 1
 
@@ -15,7 +15,7 @@ Click the first preview to watch its full recording.
 
 ### Part 2
 
-![Part 2: close-up of the robot handling an object](docs/demo/test_part2.gif)
+[![Part 2: close-up of the robot handling an object](docs/demo/test_part2.gif)](docs/demo/test_part2.mp4)
 
 ## Start here
 
