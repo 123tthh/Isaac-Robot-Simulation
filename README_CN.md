@@ -8,11 +8,11 @@
 
 下面是 Isaac Sim 中机械臂与仿真场景交互的两段动图演示。点击动图可观看完整录像。
 
-### 第一部分
+### 第一部分 · 8 分钟
 
 [![第一部分：机械臂与仿真场景交互](docs/demo/test_part1.gif)](docs/demo/test_part1.mp4)
 
-### 第二部分
+### 第二部分 · 10 分钟
 
 [![第二部分：机械臂操作物体的近景](docs/demo/test_part2.gif)](docs/demo/test_part2.mp4)
 

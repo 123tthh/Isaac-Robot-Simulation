@@ -9,11 +9,11 @@ dependency.
 Two animated excerpts show the Isaac Sim robot working in the simulation scene.
 Click either preview to watch its full recording.
 
-### Part 1
+### Part 1 · 8 minutes
 
 [![Part 1: robot interacting with the simulation scene](docs/demo/test_part1.gif)](docs/demo/test_part1.mp4)
 
-### Part 2
+### Part 2 · 10 minutes
 
 [![Part 2: close-up of the robot handling an object](docs/demo/test_part2.gif)](docs/demo/test_part2.mp4)
 
