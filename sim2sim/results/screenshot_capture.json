@@ -1,0 +1,282 @@
+{
+  "pose": {
+    "robot": "R1",
+    "joints": {
+      "left_joint1_motor": {
+        "requested": 0.15,
+        "commanded": 0.15,
+        "clamped": false,
+        "position_before": 0.14978501200675964,
+        "achieved": 0.14978501200675964,
+        "error": -0.0002149879932403509,
+        "moved": false,
+        "position_controllable": true,
+        "limits": {
+          "lower": -3.107,
+          "upper": 3.107,
+          "source": "joint minStop/maxStop"
+        }
+      },
+      "right_joint1_motor": {
+        "requested": -0.15,
+        "commanded": -0.15,
+        "clamped": false,
+        "position_before": -0.14926597476005554,
+        "achieved": -0.14926597476005554,
+        "error": 0.0007340252399444525,
+        "moved": false,
+        "position_controllable": true,
+        "limits": {
+          "lower": -3.107,
+          "upper": 3.107,
+          "source": "joint minStop/maxStop"
+        }
+      },
+      "left_joint4_motor": {
+        "requested": -0.2,
+        "commanded": -0.2,
+        "clamped": false,
+        "position_before": -0.20942570269107819,
+        "achieved": -0.20942570269107819,
+        "error": -0.009425702691078175,
+        "moved": false,
+        "position_controllable": true,
+        "limits": {
+          "lower": -2.356,
+          "upper": 2.356,
+          "source": "joint minStop/maxStop"
+        }
+      },
+      "right_joint4_motor": {
+        "requested": -0.2,
+        "commanded": -0.2,
+        "clamped": false,
+        "position_before": -0.20942416787147522,
+        "achieved": -0.20942416787147522,
+        "error": -0.009424167871475209,
+        "moved": false,
+        "position_controllable": true,
+        "limits": {
+          "lower": -2.356,
+          "upper": 2.356,
+          "source": "joint minStop/maxStop"
+        }
+      },
+      "left_PGIA_joint1_motor": {
+        "requested": 0.08,
+        "commanded": 0.08,
+        "clamped": false,
+        "position_before": 0.0777415782213211,
+        "achieved": 0.0777415782213211,
+        "error": -0.0022584217786788957,
+        "moved": false,
+        "position_controllable": true,
+        "limits": {
+          "lower": 0.04,
+          "upper": 0.12,
+          "source": "joint minStop/maxStop"
+        }
+      },
+      "left_PGIA_joint2_motor": {
+        "requested": 0.08,
+        "commanded": 0.08,
+        "clamped": false,
+        "position_before": 0.0817398652434349,
+        "achieved": 0.0817398652434349,
+        "error": 0.0017398652434349043,
+        "moved": false,
+        "position_controllable": true,
+        "limits": {
+          "lower": 0.04,
+          "upper": 0.12,
+          "source": "joint minStop/maxStop"
+        }
+      },
+      "right_PGIA_joint1_motor": {
+        "requested": 0.08,
+        "commanded": 0.08,
+        "clamped": false,
+        "position_before": 0.07774192839860916,
+        "achieved": 0.07774192839860916,
+        "error": -0.0022580716013908403,
+        "moved": false,
+        "position_controllable": true,
+        "limits": {
+          "lower": 0.04,
+          "upper": 0.12,
+          "source": "joint minStop/maxStop"
+        }
+      },
+      "right_PGIA_joint2_motor": {
+        "requested": 0.08,
+        "commanded": 0.08,
+        "clamped": false,
+        "position_before": 0.08173959702253342,
+        "achieved": 0.08173959702253342,
+        "error": 0.001739597022533415,
+        "moved": false,
+        "position_controllable": true,
+        "limits": {
+          "lower": 0.04,
+          "upper": 0.12,
+          "source": "joint minStop/maxStop"
+        }
+      }
+    },
+    "sim_time_ms": 3892912.0,
+    "advanced_to_ms": 3892912.0,
+    "verification": {
+      "applied": 8,
+      "settle_steps": 160,
+      "sim_time_advanced_ms": 2560.0,
+      "max_abs_error": 0.009425702691078175,
+      "max_abs_error_joint": "left_joint4_motor",
+      "semantics": "PD setpoint, not a teleport: Node.setJointPosition re-pins the motor target and the joint converges over the settled steps; 'achieved'/'error' are measured after settling, and a still-large error usually means more settle_steps (or a controller re-asserting its own targets)"
+    },
+    "rpc_ms": 79.28
+  },
+  "frame": {
+    "position": [
+      3.219134,
+      -3.42682,
+      4.061448
+    ],
+    "orientation": [
+      -0.278945293,
+      0.120681249,
+      0.952693844,
+      2.359689255
+    ],
+    "target": [
+      0.0,
+      0.0,
+      1.05
+    ],
+    "pushed": true,
+    "previous_position": [
+      4.843757615953601,
+      -5.1562581073054465,
+      5.531257124601756
+    ],
+    "previous_orientation": [
+      -0.27894529302694243,
+      0.12068124910038149,
+      0.952693843589684,
+      2.3596892554265194
+    ],
+    "subject": {
+      "center": [
+        0.0,
+        0.0,
+        1.05
+      ],
+      "radius": 1.05,
+      "bbox_min": [
+        -1.05,
+        -1.05,
+        0.0
+      ],
+      "bbox_max": [
+        1.05,
+        1.05,
+        2.1
+      ],
+      "exact": true,
+      "source": "explicit target+radius"
+    },
+    "framing": {
+      "mode": "hero",
+      "distance": 5.583434,
+      "direction": [
+        0.576551,
+        -0.613748,
+        0.539354
+      ],
+      "margin": 1.15,
+      "aspect": 1.869981,
+      "field_of_view": 0.785398,
+      "radius": 1.05
+    },
+    "relative_to": "world",
+    "camera": {
+      "field_of_view": 0.785398,
+      "aspect": 1.869981,
+      "viewport": {
+        "width": 1956,
+        "height": 1046,
+        "source": "screenshot"
+      }
+    },
+    "verification": {
+      "center_projection": {
+        "eye_coords": [
+          5.583434,
+          -0.0,
+          0.0
+        ],
+        "distance": 5.583434,
+        "depth": 5.583434,
+        "behind_camera": false,
+        "yaw_deg": -0.0,
+        "pitch_deg": 0.0,
+        "angle_off_axis_deg": 0.0,
+        "half_fov_h_deg": 22.5,
+        "half_fov_v_deg": 12.49,
+        "ndc_x": 0.5,
+        "ndc_y": 0.5,
+        "in_frame": true,
+        "pixel": [
+          978.0,
+          523.0
+        ]
+      },
+      "hint": "in frame: on the view axis",
+      "subject_angular_radius_deg": 10.839,
+      "half_fov_h_deg": 22.5,
+      "half_fov_v_deg": 12.49,
+      "headroom_h_deg": 11.661,
+      "headroom_v_deg": 1.65,
+      "center_in_frame": true,
+      "fits": true,
+      "eye_to_center_distance": 5.583434,
+      "subject_screen_bbox": {
+        "corners_behind_camera": 0,
+        "ndc": [
+          0.140103,
+          -0.106805,
+          0.854337,
+          1.276091
+        ],
+        "pixels": [
+          274.0,
+          -111.7,
+          1671.1,
+          1334.8
+        ]
+      }
+    }
+  },
+  "step": {
+    "sim_time_ms": 3893072.0,
+    "advanced_to_ms": 3893072.0,
+    "rpc_ms": 9.53,
+    "wall_ms": 9,
+    "steps_executed": 10
+  },
+  "screenshot": {
+    "path": "/home/descfly/Videos/Isaac-Robot-Simulation-main/sim2sim/images/omnisim_r1_motion.png",
+    "render": {
+      "digest": "68288e23bf39c182",
+      "identical_to_previous": false,
+      "sim_time_ms": 3893072.0,
+      "identical_streak": 0
+    },
+    "bytes": 6148921,
+    "pixels": [
+      1956,
+      1046
+    ]
+  },
+  "image_sha256": "68288e23bf39c182c52ad1940c5be5460714ab60ff0ed924f286363e9d667b62",
+  "note": "Native OmniSim viewport capture; no synthetic image or compositing."
+}

@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "phases_passed": 5,
+  "fixed_base_displacement_m": 0.0,
+  "joints": [
+    {
+      "joint": "left_joint1_motor",
+      "unit": "rad",
+      "excursion": 0.14954388662590645,
+      "maximum_absolute_endpoint_error": 0.00024793524062260985
+    },
+    {
+      "joint": "right_joint1_motor",
+      "unit": "rad",
+      "excursion": 0.14955293730599806,
+      "maximum_absolute_endpoint_error": 0.0007431745529174749
+    },
+    {
+      "joint": "left_joint4_motor",
+      "unit": "rad",
+      "excursion": 0.19959715195000172,
+      "maximum_absolute_endpoint_error": 0.00984316598623991
+    },
+    {
+      "joint": "right_joint4_motor",
+      "unit": "rad",
+      "excursion": 0.19959607534110546,
+      "maximum_absolute_endpoint_error": 0.009842799045145512
+    },
+    {
+      "joint": "left_PGIA_joint1_motor",
+      "unit": "m",
+      "excursion": 0.03763807564973831,
+      "maximum_absolute_endpoint_error": 0.0023619252443313615
+    },
+    {
+      "joint": "left_PGIA_joint2_motor",
+      "unit": "m",
+      "excursion": 0.03999992832541466,
+      "maximum_absolute_endpoint_error": 0.0018196842074394218
+    },
+    {
+      "joint": "right_PGIA_joint1_motor",
+      "unit": "m",
+      "excursion": 0.03763815760612488,
+      "maximum_absolute_endpoint_error": 0.0023618432879447954
+    },
+    {
+      "joint": "right_PGIA_joint2_motor",
+      "unit": "m",
+      "excursion": 0.03999991714954376,
+      "maximum_absolute_endpoint_error": 0.0018196246027946464
+    }
+  ]
+}

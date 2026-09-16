@@ -1,0 +1,6 @@
+# OmniSim-generated temporary scene and viewport state
+worlds/.harness_*
+worlds/..harness_*
+
+# Local correspondence draft; do not publish
+/reply_email.md

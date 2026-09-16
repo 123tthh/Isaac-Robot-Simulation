@@ -5,6 +5,16 @@
 基于 Isaac Sim 5.1、ROS 2 Jazzy 与 OCS2 的 R1 双臂/夹爪、差速底盘示教工程，
 包含头部和双腕三组 RGB-D 相机、六路采集及本地 LeRobot 转换。
 
+## OmniSim 分支：简单运动验证
+
+![OmniSim 原生视口中的 R1 机器人](sim2sim/images/omnisim_r1_motion.png)
+
+上图为执行被测机械臂/夹爪姿态后获取的 OmniSim 原生截图。
+**固定底座简单运动通过：5/5 个阶段通过。** 双臂各两个关节与四个夹爪关节均有
+实测位移，端点误差满足预设阈值；不表示抓取或完整 sim2sim 等价验证通过。
+
+[复现与记录](sim2sim/README.md) · [验证声明](sim2sim/CLAIM.md)
+
 ## 从这里开始
 
 - **项目介绍与目录说明**：[项目介绍](docs/overview.zh-CN.md)

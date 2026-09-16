@@ -5,6 +5,17 @@
 Isaac Sim 5.1 / ROS 2 Jazzy / OCS2 framework for R1 dual-arm and gripper
 teleoperation, differential base control, three RGB-D cameras and local LeRobot exports.
 
+## OmniSim branch: motion validation
+
+![R1 in the native OmniSim viewport](sim2sim/images/omnisim_r1_motion.png)
+
+Native OmniSim screenshot after commanding the tested arm/finger pose.
+**Fixed-base simple motion: PASS (5/5 phases).** Four arm joints and four finger
+joints showed measured movement within the declared endpoint tolerances.
+This is not a grasp or full sim-to-sim equivalence claim.
+
+[sim2sim setup and records](sim2sim/README.md) · [Validation claim](sim2sim/CLAIM.md)
+
 ## Start here
 
 - **Project introduction and layout:** [Overview](docs/overview.md)

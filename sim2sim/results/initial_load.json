@@ -1,0 +1,160 @@
+{
+  "ok": true,
+  "world": "/home/descfly/Videos/Isaac-Robot-Simulation-main/sim2sim/worlds/r1_simple_motion.omniworld",
+  "load_ms": 4212,
+  "exit_code": null,
+  "diagnostics": [
+    {
+      "code": "UNKNOWN",
+      "severity": "warning",
+      "message": "URDF link 'trunk_link': collision mesh '../meshes/base_link_lite.STL' has scale 1.05 1.05 1.05 which cannot be applied inside a boundingObject; it will be loaded at unit scale.",
+      "hint": "this ERROR/WARNING/FATAL line matched no rule, so there is no code to branch on -- read `raw` and decide from the text. If it recurs, add a rule to scripts/harness/diagnostic_codes.py anchored in the engine's emit site (`git grep` the message in src/omnisim/) so the next agent gets a code.",
+      "raw": "WARNING: URDF link 'trunk_link': collision mesh '../meshes/base_link_lite.STL' has scale 1.05 1.05 1.05 which cannot be applied inside a boundingObject; it will be loaded at unit scale."
+    },
+    {
+      "code": "UNKNOWN",
+      "severity": "warning",
+      "message": "URDF link 'body_link': collision mesh '../meshes/body_link.STL' has scale 1.05 1.05 1.05 which cannot be applied inside a boundingObject; it will be loaded at unit scale.",
+      "hint": "this ERROR/WARNING/FATAL line matched no rule, so there is no code to branch on -- read `raw` and decide from the text. If it recurs, add a rule to scripts/harness/diagnostic_codes.py anchored in the engine's emit site (`git grep` the message in src/omnisim/) so the next agent gets a code.",
+      "raw": "WARNING: URDF link 'body_link': collision mesh '../meshes/body_link.STL' has scale 1.05 1.05 1.05 which cannot be applied inside a boundingObject; it will be loaded at unit scale."
+    },
+    {
+      "code": "UNKNOWN",
+      "severity": "warning",
+      "message": "URDF link 'trunk_link': collision mesh '../meshes/base_link_lite.STL' has scale 1.05 1.05 1.05 which cannot be applied inside a boundingObject; it will be loaded at unit scale.",
+      "hint": "this ERROR/WARNING/FATAL line matched no rule, so there is no code to branch on -- read `raw` and decide from the text. If it recurs, add a rule to scripts/harness/diagnostic_codes.py anchored in the engine's emit site (`git grep` the message in src/omnisim/) so the next agent gets a code.",
+      "raw": "WARNING: URDF link 'trunk_link': collision mesh '../meshes/base_link_lite.STL' has scale 1.05 1.05 1.05 which cannot be applied inside a boundingObject; it will be loaded at unit scale."
+    },
+    {
+      "code": "UNKNOWN",
+      "severity": "warning",
+      "message": "URDF link 'body_link': collision mesh '../meshes/body_link.STL' has scale 1.05 1.05 1.05 which cannot be applied inside a boundingObject; it will be loaded at unit scale.",
+      "hint": "this ERROR/WARNING/FATAL line matched no rule, so there is no code to branch on -- read `raw` and decide from the text. If it recurs, add a rule to scripts/harness/diagnostic_codes.py anchored in the engine's emit site (`git grep` the message in src/omnisim/) so the next agent gets a code.",
+      "raw": "WARNING: URDF link 'body_link': collision mesh '../meshes/body_link.STL' has scale 1.05 1.05 1.05 which cannot be applied inside a boundingObject; it will be loaded at unit scale."
+    },
+    {
+      "code": "UNKNOWN",
+      "severity": "warning",
+      "message": "DEF R1 Robot > Solid \"trunk_link\" > Shape  > Mesh \"\": Mesh '' has more than 100'000 vertices, it is recommended to reduce the number of vertices.",
+      "hint": "this ERROR/WARNING/FATAL line matched no rule, so there is no code to branch on -- read `raw` and decide from the text. If it recurs, add a rule to scripts/harness/diagnostic_codes.py anchored in the engine's emit site (`git grep` the message in src/omnisim/) so the next agent gets a code.",
+      "raw": "WARNING: DEF R1 Robot > Solid \"trunk_link\" > Shape  > Mesh \"\": Mesh '' has more than 100'000 vertices, it is recommended to reduce the number of vertices."
+    },
+    {
+      "code": "UNKNOWN",
+      "severity": "warning",
+      "message": "DEF R1 Robot > Solid \"trunk_link\" > Mesh \"\": Mesh '' has more than 100'000 vertices, it is recommended to reduce the number of vertices.",
+      "hint": "this ERROR/WARNING/FATAL line matched no rule, so there is no code to branch on -- read `raw` and decide from the text. If it recurs, add a rule to scripts/harness/diagnostic_codes.py anchored in the engine's emit site (`git grep` the message in src/omnisim/) so the next agent gets a code.",
+      "raw": "WARNING: DEF R1 Robot > Solid \"trunk_link\" > Mesh \"\": Mesh '' has more than 100'000 vertices, it is recommended to reduce the number of vertices."
+    },
+    {
+      "code": "UNKNOWN",
+      "severity": "warning",
+      "message": "DEF R1 Robot > SliderJoint \"waist_link\" > Solid \"waist_link\" > HingeJoint \"body_link\" > Solid \"body_link\" > Shape  > Mesh \"\": Mesh '' has more than 100'000 vertices, it is recommended to reduce the number of vertices.",
+      "hint": "this ERROR/WARNING/FATAL line matched no rule, so there is no code to branch on -- read `raw` and decide from the text. If it recurs, add a rule to scripts/harness/diagnostic_codes.py anchored in the engine's emit site (`git grep` the message in src/omnisim/) so the next agent gets a code.",
+      "raw": "WARNING: DEF R1 Robot > SliderJoint \"waist_link\" > Solid \"waist_link\" > HingeJoint \"body_link\" > Solid \"body_link\" > Shape  > Mesh \"\": Mesh '' has more than 100'000 vertices, it is recommended to reduce the number of vertices."
+    },
+    {
+      "code": "UNKNOWN",
+      "severity": "warning",
+      "message": "DEF R1 Robot > SliderJoint \"waist_link\" > Solid \"waist_link\" > HingeJoint \"body_link\" > Solid \"body_link\" > Solid \"head_camera_link\" > Solid \"camera_H_bottom_screw_frame\" > Solid \"camera_H_link\" > Transform  > Shape  > Mesh \"\": Mesh '' has more than 100'000 vertices, it is recommended to reduce the number of vertices.",
+      "hint": "this ERROR/WARNING/FATAL line matched no rule, so there is no code to branch on -- read `raw` and decide from the text. If it recurs, add a rule to scripts/harness/diagnostic_codes.py anchored in the engine's emit site (`git grep` the message in src/omnisim/) so the next agent gets a code.",
+      "raw": "WARNING: DEF R1 Robot > SliderJoint \"waist_link\" > Solid \"waist_link\" > HingeJoint \"body_link\" > Solid \"body_link\" > Solid \"head_camera_link\" > Solid \"camera_H_bottom_screw_frame\" > Solid \"camera_H_link\" > Transform  > Shape  > Mesh \"\": Mesh '' has more than 100'000 vertices, it is recommended to reduce the number of vertices."
+    },
+    {
+      "code": "UNKNOWN",
+      "severity": "warning",
+      "message": "DEF R1 Robot > Solid \"camera_F_bottom_screw_frame\" > Solid \"camera_F_link\" > Pose  > Shape  > Mesh \"\": Mesh 'ID77' has more than 100'000 vertices, it is recommended to reduce the number of vertices.",
+      "hint": "this ERROR/WARNING/FATAL line matched no rule, so there is no code to branch on -- read `raw` and decide from the text. If it recurs, add a rule to scripts/harness/diagnostic_codes.py anchored in the engine's emit site (`git grep` the message in src/omnisim/) so the next agent gets a code.",
+      "raw": "WARNING: DEF R1 Robot > Solid \"camera_F_bottom_screw_frame\" > Solid \"camera_F_link\" > Pose  > Shape  > Mesh \"\": Mesh 'ID77' has more than 100'000 vertices, it is recommended to reduce the number of vertices."
+    },
+    {
+      "code": "UNKNOWN",
+      "severity": "warning",
+      "message": "DEF R1 Robot > Solid \"lidar_link\" > Shape  > Mesh \"\": Mesh '' has more than 100'000 vertices, it is recommended to reduce the number of vertices.",
+      "hint": "this ERROR/WARNING/FATAL line matched no rule, so there is no code to branch on -- read `raw` and decide from the text. If it recurs, add a rule to scripts/harness/diagnostic_codes.py anchored in the engine's emit site (`git grep` the message in src/omnisim/) so the next agent gets a code.",
+      "raw": "WARNING: DEF R1 Robot > Solid \"lidar_link\" > Shape  > Mesh \"\": Mesh '' has more than 100'000 vertices, it is recommended to reduce the number of vertices."
+    },
+    {
+      "code": "UNKNOWN",
+      "severity": "warning",
+      "message": "DEF R1 Robot > Solid \"laser_link\" > Shape  > Mesh \"\": Mesh '' has more than 100'000 vertices, it is recommended to reduce the number of vertices.",
+      "hint": "this ERROR/WARNING/FATAL line matched no rule, so there is no code to branch on -- read `raw` and decide from the text. If it recurs, add a rule to scripts/harness/diagnostic_codes.py anchored in the engine's emit site (`git grep` the message in src/omnisim/) so the next agent gets a code.",
+      "raw": "WARNING: DEF R1 Robot > Solid \"laser_link\" > Shape  > Mesh \"\": Mesh '' has more than 100'000 vertices, it is recommended to reduce the number of vertices."
+    },
+    {
+      "code": "NEWTON_BODIES_REGISTERED",
+      "severity": "info",
+      "message": "[OmNewtonBackend] registered 26 dynamic + 2 static Newton bodies (1 of the statics on the world body) (+28 this pass) (statics: floor, r1)",
+      "dynamic_bodies_registered": 26,
+      "static_bodies_registered": 2,
+      "hint": "informational: the registration census (N dynamic + M static Newton bodies). Compare N with the dynamic bodies you authored -- fewer means one was dropped; the other diagnostics on this load say which (SOLID_ODE_PIN_INERT, KINEMATIC_ARTICULATION, NEWTON_STATICS_NOT_REGISTERED). N == 0 is reported separately as NEWTON_ZERO_DYNAMIC_BODIES.",
+      "raw": "INFO: [OmNewtonBackend] registered 26 dynamic + 2 static Newton bodies (1 of the statics on the world body) (+28 this pass) (statics: floor, r1)"
+    },
+    {
+      "code": "UNKNOWN",
+      "severity": "warning",
+      "message": "Joint motor 'wheel_L_joint_motor' declares no position limits, so this physics backend configures it as a VELOCITY wheel: setPosition() on it will be IGNORED and setVelocity() is what drives it. If it is meant to be a servo, give its motor a minPosition/maxPosition (or its joint a minStop/maxStop) and it will be position-controlled. (Since 2026-09-01 the first finite setPosition() FROM THE CONTROLLER promotes it to a position servo automatically; OMNISIM_NEWTON_PROMOTE_SERVO=0 disables the promotion.)",
+      "hint": "this ERROR/WARNING/FATAL line matched no rule, so there is no code to branch on -- read `raw` and decide from the text. If it recurs, add a rule to scripts/harness/diagnostic_codes.py anchored in the engine's emit site (`git grep` the message in src/omnisim/) so the next agent gets a code.",
+      "raw": "WARNING: Joint motor 'wheel_L_joint_motor' declares no position limits, so this physics backend configures it as a VELOCITY wheel: setPosition() on it will be IGNORED and setVelocity() is what drives it. If it is meant to be a servo, give its motor a minPosition/maxPosition (or its joint a minStop/maxStop) and it will be position-controlled. (Since 2026-09-01 the first finite setPosition() FROM THE CONTROLLER promotes it to a position servo automatically; OMNISIM_NEWTON_PROMOTE_SERVO=0 disables the promotion.)"
+    },
+    {
+      "code": "UNKNOWN",
+      "severity": "warning",
+      "message": "Joint motor 'wheel_R_joint_motor' declares no position limits, so this physics backend configures it as a VELOCITY wheel: setPosition() on it will be IGNORED and setVelocity() is what drives it. If it is meant to be a servo, give its motor a minPosition/maxPosition (or its joint a minStop/maxStop) and it will be position-controlled. (Since 2026-09-01 the first finite setPosition() FROM THE CONTROLLER promotes it to a position servo automatically; OMNISIM_NEWTON_PROMOTE_SERVO=0 disables the promotion.)",
+      "hint": "this ERROR/WARNING/FATAL line matched no rule, so there is no code to branch on -- read `raw` and decide from the text. If it recurs, add a rule to scripts/harness/diagnostic_codes.py anchored in the engine's emit site (`git grep` the message in src/omnisim/) so the next agent gets a code.",
+      "raw": "WARNING: Joint motor 'wheel_R_joint_motor' declares no position limits, so this physics backend configures it as a VELOCITY wheel: setPosition() on it will be IGNORED and setVelocity() is what drives it. If it is meant to be a servo, give its motor a minPosition/maxPosition (or its joint a minStop/maxStop) and it will be position-controlled. (Since 2026-09-01 the first finite setPosition() FROM THE CONTROLLER promotes it to a position servo automatically; OMNISIM_NEWTON_PROMOTE_SERVO=0 disables the promotion.)"
+    },
+    {
+      "code": "UNKNOWN",
+      "severity": "warning",
+      "message": "Joint motor 'caster_LF_joint_motor' declares no position limits, so this physics backend configures it as a VELOCITY wheel: setPosition() on it will be IGNORED and setVelocity() is what drives it. If it is meant to be a servo, give its motor a minPosition/maxPosition (or its joint a minStop/maxStop) and it will be position-controlled. (Since 2026-09-01 the first finite setPosition() FROM THE CONTROLLER promotes it to a position servo automatically; OMNISIM_NEWTON_PROMOTE_SERVO=0 disables the promotion.)",
+      "hint": "this ERROR/WARNING/FATAL line matched no rule, so there is no code to branch on -- read `raw` and decide from the text. If it recurs, add a rule to scripts/harness/diagnostic_codes.py anchored in the engine's emit site (`git grep` the message in src/omnisim/) so the next agent gets a code.",
+      "raw": "WARNING: Joint motor 'caster_LF_joint_motor' declares no position limits, so this physics backend configures it as a VELOCITY wheel: setPosition() on it will be IGNORED and setVelocity() is what drives it. If it is meant to be a servo, give its motor a minPosition/maxPosition (or its joint a minStop/maxStop) and it will be position-controlled. (Since 2026-09-01 the first finite setPosition() FROM THE CONTROLLER promotes it to a position servo automatically; OMNISIM_NEWTON_PROMOTE_SERVO=0 disables the promotion.)"
+    },
+    {
+      "code": "UNKNOWN",
+      "severity": "warning",
+      "message": "Joint motor 'caster_RF_joint_motor' declares no position limits, so this physics backend configures it as a VELOCITY wheel: setPosition() on it will be IGNORED and setVelocity() is what drives it. If it is meant to be a servo, give its motor a minPosition/maxPosition (or its joint a minStop/maxStop) and it will be position-controlled. (Since 2026-09-01 the first finite setPosition() FROM THE CONTROLLER promotes it to a position servo automatically; OMNISIM_NEWTON_PROMOTE_SERVO=0 disables the promotion.)",
+      "hint": "this ERROR/WARNING/FATAL line matched no rule, so there is no code to branch on -- read `raw` and decide from the text. If it recurs, add a rule to scripts/harness/diagnostic_codes.py anchored in the engine's emit site (`git grep` the message in src/omnisim/) so the next agent gets a code.",
+      "raw": "WARNING: Joint motor 'caster_RF_joint_motor' declares no position limits, so this physics backend configures it as a VELOCITY wheel: setPosition() on it will be IGNORED and setVelocity() is what drives it. If it is meant to be a servo, give its motor a minPosition/maxPosition (or its joint a minStop/maxStop) and it will be position-controlled. (Since 2026-09-01 the first finite setPosition() FROM THE CONTROLLER promotes it to a position servo automatically; OMNISIM_NEWTON_PROMOTE_SERVO=0 disables the promotion.)"
+    },
+    {
+      "code": "UNKNOWN",
+      "severity": "warning",
+      "message": "Joint motor 'caster_LB_joint_motor' declares no position limits, so this physics backend configures it as a VELOCITY wheel: setPosition() on it will be IGNORED and setVelocity() is what drives it. If it is meant to be a servo, give its motor a minPosition/maxPosition (or its joint a minStop/maxStop) and it will be position-controlled. (Since 2026-09-01 the first finite setPosition() FROM THE CONTROLLER promotes it to a position servo automatically; OMNISIM_NEWTON_PROMOTE_SERVO=0 disables the promotion.)",
+      "hint": "this ERROR/WARNING/FATAL line matched no rule, so there is no code to branch on -- read `raw` and decide from the text. If it recurs, add a rule to scripts/harness/diagnostic_codes.py anchored in the engine's emit site (`git grep` the message in src/omnisim/) so the next agent gets a code.",
+      "raw": "WARNING: Joint motor 'caster_LB_joint_motor' declares no position limits, so this physics backend configures it as a VELOCITY wheel: setPosition() on it will be IGNORED and setVelocity() is what drives it. If it is meant to be a servo, give its motor a minPosition/maxPosition (or its joint a minStop/maxStop) and it will be position-controlled. (Since 2026-09-01 the first finite setPosition() FROM THE CONTROLLER promotes it to a position servo automatically; OMNISIM_NEWTON_PROMOTE_SERVO=0 disables the promotion.)"
+    },
+    {
+      "code": "UNKNOWN",
+      "severity": "warning",
+      "message": "Joint motor 'caster_RB_joint_motor' declares no position limits, so this physics backend configures it as a VELOCITY wheel: setPosition() on it will be IGNORED and setVelocity() is what drives it. If it is meant to be a servo, give its motor a minPosition/maxPosition (or its joint a minStop/maxStop) and it will be position-controlled. (Since 2026-09-01 the first finite setPosition() FROM THE CONTROLLER promotes it to a position servo automatically; OMNISIM_NEWTON_PROMOTE_SERVO=0 disables the promotion.)",
+      "hint": "this ERROR/WARNING/FATAL line matched no rule, so there is no code to branch on -- read `raw` and decide from the text. If it recurs, add a rule to scripts/harness/diagnostic_codes.py anchored in the engine's emit site (`git grep` the message in src/omnisim/) so the next agent gets a code.",
+      "raw": "WARNING: Joint motor 'caster_RB_joint_motor' declares no position limits, so this physics backend configures it as a VELOCITY wheel: setPosition() on it will be IGNORED and setVelocity() is what drives it. If it is meant to be a servo, give its motor a minPosition/maxPosition (or its joint a minStop/maxStop) and it will be position-controlled. (Since 2026-09-01 the first finite setPosition() FROM THE CONTROLLER promotes it to a position servo automatically; OMNISIM_NEWTON_PROMOTE_SERVO=0 disables the promotion.)"
+    }
+  ],
+  "load_state": "complete",
+  "supervisor": "connected",
+  "supervisor_connected": true,
+  "hot_reloaded": false,
+  "engine_mode": "fast",
+  "tracking": {
+    "light": true,
+    "mode": "light",
+    "disabled_flags": [
+      "--light"
+    ],
+    "default_applied": true,
+    "hint": "light mode: /sim/grips is empty and contact.*/grip.*/joint.limit_hit events are not produced; /sim/contacts still answers.",
+    "default": {
+      "light": true,
+      "mode": "light",
+      "source": "built-in",
+      "since": "2026-09-02",
+      "why": "with the per-step trackers on, the harness is slower than re-running run-headless: fleet arena (309 nodes, CPU mj_step, 2026-08-29) 12.1 s to load vs 4.1 s light, /sim/step 1 573-606 ms vs 6-35 ms (~17x), 10 steps 2855-3187 ms vs 48-67 ms (~47x); cloth world reload 13.4 s vs 3.1 s light",
+      "revert": "pass {\"light\": false} on the request for all three trackers, or {\"tracking\": {\"contacts\": bool, \"joint_limits\": bool, \"grips\": bool}} for exactly the ones you need; OMNISIM_HARNESS_LIGHT=0 makes full tracking the process-wide default again (unset or =1 -> light)",
+      "explicit_wins": "an explicit `light` (either value) or any `tracking` object on the request always overrides this default"
+    },
+    "default_note": "LIGHT tracking was applied BY DEFAULT (built-in; light is the default since 2026-09-02) because the request named neither `light` nor `tracking`: pass {\"light\": false} on the request for all three trackers, or {\"tracking\": {\"contacts\": bool, \"joint_limits\": bool, \"grips\": bool}} for exactly the ones you need; OMNISIM_HARNESS_LIGHT=0 makes full tracking the process-wide default again (unset or =1 -> light)"
+  }
+}

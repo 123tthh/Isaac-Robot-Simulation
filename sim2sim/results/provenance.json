@@ -1,0 +1,17 @@
+{
+  "omnisim_commit": "0b9b07f5b646295bf4599a06e30f616b99090581",
+  "project_parent_commit": "6ddf12d2d4fe01caec5c1910e56fdb84dd99b9c9",
+  "packages": {
+    "newton-usd-schemas": "0.5.0",
+    "newton": "1.5.0",
+    "mujoco": "3.11.0",
+    "mujoco-warp": "3.11.0",
+    "warp-lang": "1.16.0",
+    "usd-core": "26.5"
+  },
+  "world": "sim2sim/worlds/r1_simple_motion.omniworld",
+  "solver": "Newton / MuJoCo CPU",
+  "timestep_ms": 16,
+  "staticBase": true,
+  "scope": "Joint motion only; no cameras or dataset recording."
+}

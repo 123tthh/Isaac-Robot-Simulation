@@ -1,5 +1,9 @@
 # Cross-simulator validation / 跨仿真器验证
 
+> New bounded motion check / 新增简单运动检查：
+> [sim2sim](../../sim2sim/README.md) · [CLAIM](../../sim2sim/CLAIM.md).
+> Fixed-base arm/finger motion passes; earlier contact limitations below remain unresolved.
+
 ## Result / 结论 — 2026-09-16
 
 **Import and a bounded gripper cycle work with the compatibility URDF. Object
