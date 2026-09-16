@@ -1,0 +1,22 @@
+{
+  "date": "2026-09-16",
+  "omnisim_version": "8.5.1",
+  "omnisim_commit": "0b9b07f5b646295bf4599a06e30f616b99090581",
+  "source_worktree_clean": true,
+  "solver": "newton / mujoco CPU",
+  "basic_time_step_ms": 16,
+  "dependencies": {
+    "newton-usd-schemas": "0.5.0",
+    "newton": "1.5.0",
+    "mujoco": "3.11.0",
+    "mujoco-warp": "3.11.0",
+    "warp-lang": "1.16.0",
+    "usd-core": "26.5"
+  },
+  "inputs_sha256": {
+    "projects/ros2_ws/src/robot/urdf/r1_fixed_portable.urdf": "e3525e83aacb7b699c2cfa9e36e65de728569c0e8c80ca453751b5297f7b4a2f",
+    "projects/ros2_ws/src/robot/urdf/r1_fixed_omnisim.urdf": "8f793c758bee89fac3739bff09aad64a58ae27daadc948879eeb7cc4b35709ba",
+    "releases/2026-09-16/core_manifest.json": "6c67eb242af8e7cd0ccf3a715d5630541dc7f3d6e81fcb4936f8f48fb8cdb435"
+  },
+  "scope": "Post-freeze standalone gripper command test; no Isaac recording or paired grasp trial."
+}

@@ -1,0 +1,240 @@
+{
+  "robot": "R1",
+  "joints": [
+    {
+      "name": "waist_joint_motor",
+      "type": "SliderJoint",
+      "position": -0.051915694028139114,
+      "velocity": null,
+      "lower": -0.5,
+      "upper": 0.0,
+      "hit_limit": null
+    },
+    {
+      "name": "body_joint_motor",
+      "type": "HingeJoint",
+      "position": 0.0,
+      "velocity": null,
+      "lower": 0.0,
+      "upper": 1.5708,
+      "hit_limit": "lower"
+    },
+    {
+      "name": "left_joint1_motor",
+      "type": "HingeJoint",
+      "position": 0.0002924881409853697,
+      "velocity": null,
+      "lower": -3.107,
+      "upper": 3.107,
+      "hit_limit": null
+    },
+    {
+      "name": "left_joint2_motor",
+      "type": "HingeJoint",
+      "position": -0.021364260464906693,
+      "velocity": null,
+      "lower": -2.269,
+      "upper": 2.269,
+      "hit_limit": null
+    },
+    {
+      "name": "left_joint3_motor",
+      "type": "HingeJoint",
+      "position": 0.00013602054968941957,
+      "velocity": null,
+      "lower": -1.8962,
+      "upper": 1.8962,
+      "hit_limit": null
+    },
+    {
+      "name": "left_joint4_motor",
+      "type": "HingeJoint",
+      "position": -0.009594975039362907,
+      "velocity": null,
+      "lower": -2.356,
+      "upper": 2.356,
+      "hit_limit": null
+    },
+    {
+      "name": "left_joint5_motor",
+      "type": "HingeJoint",
+      "position": 5.0589227612363175e-05,
+      "velocity": null,
+      "lower": -3.107,
+      "upper": 3.107,
+      "hit_limit": null
+    },
+    {
+      "name": "left_joint6_motor",
+      "type": "HingeJoint",
+      "position": -0.003283741418272257,
+      "velocity": null,
+      "lower": -2.234,
+      "upper": 2.234,
+      "hit_limit": null
+    },
+    {
+      "name": "left_joint7_motor",
+      "type": "HingeJoint",
+      "position": -1.2732737559417728e-05,
+      "velocity": null,
+      "lower": 0.0,
+      "upper": 0.0,
+      "hit_limit": null
+    },
+    {
+      "name": "left_PGIA_joint1_motor",
+      "type": "SliderJoint",
+      "position": 0.03999999910593033,
+      "velocity": null,
+      "lower": 0.04,
+      "upper": 0.12,
+      "hit_limit": "lower"
+    },
+    {
+      "name": "left_PGIA_joint2_motor",
+      "type": "SliderJoint",
+      "position": 0.041834693402051926,
+      "velocity": null,
+      "lower": 0.04,
+      "upper": 0.12,
+      "hit_limit": null
+    },
+    {
+      "name": "right_joint1_motor",
+      "type": "HingeJoint",
+      "position": 0.0002173252432839945,
+      "velocity": null,
+      "lower": -3.107,
+      "upper": 3.107,
+      "hit_limit": null
+    },
+    {
+      "name": "right_joint2_motor",
+      "type": "HingeJoint",
+      "position": -0.020992815494537354,
+      "velocity": null,
+      "lower": -2.269,
+      "upper": 2.269,
+      "hit_limit": null
+    },
+    {
+      "name": "right_joint3_motor",
+      "type": "HingeJoint",
+      "position": 0.0001211590351886116,
+      "velocity": null,
+      "lower": -1.8962,
+      "upper": 1.8962,
+      "hit_limit": null
+    },
+    {
+      "name": "right_joint4_motor",
+      "type": "HingeJoint",
+      "position": -0.009484635666012764,
+      "velocity": null,
+      "lower": -2.356,
+      "upper": 2.356,
+      "hit_limit": null
+    },
+    {
+      "name": "right_joint5_motor",
+      "type": "HingeJoint",
+      "position": 5.0128172006225213e-05,
+      "velocity": null,
+      "lower": -3.107,
+      "upper": 3.107,
+      "hit_limit": null
+    },
+    {
+      "name": "right_joint6_motor",
+      "type": "HingeJoint",
+      "position": -0.0032655615359544754,
+      "velocity": null,
+      "lower": -2.234,
+      "upper": 2.234,
+      "hit_limit": null
+    },
+    {
+      "name": "right_joint7_motor",
+      "type": "HingeJoint",
+      "position": -1.022278502205154e-05,
+      "velocity": null,
+      "lower": 0.0,
+      "upper": 0.0,
+      "hit_limit": null
+    },
+    {
+      "name": "right_PGIA_joint1_motor",
+      "type": "SliderJoint",
+      "position": 0.03999999910593033,
+      "velocity": null,
+      "lower": 0.04,
+      "upper": 0.12,
+      "hit_limit": "lower"
+    },
+    {
+      "name": "right_PGIA_joint2_motor",
+      "type": "SliderJoint",
+      "position": 0.04184766486287117,
+      "velocity": null,
+      "lower": 0.04,
+      "upper": 0.12,
+      "hit_limit": null
+    },
+    {
+      "name": "wheel_L_joint_motor",
+      "type": "HingeJoint",
+      "position": 1.3803774118423462,
+      "velocity": null,
+      "lower": 0.0,
+      "upper": 0.0,
+      "hit_limit": null
+    },
+    {
+      "name": "wheel_R_joint_motor",
+      "type": "HingeJoint",
+      "position": 1.0450359582901,
+      "velocity": null,
+      "lower": 0.0,
+      "upper": 0.0,
+      "hit_limit": null
+    },
+    {
+      "name": "caster_LF_joint_motor",
+      "type": "HingeJoint",
+      "position": -0.20954149961471558,
+      "velocity": null,
+      "lower": 0.0,
+      "upper": 0.0,
+      "hit_limit": null
+    },
+    {
+      "name": "caster_RF_joint_motor",
+      "type": "HingeJoint",
+      "position": -0.20254354178905487,
+      "velocity": null,
+      "lower": 0.0,
+      "upper": 0.0,
+      "hit_limit": null
+    },
+    {
+      "name": "caster_LB_joint_motor",
+      "type": "HingeJoint",
+      "position": 1.9499309062957764,
+      "velocity": null,
+      "lower": 0.0,
+      "upper": 0.0,
+      "hit_limit": null
+    },
+    {
+      "name": "caster_RB_joint_motor",
+      "type": "HingeJoint",
+      "position": 1.8498475551605225,
+      "velocity": null,
+      "lower": 0.0,
+      "upper": 0.0,
+      "hit_limit": null
+    }
+  ],
+  "rpc_ms": 11.23
+}

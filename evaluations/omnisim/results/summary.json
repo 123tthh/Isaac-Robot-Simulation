@@ -1,0 +1,32 @@
+[
+  {
+    "variant": 0,
+    "object_pose": "[0, 0.35, 0.8]",
+    "max_gripper_error_m": 0.0018428666889667503,
+    "object_contact_reported": false,
+    "terminal_object_displacement_m": 129.78933410644532,
+    "gripper_cycle_complete": true,
+    "grasp_completion": "not demonstrated",
+    "commanded_range_fraction": 0.5000000000000001
+  },
+  {
+    "variant": 1,
+    "object_pose": "[0.05, 0.35, 0.8]",
+    "max_gripper_error_m": 0.0018589264154434196,
+    "object_contact_reported": false,
+    "terminal_object_displacement_m": 108.90492706298828,
+    "gripper_cycle_complete": true,
+    "grasp_completion": "not demonstrated",
+    "commanded_range_fraction": 0.5000000000000001
+  },
+  {
+    "variant": 2,
+    "object_pose": "[0.1, 0.35, 0.8]",
+    "max_gripper_error_m": 0.001803386062383651,
+    "object_contact_reported": false,
+    "terminal_object_displacement_m": 91.19988708496093,
+    "gripper_cycle_complete": true,
+    "grasp_completion": "not demonstrated",
+    "commanded_range_fraction": 0.5000000000000001
+  }
+]

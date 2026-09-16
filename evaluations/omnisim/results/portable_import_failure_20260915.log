@@ -1,0 +1,28 @@
+[headless] no --duration given: treating this as a LOAD CHECK and stopping at Newton finalize (ceiling 30s). Pass --duration N to observe behaviour for N seconds instead.
+[headless] === launch attempt 1/5 ===
+[headless] REQUIRE-NEWTON: engine will fail loudly if Newton can't init (no silent ODE fallback).
+[headless] Starting: omnisim_r1_import.omniworld
+[headless] Duration: 30s
+[headless] Completion: /\[(?:Wb|Om)NewtonBackend\] world finalised/ in /tmp/omnisim-source/omnisim_log.txt (+2s grace)
+[headless] Binary: /tmp/omnisim-source/bin/omnisim-bin
+[headless] FAIL: simulator exited early with code 1
+[headless] engine stderr (/tmp/omnisim-source/omnisim_log.txt.stderr):
+[headless]   [OmniSim] log: /tmp/omnisim-source/omnisim_log.txt
+[headless]   WARNING: URDF link 'body_link': collision mesh '../meshes/body_link.STL' has scale 1.05 1.05 1.05 which cannot be applied inside a boundingObject; it will be loaded at unit scale.
+[headless]   WARNING: URDF link 'trunk_link': collision mesh '../meshes/base_link_lite.STL' has scale 1.05 1.05 1.05 which cannot be applied inside a boundingObject; it will be loaded at unit scale.
+[headless]   WARNING: URDF link 'body_link': collision mesh '../meshes/body_link.STL' has scale 1.05 1.05 1.05 which cannot be applied inside a boundingObject; it will be loaded at unit scale.
+[headless]   WARNING: URDF link 'trunk_link': collision mesh '../meshes/base_link_lite.STL' has scale 1.05 1.05 1.05 which cannot be applied inside a boundingObject; it will be loaded at unit scale.
+[headless]   WARNING: DEF R1 Robot > Solid "trunk_link" > Shape  > Mesh "": Mesh '' has more than 100'000 vertices, it is recommended to reduce the number of vertices.
+[headless]   WARNING: DEF R1 Robot > Solid "trunk_link" > SliderJoint "waist_link" > Solid "waist_link" > HingeJoint "body_link" > Solid "body_link" > Shape  > Mesh "": Mesh '' has more than 100'000 vertices, it is recommended to reduce the number of vertices.
+[headless]   WARNING: DEF R1 Robot > Solid "trunk_link" > SliderJoint "waist_link" > Solid "waist_link" > HingeJoint "body_link" > Solid "body_link" > Solid "arm_attach_L_link" > Solid "left_base_link" > HingeJoint "left_Link1" > Solid "left_Link1" > HingeJoint "left_Link2" > Solid "left_Link2" > HingeJoint "left_Link3" > Solid "left_Link3" > HingeJoint "left_Link4" > Solid "left_Link4" > HingeJoint "left_Link5" > Solid "left_Link5" > HingeJoint "left_Link6" > Solid "left_Link6" > HingeJoint "left_Link7" > Solid "left_Link7" > Solid "left_flange_link" > Solid "camera_L_bottom_screw_frame" > Solid "camera_L_link" > Transform  > Shape  > Mesh "": Mesh '' has more than 100'000 vertices, it is recommended to reduce the number of vertices.
+[headless]   WARNING: DEF R1 Robot > Solid "trunk_link" > Mesh "": Mesh '' has more than 100'000 vertices, it is recommended to reduce the number of vertices.
+[headless]   WARNING: DEF R1 Robot > Solid "camera_F_bottom_screw_frame" > Solid "camera_F_link" > Pose  > Shape  > Mesh "": Mesh 'ID77' has more than 100'000 vertices, it is recommended to reduce the number of vertices.
+[headless]   WARNING: DEF R1 Robot > Solid "lidar_link" > Shape  > Mesh "": Mesh '' has more than 100'000 vertices, it is recommended to reduce the number of vertices.
+[headless]   WARNING: DEF R1 Robot > Solid "laser_link" > Shape  > Mesh "": Mesh '' has more than 100'000 vertices, it is recommended to reduce the number of vertices.
+[headless]   WARNING: Solid 'r1': the physics collider is NOT the authored geometry -- using sphere r=0.001 (Robot wrapper placeholder). The body will contact the world at a different size or place than the scene shows. To collide as authored, declare a 'boundingObject' on this Solid (Box, Sphere, Capsule, Cylinder, Plane or a mesh; a Group of several needs WorldInfo.newtonCompoundColliders TRUE) -- a Robot with none gets the 1 mm placeholder by design. See docs/guide/newton-physics-backend.md.
+[headless]   FATAL: [newton-enforce] A joint's parent body 'left_base_link' resolved to Newton but never registered a Newton body, so the joint would be silently inert -- and Newton is the only backend, so that part of the articulation would run with no physics at all. Fix the model so the body registers with Newton.
+[headless]   ERROR: FATAL: [newton-enforce] A joint's parent body 'left_base_link' resolved to Newton but never registered a Newton body, so the joint would be silently inert -- and Newton is the only backend, so that part of the articulation would run with no physics at all. Fix the model so the body registers with Newton.
+[headless]   the engine log names the cause (/tmp/omnisim-source/omnisim_log.txt):
+[headless]     FATAL: [newton-enforce] A joint's parent body 'left_base_link' resolved to Newton but never registered a Newton body, so the joint would be silently inert -- and Newton is the only backend, so that part of the articulation would run with no physics at all. Fix the model so the body registers with Newton.
+[headless]     ERROR: FATAL: [newton-enforce] A joint's parent body 'left_base_link' resolved to Newton but never registered a Newton body, so the joint would be silently inert -- and Newton is the only backend, so that part of the articulation would run with no physics at all. Fix the model so the body registers with Newton.
+[omnisim] /usr/bin/python3 /tmp/omnisim-source/scripts/dev/headless_runner.py /home/descfly/Videos/Isaac-Robot-Simulation-main/outputs/omnisim_r1_import.omniworld --require-newton

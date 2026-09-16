@@ -1,0 +1,184 @@
+{
+  "load": {
+    "ok": true,
+    "world": "/home/descfly/Videos/Isaac-Robot-Simulation-main/evaluations/omnisim/worlds/cube_floor_control.omniworld",
+    "load_ms": 247,
+    "exit_code": null,
+    "diagnostics": [
+      {
+        "code": "NEWTON_BODIES_REGISTERED",
+        "severity": "info",
+        "message": "[OmNewtonBackend] registered 1 dynamic + 1 static Newton bodies (1 of the statics on the world body) (+2 this pass) (statics: floor)",
+        "dynamic_bodies_registered": 1,
+        "static_bodies_registered": 1,
+        "hint": "informational: the registration census (N dynamic + M static Newton bodies). Compare N with the dynamic bodies you authored -- fewer means one was dropped; the other diagnostics on this load say which (SOLID_ODE_PIN_INERT, KINEMATIC_ARTICULATION, NEWTON_STATICS_NOT_REGISTERED). N == 0 is reported separately as NEWTON_ZERO_DYNAMIC_BODIES.",
+        "raw": "INFO: [OmNewtonBackend] registered 1 dynamic + 1 static Newton bodies (1 of the statics on the world body) (+2 this pass) (statics: floor)"
+      }
+    ],
+    "diagnostics_scope": "the log delta written by THIS reload only -- not the whole log, which still holds every previous world's lines",
+    "load_state": "complete",
+    "supervisor": "connected",
+    "supervisor_connected": true,
+    "supervisor_rebind_rejections": 0,
+    "hot_reloaded": true,
+    "engine_mode": "fast",
+    "tracking": {
+      "light": true,
+      "mode": "light",
+      "disabled_flags": [
+        "--light"
+      ],
+      "default_applied": true,
+      "hint": "light mode: /sim/grips is empty and contact.*/grip.*/joint.limit_hit events are not produced; /sim/contacts still answers.",
+      "default": {
+        "light": true,
+        "mode": "light",
+        "source": "built-in",
+        "since": "2026-09-02",
+        "why": "with the per-step trackers on, the harness is slower than re-running run-headless: fleet arena (309 nodes, CPU mj_step, 2026-08-29) 12.1 s to load vs 4.1 s light, /sim/step 1 573-606 ms vs 6-35 ms (~17x), 10 steps 2855-3187 ms vs 48-67 ms (~47x); cloth world reload 13.4 s vs 3.1 s light",
+        "revert": "pass {\"light\": false} on the request for all three trackers, or {\"tracking\": {\"contacts\": bool, \"joint_limits\": bool, \"grips\": bool}} for exactly the ones you need; OMNISIM_HARNESS_LIGHT=0 makes full tracking the process-wide default again (unset or =1 -> light)",
+        "explicit_wins": "an explicit `light` (either value) or any `tracking` object on the request always overrides this default"
+      },
+      "default_note": "LIGHT tracking was applied BY DEFAULT (built-in; light is the default since 2026-09-02) because the request named neither `light` nor `tracking`: pass {\"light\": false} on the request for all three trackers, or {\"tracking\": {\"contacts\": bool, \"joint_limits\": bool, \"grips\": bool}} for exactly the ones you need; OMNISIM_HARNESS_LIGHT=0 makes full tracking the process-wide default again (unset or =1 -> light)"
+    }
+  },
+  "step": {
+    "sim_time_ms": 3984.0,
+    "advanced_to_ms": 3984.0,
+    "rpc_ms": 38.04,
+    "wall_ms": 38,
+    "steps_executed": 160
+  },
+  "target": {
+    "type": "Robot",
+    "def": "TARGET",
+    "id": 8,
+    "position": [
+      0.0,
+      0.3499999940395355,
+      -298.8454284667969
+    ],
+    "orientation": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "fields": {
+      "name": "target",
+      "controller": "<generic>",
+      "translation": [
+        0.0,
+        0.3499999940395355,
+        -298.8454284667969
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "model": "",
+      "boundingObject": {
+        "field_exists": true,
+        "present": true,
+        "summary": {
+          "type": "Box",
+          "size": [
+            0.04,
+            0.04,
+            0.04
+          ]
+        },
+        "note": null
+      },
+      "physics": {
+        "field_exists": true,
+        "present": true,
+        "note": null,
+        "mass": 0.05,
+        "density": -1.0,
+        "centerOfMass": [],
+        "inertiaMatrix": []
+      },
+      "physics_backend": {
+        "declared": "newton",
+        "effective": "newton",
+        "inert": false,
+        "note": null
+      }
+    },
+    "contact_points_note": "no contact points reported for this node this step. NOT proof of no contact, and NOT a sleeping body -- this engine has no body-sleep mechanism. The real causes are enumerated in GET /sim/contacts -> tracking.empty_set_reasons; the first one to check is on this very response: fields.physics_backend == \"ode\" means the node has no physics at all and can never report a contact.",
+    "rpc_ms": 0.59
+  },
+  "contacts": {
+    "contacts": [],
+    "tracking": {
+      "scope": "every Solid / Robot node in the scene, walked per call",
+      "measured": true,
+      "solids_walked": 3,
+      "solids_answering": 3,
+      "name_filter": null,
+      "live_contacts_only": true,
+      "completeness": "UNKNOWN. This is what the engine answered this step for the nodes this walk can query. An empty list is NOT proof of no contact and a non-empty list is not proof of the full set; see empty_set_reasons.",
+      "bodies_at_rest": [],
+      "bodies_at_rest_total": 0,
+      "bodies_at_rest_note": "informational only. A body at rest DOES report its contacts -- native contact readback is on by default -- so this list is NOT a reason for an empty result. There is no body-sleep mechanism in this engine.",
+      "idle_bodies": [],
+      "idle_bodies_total": 0,
+      "inert_pinned_solids": [],
+      "inert_pinned_solids_total": 0,
+      "empty_set_is_proof_of_no_contact": false,
+      "empty_set_reasons": [
+        {
+          "cause": "solid_pinned_physics_backend_ode",
+          "observed_here": false,
+          "detail": "a Solid whose own or whose ancestor's `physicsBackend` field is \"ode\" has NO physics at all -- no gravity, no contact -- because ODE was deleted and the field no longer selects an engine. It can never appear in this list. The Solids in `inert_pinned_solids` were READ from the scene tree, not inferred.",
+          "check": "GET /scene/node/<def> -> fields.physics_backend, and the SOLID_ODE_PIN_INERT diagnostic on the load"
+        },
+        {
+          "cause": "no_physics_backend_available",
+          "observed_here": null,
+          "detail": "if the Newton runtime did not come up, NOTHING in the world is simulated and no Solid can report a contact. The supervisor cannot see this from the scene tree; the engine reports it on the load.",
+          "check": "GET /capabilities -> physics (source must be \"sidecar\"), and the NO_PHYSICS_BACKEND / NEWTON_RUNTIME_ABSENT / NEWTON_RUNTIME_BROKEN diagnostics"
+        },
+        {
+          "cause": "solid_never_registered_with_the_backend",
+          "observed_here": null,
+          "detail": "a Solid the backend never registered (a capability-gated articulation, an unregistered static collider) reads through a permanently-empty bridge list and reports zero contacts for ever. The engine's own census is the check.",
+          "check": "the NEWTON_ZERO_DYNAMIC_BODIES / NEWTON_STATICS_NOT_REGISTERED diagnostics on the load"
+        },
+        {
+          "cause": "native_contact_readback_disabled",
+          "observed_here": null,
+          "detail": "OMNISIM_NEWTON_NATIVE_CONTACTS=0 makes getContactPoints blind on Newton-backed Solids: its empty answer then means \"cannot see\", not \"nothing is touching\". On by default since 2026-08-07.",
+          "check": "the CONTACT_QUERIES_BLIND diagnostic on the load"
+        },
+        {
+          "cause": "partner_is_not_a_walkable_solid",
+          "observed_here": null,
+          "detail": "a contact with the implicit ground plane the backend adds at z=0, or with the internals of a PROTO floor/terrain, is reported as a half-contact (paired=false) or not at all -- the partner is not a node this walk can name.",
+          "check": "contacts[].paired and contacts[].note"
+        },
+        {
+          "cause": "genuinely_not_touching",
+          "observed_here": null,
+          "detail": "the ordinary case. It is indistinguishable from the above WITHOUT the checks named alongside them, which is the whole point of this block."
+        }
+      ],
+      "wake_parameter": "?wake=1 is a NO-OP kept for compatibility. It used to write WorldInfo.physicsDisableTime and advance two steps to 'clear a sleep timer'; that field has no reader in the engine and there is no body sleep, so it measured nothing while mutating the world during a documented read. It now changes nothing and costs nothing.",
+      "light_mode": {
+        "contacts_affected": false,
+        "detail": "the supervisor is running with --light. This contact WALK is unaffected. What is missing is everything derived from the per-step trackers: the contact.* / grip.* / joint.limit_hit event types are not produced, and GET /sim/grips reports tracking.enabled=false."
+      },
+      "contacts_paired": 0,
+      "contacts_unpaired": 0
+    },
+    "rpc_ms": 0.32
+  }
+}

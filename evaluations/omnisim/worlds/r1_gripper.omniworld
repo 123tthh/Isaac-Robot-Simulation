@@ -1,0 +1,30 @@
+#OMNISIM R2025a utf8
+
+# Standalone R1 importer check. The URDF and every mesh URL are project-relative.
+WorldInfo {
+  title "R1 portable URDF import"
+  basicTimeStep 16
+  defaultPhysicsBackend "newton"
+  newtonSolver "mujoco"
+  newtonStatics TRUE
+}
+Viewpoint {
+  orientation -0.42 0.38 0.82 1.85
+  position 3 -4 2
+}
+DEF FLOOR Solid {
+  children [
+    Shape {
+      appearance PBRAppearance { baseColor 0.42 0.44 0.46 roughness 1 metalness 0 }
+      geometry Box { size 6 6 0.05 }
+    }
+  ]
+  name "floor"
+  boundingObject Box { size 6 6 0.05 }
+}
+DEF R1 URDFRobot {
+  url "../../../projects/ros2_ws/src/robot/urdf/r1_fixed_omnisim.urdf"
+  translation 0 0 0.25
+  name "r1"
+  physicsBackend "newton"
+}

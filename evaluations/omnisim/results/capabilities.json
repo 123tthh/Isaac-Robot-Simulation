@@ -1,0 +1,855 @@
+{
+  "ok": true,
+  "omnisim_wire": "1.1",
+  "service": "world_harness",
+  "sim_version": "8.5.1",
+  "build": {
+    "commit": "0b9b07f5",
+    "binary": "/tmp/omnisim-source/bin/omnisim-bin",
+    "omnisim_home": "/tmp/omnisim-source",
+    "harness_python": "3.12.3",
+    "pillow": true
+  },
+  "machine": {
+    "host": "ubuntu",
+    "platform": "linux",
+    "note": "the canonical machine id (GPU + CPU + engine/libController hashes) comes from python projects/policies/common/env_fingerprint.py"
+  },
+  "physics": {
+    "sidecar_path": "/tmp/omnisim-source/omnisim_log.txt.newton.json",
+    "backend": "newton",
+    "solver": "MuJoCo (cpu/mj_step, WorldInfo.newtonSolver)",
+    "degraded": false,
+    "finalised": true,
+    "source": "sidecar",
+    "sidecar_age_s": 56.0,
+    "bodies": {
+      "dynamic_bodies_registered": 27,
+      "static_bodies_registered": 1,
+      "source": "engine_log_census"
+    },
+    "basic_time_step_ms": 16
+  },
+  "supervisor": {
+    "connected": true,
+    "host": "127.0.0.1",
+    "port": 6990,
+    "light": true,
+    "light_default_applied": true,
+    "tracking": {
+      "contacts": false,
+      "joint_limits": false,
+      "grips": false
+    },
+    "error": null,
+    "commands": [
+      "bounds_probe",
+      "capabilities",
+      "damage_events",
+      "damage_geometry_stats",
+      "damage_heal_to_pristine",
+      "damage_inject",
+      "damage_reset",
+      "damage_set_heal_rate",
+      "damage_state",
+      "diag_read_bench",
+      "events_drain",
+      "get_viewpoint",
+      "particle_stats",
+      "ping",
+      "rebuild_physics",
+      "reset",
+      "robot_devices",
+      "robot_joints",
+      "robots_list",
+      "scene_bounds",
+      "scene_delete",
+      "scene_node",
+      "scene_set_pose",
+      "scene_set_poses",
+      "scene_spawn",
+      "scene_tree",
+      "screenshot",
+      "set_joint_positions",
+      "set_viewpoint",
+      "sim_contacts",
+      "sim_grips",
+      "sim_restore",
+      "sim_snapshot",
+      "sim_snapshots",
+      "sim_state",
+      "solve_ik",
+      "step",
+      "world_load"
+    ],
+    "commands_source": "scanned from dispatch() in harness_supervisor.py",
+    "snapshots": [
+      "__init__"
+    ]
+  },
+  "world": {
+    "path": "/home/descfly/Videos/Isaac-Robot-Simulation-main/evaluations/omnisim/worlds/r1_gripper.omniworld",
+    "load_ok": true,
+    "load_ms": 4809,
+    "load_state": "complete"
+  },
+  "features": [
+    "world.load",
+    "world.sync",
+    "world.hot_reload",
+    "world.diagnostics",
+    "world.screenshot",
+    "world.render_stats",
+    "scene.tree",
+    "scene.bounds",
+    "scene.bounds_probe",
+    "scene.node",
+    "scene.viewpoint",
+    "scene.look_at",
+    "scene.frame",
+    "scene.orbit",
+    "scene.visible",
+    "scene.spawn",
+    "scene.delete",
+    "scene.set_pose",
+    "sim.step",
+    "sim.reset",
+    "sim.snapshot",
+    "sim.restore",
+    "sim.contacts",
+    "sim.grips",
+    "sim.state",
+    "events.cursor",
+    "robot.joints",
+    "robot.devices",
+    "robot.damage",
+    "capabilities"
+  ],
+  "not_supported": [
+    {
+      "feature": "robot.sensor_read",
+      "code": "effector_unavailable",
+      "http": 501,
+      "reason": "OmniSim restricts device APIs to the controller that owns the device; the supervisor cannot honestly read a sibling robot's lidar/camera/IMU.",
+      "workaround": "GET /robot/<def>/joints for kinematic state, or a Robot Bridge (PROTOCOL.md \u00a75)."
+    },
+    {
+      "feature": "sim.pause",
+      "reason": "not implemented: Supervisor.simulationSetMode() is in the binding but not wired to HTTP.",
+      "workaround": "None for holding the world still between requests: the injected supervisor is non-synchronized, so the --mode=fast engine FREE-RUNS between your calls (measured; see docs/developer/harness-latency-2026-07-31.md). The read endpoints (/scene/tree, /robots, /sim/contacts, bounds) do pause the engine internally for the duration of their walk, so each response is a consistent single-instant snapshot -- but time keeps running between calls."
+    },
+    {
+      "feature": "entity.velocity",
+      "reason": "not implemented: Node.getVelocity()/setVelocity() are in the binding but not exposed.",
+      "workaround": "Differentiate positions across two /scene/tree reads, or /robot/<def>/joints velocity."
+    },
+    {
+      "feature": "scene.spawn_many",
+      "reason": "not implemented: /scene/spawn takes one node per call (no batch form yet).",
+      "workaround": "Loop /scene/spawn; each call is sub-second in light mode."
+    },
+    {
+      "feature": "scene.spawn(urdf) / scene.spawn(type=URDFRobot)",
+      "code": "SPAWN_REJECTED",
+      "reason": "an engine constraint, not a harness gap: `URDFRobot { url ... }` is a tokenizer-level SOURCE expansion applied only in OmTokenizer::tokenizeFile (src/omnisim/vrml/OmTokenizer.cpp:412). A supervisor import goes through tokenizeString, which never expands it, so OmParser::protoNodeList() treats URDFRobot as a PROTO and OmNodeOperations::importNode refuses it as not declared IMPORTABLE. The same refusal applies to any PROTO the loaded world does not declare in its IMPORTABLE EXTERNPROTO list.",
+      "workaround": "POST /scene/spawn {\"clone\": \"<DEF of an existing robot>\"} \u2014 the engine exports the ALREADY-EXPANDED node (Node.exportString) and that imports fine; or put the URDFRobot block in the .wbt and hot-reload."
+    },
+    {
+      "feature": "sim.reset(preserves actuation)",
+      "reason": "the engine's reset walks the whole scene (OmSimulationWorld::reset -> root()->reset(\"__init__\")) and OmMotor::reset (src/omnisim/nodes/OmMotor.cpp:796-809) clears mUserControl and re-pins mTargetPosition to the joint's CURRENT position. A wheel running in velocity mode was set up with setPosition(inf), so its target goes from infinity to a finite angle and the motor becomes a POSITION HOLD where it stopped. The supervisor path passes restartControllers=false (OmSupervisorUtilities.cpp:610), so no controller restarts to re-issue the command.",
+      "measured": "2026-08-12: 10 robots, 1250 steps after the reset, 20.0 s of sim time at normal per-step cost, 0.00 m net and 0.00 m path each; a second cell read its wheel joints frozen at 980.14 rad -- exactly the re-pinned target. The same world drives 57.9-89.3 m/robot under run-headless.",
+      "workaround": "have the controller re-issue its motor commands after a reset (setPosition(inf) + setVelocity(v) for a velocity-mode wheel); or POST /world/load the same world instead of resetting -- a load starts fresh controllers, which re-issue their start-up commands"
+    },
+    {
+      "feature": "world.validate",
+      "reason": "not implemented (agent-native-api.md P5): omniworld.validation.validate() is in-tree and ~4 ms, but no endpoint calls it.",
+      "workaround": "python scripts/dev/omniworld.py validate <world.omniworld>"
+    },
+    {
+      "feature": "world.generate",
+      "reason": "not implemented (agent-native-api.md P5): omniworld is CLI-only.",
+      "workaround": "python scripts/dev/omniworld.py generate <recipe> --seed N --out <path>"
+    },
+    {
+      "feature": "world.save",
+      "reason": "not implemented: Supervisor.worldSave() is in the binding but not exposed, so a scene composed with /scene/spawn cannot yet be persisted to a .wbt.",
+      "workaround": "Compose the same scene as text and POST /world/load it."
+    },
+    {
+      "feature": "worlds.list",
+      "reason": "not implemented: no GetAvailableWorlds equivalent.",
+      "workaround": "ls projects/samples/demos/worlds/ out of band."
+    },
+    {
+      "feature": "events.streaming",
+      "reason": "deliberately out of scope (PROTOCOL.md \u00a715); the cursor-paged /sim/events with dropped_sup / dropped_log counters covers the need.",
+      "workaround": "Poll GET /sim/events with both cursors."
+    },
+    {
+      "feature": "joint.motorised_balljoint_actuation",
+      "scope": "engine",
+      "status": "WORKS since 2026-08-17 (actuation measured 2026-09-01); residual gap: per-axis stops",
+      "reason": "MOTORISED BallJoint ACTUATION WORKS. The Newton d6 path (registerNewtonMultiDof / pushNewtonMultiDofTargets, reached from OmBasicJoint's per-tick push) is DEFAULT ON since 2026-08-17 behind OMNISIM_NEWTON_BALL_HINGE2 (value-parsed). It was default OFF while the vendored runtime was newton 1.2.0, whose d6 -> MuJoCo actuator mapping did not drive multi-DoF position targets; newton 1.5.0 (b56be84a0) does. Measured 2026-09-01 with a corrected probe (OmniBench lane 4 `joint.ball_motor`): commanded 0.8 rad about an axis WITH a lever arm, the arm displaced 0.1884 m against an analytic 0.1947 -- PASS. The earlier `broken` verdict commanded the one axis that passes through the arm's own origin, which no actuator can displace, so it never measured actuation at all. WHAT IS STILL NOT SUPPORTED: the BALL element is emitted `limited: False`, so a BallJointParameters' per-axis minStop/maxStop are NOT enforced by the solver and the joint swings past its authored stops; the engine warns per motorised ball at registration.",
+      "symptom": "none for actuation. For the residual gap: a driven or passive ball joint travels past its authored per-axis stops with no error; its PositionSensor readback is live and reports the overshoot honestly.",
+      "source": "src/omnisim/nodes/OmBasicJoint.cpp (newtonBallHinge2Enabled), src/omnisim/nodes/OmBallJoint.cpp (prePhysicsStep, applyToOdeMinAndMaxStop)",
+      "diagnostic": "JOINT_REGISTRATION_FAILED when the d6 could not be registered; the unmapped stops are warned per joint at registration (the joint-feature diagnostic named under joint.fields below); an overshoot itself is SILENT",
+      "workaround": "for hard stops, model the DOF as a chain of HingeJoints (hinge limits ARE enforced) or clamp targets in the controller; verify motion from GET /robot/<def>/joints across two reads rather than trusting the command. OMNISIM_NEWTON_BALL_HINGE2=0 is the exact-revert hatch back to a PASSIVE constraint (no actuation, no angle readback) for an A/B -- it disables Hinge2Joint too, so a joint that will not move is that hatch before it is the solver."
+    },
+    {
+      "feature": "joint.motorised_hinge2joint_actuation",
+      "scope": "engine",
+      "status": "WORKS since 2026-08-17 (measured 2026-08-17); no residual gap",
+      "reason": "MOTORISED Hinge2Joint ACTUATION WORKS -- same d6 path and the same DEFAULT ON gate as the BallJoint entry above. Measured 2026-08-17 (machine 9722d23d12a3, binary 13906cc6f12451eb, CPU mj_step, gravity 0 so the motor is the only thing that can move the arm): OmniBench lane 4 `joint.hinge2_motor` went broken -> works, tracking its commanded 0.8 rad exactly and carrying the arm 0.1951 m; tests/test_newton_ball_hinge2.py's hinge2 arm went from xfail to XPASS (both axes inside 0.05 rad of their commands, axis 1 does not drift when only axis 2 is re-commanded). Hinge2 axes ARE limited -- the d6 carries per-axis limits -- so unlike the ball there is no stops gap. Declaring the motors' minPosition/maxPosition (or the joint's minStop/maxStop) is what took the probe to `works`: a motor with no limits is built as a velocity wheel (ke = 0), see joint.fields below.",
+      "symptom": "none. Passive Hinge2 constraints (free-spinning casters) were never affected.",
+      "source": "src/omnisim/nodes/OmBasicJoint.cpp (newtonBallHinge2Enabled), src/omnisim/nodes/OmHinge2Joint.cpp (prePhysicsStep)",
+      "diagnostic": "JOINT_REGISTRATION_FAILED when the d6 could not be registered; otherwise none",
+      "workaround": "none needed. Kept so the revert hatch (OMNISIM_NEWTON_BALL_HINGE2=0 disables BOTH joint types) and the history stay discoverable: if a Hinge2 does not move, check that variable and the motor's limits before suspecting the solver."
+    },
+    {
+      "feature": "sensor.touchsensor_force / force-3d (authored WITHOUT a Physics node)",
+      "scope": "engine",
+      "status": "WORKS when authored correctly (measured 2026-08-15); two silent zeros remain",
+      "reason": "the force source is the Newton mount-wrench readback, which can only answer for a sensor that was UN-FOLDED into a Newton body of its own; the ODE mount-joint feedback it used to fall back to has been removed, so when the native readback cannot answer there is NO force source at all. Since ee069b326 (2026-08-13) a BUMPER un-folds on its boundingObject alone, but \"force\" / \"force-3d\" still require a Physics node -- deliberately, because their value is the MOUNT WRENCH, which is undefined for a sensor that is not an inertial body in its own right. Re-measured 2026-08-15 (machine 9722d23d12a3, CPU mj_step): bumper 1.0 on 10/10 resting samples and 0.0 in free flight; force 981.00004 N against an analytic 981.",
+      "symptom": "a force sensor authored without Physics reads 0.0 for ever -- that 0 is \"not measured\", never \"no force\". Two more SILENT ZEROS survive in a WORKING force sensor and are authoring traps, not engine defects: (1) the value is the mount wrench projected onto the sensor's own +X axis, so a sensor authored without a rotation (+X horizontal) reads ~8e-16 N under a vertical load; (2) TouchSensor.wrl defaults lookupTable to [0 0 0, 5000 50000 0], a 10x gain, so a 19.62 N load reads 196.2.",
+      "source": "src/omnisim/nodes/OmTouchSensor.cpp (computeValue), src/omnisim/nodes/OmSolid.cpp (isUnfoldedTouchSensor)",
+      "diagnostic": "SENSOR_NO_SOURCE for the never-un-folded case; the aim and lookupTable traps are SILENT",
+      "workaround": "give a force sensor a Physics node; aim +X into the load (rotation 0 1 0 1.5708 points it down under ENU); declare `lookupTable [ ]` for raw newtons; and check the load for SENSOR_NO_SOURCE before believing any reading. Proving a grasp geometrically (the part is airborne and tracks the gripper) remains the stronger claim; GET /sim/contacts is the contact read that never depends on this device."
+    },
+    {
+      "feature": "physics.backend_ode (physicsBackend \"ode\", defaultPhysicsBackend \"ode\")",
+      "scope": "engine",
+      "reason": "src/ode was DELETED (bdc02139). The field still parses, and what it now selects is OmOdeBackend's inert dispatcher stub -- every verb returns -1 -- so the Solid gets NO gravity and NO contact while the world loads clean. An explicit physicsBackend \"ode\" is no longer an opt-out of Newton; it is an opt-out of physics. Since 2026-08-08 the engine WARNS once per such Solid (\"asks for physicsBackend 'ode' ... will have NO gravity and NO contact\"); an older log will not have that line.",
+      "symptom": "the body never falls, never collides, and reports zero contact points for ever, with boundingObject and physics both present. The world loads with no error.",
+      "source": "src/omnisim/nodes/OmSolid.cpp (flushPendingNewtonRegistrations)",
+      "diagnostic": "SOLID_ODE_PIN_INERT (one per pinned Solid that declares collision or mass; coalesced by this harness) -- and NEWTON_ZERO_DYNAMIC_BODIES when it was the world's only dynamic body",
+      "workaround": "delete the field (the \"auto\" default resolves to Newton; write \"newton\" to be explicit; never write \"ode\" into a new world). GET /scene/node/<def> -> fields.physics_backend.inert tells you per node, and GET /sim/contacts -> tracking.inert_pinned_solids lists them all."
+    },
+    {
+      "feature": "sound.contact",
+      "reason": "CONTACT SOUND IS SILENT ON THE NEWTON BACKEND, and has been since Newton became the default. Its producer was the ODE near-callback's contact list, keyed on ODE geom ids; that whole subsystem was deleted with the ODE layer on 2026-09-02, and nothing feeds contact sounds from the body-indexed Newton contact snapshot yet. Contact-sound MASS WEIGHTING is separately unimplemented.",
+      "scope": "engine",
+      "symptom": "collisions are mute. Motor sounds are unaffected.",
+      "source": "src/omnisim/sound/OmSoundEngine.cpp (updateAfterPhysicsStep; the contact producer is gone)",
+      "diagnostic": null,
+      "workaround": "none in-engine. Detect the collision from /sim/events contact.began and add audio in post."
+    },
+    {
+      "feature": "motor.force_feedback (getForceFeedback / getTorqueFeedback)",
+      "scope": "engine",
+      "reason": "the feedback read went through the ODE joint (dJointGetFeedback via OmBasicJoint::jointID()), and mJoint is now assigned NULL and nothing else -- so jointID() is permanently NULL and computeFeedback() returns 0.0 before doing any work. Propeller thrust/torque is the one exception: it is computed from the motor's own model, not from the solver.",
+      "symptom": "0.0 from every motorised joint's force/torque feedback, with no warning. (Relatedly: turning a motor OFF is unimplemented -- a motor switched off keeps whatever target the last per-tick Newton push wrote.)",
+      "source": "src/omnisim/nodes/OmRotationalMotor.cpp (computeFeedback, turnOffMotor), src/omnisim/nodes/OmMotor.cpp (the computeFeedback callers), src/omnisim/nodes/OmBasicJoint.hpp (jointID)",
+      "diagnostic": null,
+      "workaround": "none. Do not use force feedback as a contact or load signal on this build."
+    },
+    {
+      "feature": "sensor.occlusion_rays vs a node DELETED at runtime",
+      "scope": "engine",
+      "reason": "occlusion itself WORKS again (fixed 2026-08-08: the ray carrier is now plain start/direction/length members answered by the Newton raycast service, the same pattern Receiver and LightSensor already used -- a wall between sensor and target now blocks it, verified by a control/differential pair in tests/test_newton_radar_occlusion_parity.py). What does NOT work BY DEFAULT is a node removed by the supervisor at runtime: the Newton world is frozen at finalize and has no INCREMENTAL remove path, so the deleted geometry stays in the MuJoCo model and keeps blocking rays until the world is rebuilt or reloaded.",
+      "symptom": "after wb_supervisor_node_remove_node(), a target that the removed node used to hide STILL reports as occluded. Measured on tests/api/worlds/camera_recognition.omniworld: the 8-vs-7 occlusion count now passes, and the later assertion -- 1 object visible once the occluders are removed -- reads 0.",
+      "source": "src/omnisim/nodes/utils/OmObjectDetection.cpp (working); the gap is the frozen model -- src/omnisim/physics/OmNewtonBackend.cpp (finalizeWorld) -- and the fix is the whole-world rebuild verb wb_supervisor_simulation_rebuild_physics (include/controller/c/omnisim/supervisor.h)",
+      "diagnostic": "OCCLUSION_RAYS_UNANSWERED",
+      "workaround": "POST /sim/rebuild_physics after removing collidable nodes (W1.7, 2026-09-01; 97-267 ms, refused on particle worlds), or reload the world. This is NOT limited to rays: CONTACTS against a deleted static are affected too, MEASURED 2026-08-08 -- a body resting on an elevated floor stayed at z=0.5999 for 61,440 steps after the floor was deleted, and the engine's own step log still listed the deleted floor's body at its authored pose. A deleted wall still stops a robot. Tested on one static Solid under the default CPU solver; dynamic bodies, robots and mujoco_warp are unmeasured."
+    },
+    {
+      "feature": "scene.runtime_mutation_physics (/scene/spawn and /scene/delete reach the solver)",
+      "scope": "engine",
+      "reason": "the Newton/MuJoCo model is FROZEN at finalizeWorld(): openForBuild goes false, every addBody/addShape* verb guards on it, ensureWorldOpen() refuses to reopen mid-run, and there is no incremental removeBody path either. So BY DEFAULT a node spawned mid-session is NEVER registered with the solver, and a node deleted mid-session leaves its colliders in it -- the exact mirror pair (see the occlusion-rays entry above for the delete half's measurements).",
+      "symptom": "a spawned dynamic body never falls (measured 2026-08-17: released at z=1.5, unchanged after 2200 steps / ~87 s sim time, while its authored twin settled at 0.599892) and a spawned static body never collides; a deleted wall still blocks robots and rays and a deleted floor still holds bodies up. Engine-side: 0 errors, 0 warnings, and the spawn response reads verification.node_resolved: true.",
+      "source": "src/omnisim/physics/OmNewtonBackend.cpp (finalizeWorld sets openForBuild = false; ensureWorldOpen refuses to reopen); the opt-in fix shipped 2026-09-01 as W1.7 (88487d988): wb_supervisor_simulation_rebuild_physics, include/controller/c/omnisim/supervisor.h",
+      "diagnostic": "SILENT engine-side; this harness attaches `physics_warning` RUNTIME_MUTATION_NOT_IN_SOLVER to every successful /scene/spawn and /scene/delete response that did not opt into the rebuild, and emits one world.warning per verb per world-load",
+      "workaround": "FIXED 2026-09-01 (W1.7): POST /sim/rebuild_physics -- or pass {\"physics\": \"rebuild\"} on /scene/spawn / /scene/delete -- rebuilds the Newton world at the scene's CURRENT poses in 97-267 ms (measured), so spawned nodes gain physics and deleted ones lose it. Verified: a spawned box landed bit-identical to its authored twin (0.599892258644104) and an 8-robot world drove through a mid-run rebuild at unchanged speed. Caveats: 409 REBUILD_REFUSED on Cloth/SoftBody/GranularBed worlds (they re-register from authored state -- reload those); engaged Connector/VacuumGripper welds are DROPPED with a loud warning (re-lock from the controller); bitwise step-for-step continuation across a rebuild is not claimed. The DEFAULT spawn/delete behaviour is unchanged (this entry stays so the default's physics_warning remains explained); /scene/set_pose is unaffected (it moves a body the solver already knows)."
+    },
+    {
+      "feature": "solid.setInertiaMatrixFromBoundingObject",
+      "scope": "engine",
+      "reason": "computing an inertia matrix from the bounding object is unavailable -- it ran ODE's mass integrator, and ODE has been removed. The inertiaMatrix fields are NOT modified.",
+      "symptom": "the call warns and leaves the fields as they were, so a body keeps whatever inertia it had (possibly the identity matrix).",
+      "source": "src/omnisim/nodes/OmSolid.cpp (setInertiaMatrixFromBoundingObject)",
+      "diagnostic": "INERTIA_FROM_BOUNDING_OBJECT_UNAVAILABLE",
+      "workaround": "author an explicit `inertiaMatrix` (and `centerOfMass`) in the Physics node."
+    },
+    {
+      "feature": "track.propulsion (a Track's belt drives nothing)",
+      "scope": "engine",
+      "reason": "OmTrack computes a belt surface velocity and exposes it as contactSurfaceVelocity(), which has ZERO readers in the tree: it was consumed by ODE's contact-surface-velocity mechanism, and nothing replaced it when ODE was deleted (bdc02139). The belt ANIMATION (belt elements, wheel spin, texture scroll, the PositionSensor) was separately dead on both renderers until 2026-08-23 -- prePhysicsStep gated the whole update on a dBodyID that had been NULL since the deletion -- and works again; the PROPULSION does not.",
+      "symptom": "a tracked robot's belt animates and its PositionSensor advances while the chassis does not move. No error, no warning.",
+      "source": "src/omnisim/nodes/OmTrack.cpp (prePhysicsStep), src/omnisim/nodes/OmTrack.hpp (contactSurfaceVelocity, unread)",
+      "diagnostic": null,
+      "workaround": "none in-engine. Propel the chassis through wheels (HingeJoint + RotationalMotor DO drive on Newton) and keep the Track for its visuals, or move the body kinematically from a supervisor. Making a tracked robot drive under Newton is open work."
+    },
+    {
+      "feature": "joint.fields (stopErp/stopCfm, springs+damping, suspension, BallJoint hard stops, Connector snap alignment, Propeller inflow, Track force control, motor turn-off)",
+      "scope": "engine",
+      "reason": "each of these had ODE as its ONLY implementation and was deleted with it (commit 5b380175, which removed 46 dead odeBackend() call sites / ~113 verb calls that were writing into an inert stub while looking like working code). Specifically: HingeJointParameters.stopErp/stopCfm named ODE's error-reduction / constraint-force-mixing pair, and Newton's joint limits are a spring tuned by OMNISIM_NEWTON_LIMIT_KE/KD instead; spring/damping/staticFriction and suspension*/suspensionAxis were ODE motor state; BallJoint per-axis stops are not mapped (the BALL element is `limited: False`; Hinge2 axes ARE limited since the d6 path went default-on 2026-08-17); Connector snap rotated the two parent ODE bodies (both handles are permanently NULL, so the whole snap chain computes a quaternion that lands nowhere -- the Newton weld attaches WITHOUT snapping); Propeller's axial inflow term needed a body point-velocity read, so V is pinned to 0 and only the omega^2 term survives; Track force control needed the belt body's mass from dBodyGetMass; turning a motor off zeroed the ODE motor velocity. Related, and NOT a gap any more: a motor with no minPosition/maxPosition (and no joint stops) is built as a VELOCITY WHEEL with ke = 0, and since 2026-09-01 the first finite setPosition() from the CONTROLLER promotes it to a position servo (wire-level latch; OMNISIM_NEWTON_PROMOTE_SERVO=0 reverts) -- supervisor-side /robot/<def>/joints/set writes do NOT promote, which is why that verb reports position_controllable: false for such a joint.",
+      "symptom": "the field is accepted and does nothing. A spring that does not push reads as a physics bug rather than as a missing feature -- which is why the engine warns per joint for the subset it can detect.",
+      "source": "src/omnisim/nodes/OmHingeJoint.cpp (applyToOdeStopErp, applyToOdeSpringAndDampingConstants, prePhysicsStep), src/omnisim/nodes/OmHinge2Joint.cpp (applyToOdeSpringAndDampingConstants), src/omnisim/nodes/OmBallJoint.cpp (applyToOdeMinAndMaxStop), src/omnisim/nodes/OmConnector.cpp (snapXAxes), src/omnisim/nodes/OmPropeller.cpp (prePhysicsStep), src/omnisim/nodes/OmTrack.cpp (prePhysicsStep), src/omnisim/nodes/OmRotationalMotor.cpp (turnOffMotor), src/omnisim/nodes/OmLinearMotor.cpp (turnOffMotor)",
+      "diagnostic": "JOINT_FEATURE_UNIMPLEMENTED (Hinge2Joint / BallJoint only -- the others are SILENT)",
+      "workaround": "for limits, tune OMNISIM_NEWTON_LIMIT_KE/KD; for suspension and springs, model them as an actuated joint driven by your controller; for Track force control, use position or velocity control (both unaffected)."
+    },
+    {
+      "feature": "sim.grips + events.contact/grip/joint",
+      "reason": "the supervisor is running with --light, which does not construct the contact, joint-limit and grip trackers (they walk the whole scene graph every basic step). GET /sim/contacts is UNAFFECTED: it walks the scene per call (observe.collect_contacts) and never reads a tracker, so it answers in light mode exactly as it does in full mode.",
+      "workaround": "GET /sim/grips still answers, with tracking.enabled=false so an empty list is not mistaken for 'nothing is gripped'; derive a grip from GET /sim/contacts (gripper subtree vs held solid), or reload with {\"light\": false} (all trackers) or a `tracking` object (just the ones you need) to get them back, at about 2.3x the single /sim/step cost measured 2026-09-02 (17-47x on the 2026-08-29 engine) measured on the 309-node fleet arena. Light is the DEFAULT since 2026-09-02 (limits.tracking_default; OMNISIM_HARNESS_LIGHT=0 restores full as the process default)."
+    }
+  ],
+  "limits": {
+    "supervisor_rpc_timeout_s": 120.0,
+    "max_steps_per_request": null,
+    "max_steps_per_request_note": "unbounded by the harness; the real limit is time \u2014 a step request that exceeds supervisor_rpc_timeout_s drops the supervisor socket, and `step` is not auto-retried",
+    "max_load_wait_s": 300.0,
+    "load_bind_hard_ceiling_s": 300.0,
+    "events_limit_default": 256,
+    "events_limit_max": 1024,
+    "log_buffer_events": 4096,
+    "step_cost": null,
+    "tracking_default": {
+      "light": true,
+      "mode": "light",
+      "source": "built-in",
+      "since": "2026-09-02",
+      "why": "with the per-step trackers on, the harness is slower than re-running run-headless: fleet arena (309 nodes, CPU mj_step, 2026-08-29) 12.1 s to load vs 4.1 s light, /sim/step 1 573-606 ms vs 6-35 ms (~17x), 10 steps 2855-3187 ms vs 48-67 ms (~47x); cloth world reload 13.4 s vs 3.1 s light",
+      "revert": "pass {\"light\": false} on the request for all three trackers, or {\"tracking\": {\"contacts\": bool, \"joint_limits\": bool, \"grips\": bool}} for exactly the ones you need; OMNISIM_HARNESS_LIGHT=0 makes full tracking the process-wide default again (unset or =1 -> light)",
+      "explicit_wins": "an explicit `light` (either value) or any `tracking` object on the request always overrides this default"
+    },
+    "recommended_max_steps_per_request": null,
+    "step_cost_hint": "no /sim/step measured on this world yet \u2014 call GET /capabilities?probe_step=1 to measure one, or POST /sim/step {\"steps\": 1} and read the cost back here"
+  },
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/capabilities",
+      "summary": "This document: backend, limits, event types, what is not supported.",
+      "params": [
+        "probe_step"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/healthz",
+      "summary": "Liveness; never touches the simulator."
+    },
+    {
+      "method": "GET",
+      "path": "/debug/read_bench",
+      "summary": "Diagnostic: measured cost of one supervisor read on this session, free-running vs paused.",
+      "params": [
+        "n"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/world/diagnostics",
+      "summary": "Structured diagnostics from the current load."
+    },
+    {
+      "method": "GET",
+      "path": "/world/render_stats",
+      "summary": "Exposure statistics of a fresh render (0-255 scale)."
+    },
+    {
+      "method": "GET",
+      "path": "/scene/tree",
+      "summary": "Flat node list; ?bounds=1 attaches world-space bounds.",
+      "params": [
+        "bounds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/scene/node/<def>",
+      "summary": "Field dump + contacts for one node.",
+      "params": [
+        "bounds",
+        "probe"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/scene/node/<def>/particles",
+      "summary": "Particle stats for one Cloth/SoftBody/GranularBed/GranularGroup node: count, world-frame min/max/centroid over the FINITE particles, and non_finite (a diverging cloth reads as a rising non_finite, never a NaN centroid). PURE READ off the engine's per-step particle cache; ?sample=N adds every N-th particle's xyz.",
+      "params": [
+        "sample"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/scene/viewpoint",
+      "summary": "Read the live camera back, with resolved per-axis FOV."
+    },
+    {
+      "method": "GET",
+      "path": "/scene/visible",
+      "summary": "What is on screen now: frustum test, pixel bbox, angular offset.",
+      "params": [
+        "defs",
+        "all",
+        "limit"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sim/state",
+      "summary": "Harness session metadata (not scene state)."
+    },
+    {
+      "method": "GET",
+      "path": "/sim/contacts",
+      "summary": "Global contact set + `tracking` scope. Walked per call, so it answers in light mode too. An EMPTY list is never proof of no contact and the response never claims completeness: tracking.empty_set_reasons enumerates the real causes (a Solid pinned physicsBackend \"ode\" has no physics at all and is listed, measured, in tracking.inert_pinned_solids; a Newton runtime that never came up; a Solid the backend never registered). There is NO body-sleep mechanism in this engine, and ?wake=1 is a documented no-op kept for compatibility.",
+      "params": [
+        "wake",
+        "settle_steps"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sim/grips",
+      "summary": "Inferred grips + `tracking` scope. In light mode the tracker does not exist, so the list is empty with tracking.enabled=false (NOT measured, as distinct from nothing gripped)."
+    },
+    {
+      "method": "GET",
+      "path": "/sim/events",
+      "summary": "Cursor-paged unified event stream with drop counters.",
+      "params": [
+        "since",
+        "log_since",
+        "limit",
+        "types"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sim/snapshots",
+      "summary": "Named state snapshots taken in this world."
+    },
+    {
+      "method": "GET",
+      "path": "/robots",
+      "summary": "Every Robot in the scene with pose and joint count. The harness's own injected supervisor is EXCLUDED (it is not in your .wbt) and named in `harness_injected`; ?include_harness=1 lists it, flagged.",
+      "params": [
+        "include_harness"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/robot/<def>/joints",
+      "summary": "Per-joint position/velocity/limits + hit_limit."
+    },
+    {
+      "method": "GET",
+      "path": "/robot/<def>/devices",
+      "summary": "Device inventory of a robot's subtree."
+    },
+    {
+      "method": "GET",
+      "path": "/robot/<def>/sensor/<name>",
+      "summary": "501 by design; see not_supported."
+    },
+    {
+      "method": "GET",
+      "path": "/robot/damage",
+      "summary": "Damage state of the tracked robot."
+    },
+    {
+      "method": "GET",
+      "path": "/robot/damage/events",
+      "summary": "Filtered view of damage.* events.",
+      "params": [
+        "since",
+        "limit"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/world/load",
+      "summary": "Load or hot-reload a world (.omniworld or legacy .wbt); structured diagnostics. Runs LIGHT by default since 2026-09-02 when neither `light` nor `tracking` is named (tracking.default_applied says so; OMNISIM_HARNESS_LIGHT=0 restores full).",
+      "body": [
+        "path",
+        "wait_s",
+        "with_supervisor",
+        "light",
+        "tracking"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/world/sync",
+      "summary": "Default agent edit loop: live-apply proven root pose-only changes; safely reload everything else.",
+      "body": [
+        "path",
+        "settle_steps",
+        "reset_physics",
+        "wait_s",
+        "light"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/world/screenshot",
+      "summary": "Render a PNG (body or server-side path). NEVER answers 200 without a picture: empty or non-PNG bytes are a 502 SCREENSHOT_EMPTY / SCREENSHOT_NOT_PNG.",
+      "body": [
+        "path",
+        "quality"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/scene/look_at",
+      "summary": "Aim the camera from a position at a target.",
+      "body": [
+        "position",
+        "target",
+        "push"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/scene/frame",
+      "summary": "Aim AND distance from real bounds, with numeric verification.",
+      "body": [
+        "def",
+        "defs",
+        "target",
+        "radius",
+        "mode",
+        "margin",
+        "aspect",
+        "push"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/scene/orbit",
+      "summary": "Relative camera nudge around the current view.",
+      "body": [
+        "azimuth_deg",
+        "elevation_deg",
+        "dolly",
+        "pan",
+        "center",
+        "def",
+        "push"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/scene/spawn",
+      "summary": "Import a node into the live scene from VRML, a type+fields spec, or a clone of an existing DEF. \u26d4 BY DEFAULT A SCENE-GRAPH VERB, NOT A PHYSICS VERB: the Newton/MuJoCo model is frozen at world finalize, so without opting in the spawned node has NO physics (dynamic never falls, static never collides; measured 2026-08-17) and the response carries `physics_warning` RUNTIME_MUTATION_NOT_IN_SOLVER saying so. Pass {\"physics\": \"rebuild\"} (or POST /sim/rebuild_physics afterwards) and the node IS simulated: the Newton world is rebuilt at the scene's current poses, 97-267 ms measured, refused on cloth/soft/granular worlds, engaged welds dropped. See not_supported scene.runtime_mutation_physics.",
+      "body": [
+        "vrml",
+        "type",
+        "fields",
+        "urdf",
+        "clone",
+        "def",
+        "name",
+        "translation",
+        "rotation",
+        "parent",
+        "index",
+        "settle_steps",
+        "reset_physics",
+        "physics"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/scene/delete",
+      "summary": "Remove nodes by DEF. \u26d4 BY DEFAULT the frozen solver model KEEPS the deleted colliders as phantoms (a deleted wall still blocks rays and robots, a deleted floor still holds bodies up; measured 2026-08-17) and the response carries `physics_warning` RUNTIME_MUTATION_NOT_IN_SOLVER. Pass {\"physics\": \"rebuild\"} (or POST /sim/rebuild_physics afterwards) and the deleted geometry genuinely stops colliding -- same 97-267 ms rebuild and the same caveats as /scene/spawn; see not_supported scene.runtime_mutation_physics.",
+      "body": [
+        "def",
+        "defs",
+        "settle_steps",
+        "physics"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/scene/set_pose",
+      "summary": "Move an existing node by DEF.",
+      "body": [
+        "def",
+        "translation",
+        "rotation",
+        "reset_physics",
+        "settle_steps"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sim/rebuild_physics",
+      "summary": "W1.7: rebuild the Newton world at the scene's CURRENT poses -- runtime-spawned nodes gain physics, deleted ones lose it. Refused (409 REBUILD_REFUSED) on cloth/soft/granular worlds. The rebuild itself measures 97-267 ms (machine 9722d23d12a3, CPU mj_step); the HTTP round trip adds the settle steps. Engaged Connector/VacuumGripper welds are DROPPED (re-lock from the controller). Also available as {\"physics\": \"rebuild\"} on /scene/spawn and /scene/delete.",
+      "body": [
+        "settle_steps"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sim/step",
+      "summary": "Advance N basic timesteps.",
+      "body": [
+        "steps"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sim/reset",
+      "summary": "Rewind the clock and restore the authored state. \u26a0 ALSO RE-PINS EVERY MOTOR and restarts no controller, so a robot commanded once at start-up stops moving for good -- the response's `actuation` block carries the mechanism and the workarounds.",
+      "body": [
+        "restore",
+        "verify",
+        "settle_steps"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sim/snapshot",
+      "summary": "Save a named engine-side state snapshot.",
+      "body": [
+        "name"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sim/restore",
+      "summary": "Restore a named snapshot; reports how far it landed.",
+      "body": [
+        "name",
+        "settle_steps"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/robot/<def>/joints/set",
+      "summary": "Supervisor-driven joint position targets, settle-and-verify. NOT a teleport: under Newton the write re-pins each motor's PD setpoint, so the joint CONVERGES over the settled steps and every joint reports measured commanded/achieved/error, never the argument echoed back. Targets beyond the joint's hard stops are clamped and flagged `clamped`; a motor with no position limits is built as a velocity wheel (ke=0) whose position targets the physics silently ignores \u2014 reported per joint as position_controllable:false with the mechanism, never bare success. Joint names are the same ones GET /robot/<def>/joints reports. Works in light and heavy supervisor mode.",
+      "body": [
+        "joints",
+        "names",
+        "positions",
+        "settle_steps"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/robot/<def>/ik",
+      "summary": "Batched inverse-kinematics PREVIEW against the live Newton model (W2.1). PURE READ: nothing moves. Give an 'effector' (DEF of the end-effector Solid) and 'targets' ([[x,y,z], ...], world frame; optional 'rotations' [[qx,qy,qz,qw], ...] and 'tool_offset' [x,y,z] in the effector's frame); the engine solves every Hinge/Slider joint of that robot registered with the physics backend and returns per-target angles keyed by the same joint names GET /robot/<def>/joints reports, clamped to the authored limits, plus residual_m per target in METRES measured by forward kinematics on exactly the returned angles \u2014 reject a target on its residual instead of driving to it. Apply via POST /robot/<def>/joints/set. \u26a0 The FIRST solve per world compiles a warp kernel (~8 s measured cold, ~150 ms warm; solve_ms in the response is the measured cost). Verified on the default CPU 'mujoco' solver only; unverified on mujoco_warp.",
+      "body": [
+        "effector",
+        "targets",
+        "rotations",
+        "tool_offset",
+        "iterations"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/robot/damage/reset",
+      "summary": "Heal all parts without resetting the sim."
+    },
+    {
+      "method": "POST",
+      "path": "/robot/damage/inject",
+      "summary": "Set a part's damage state directly.",
+      "body": [
+        "part",
+        "state",
+        "hp_delta"
+      ]
+    }
+  ],
+  "endpoints_verification": {
+    "declared": 39,
+    "scanned_literals": 35,
+    "declared_not_found_in_source": [],
+    "undeclared_literals": [],
+    "verified": true,
+    "source": "declared table cross-checked against the request handler's source"
+  },
+  "event_types": [
+    "contact.began",
+    "contact.ended",
+    "joint.limit_hit",
+    "grip.acquired",
+    "grip.released",
+    "damage.impact",
+    "damage.state_transition",
+    "controller.log",
+    "world.warning",
+    "world.error"
+  ],
+  "event_types_detail": {
+    "harness": {
+      "types": [
+        "controller.log",
+        "world.warning",
+        "world.error"
+      ],
+      "emitters_found": [
+        "controller.log",
+        "world.error",
+        "world.warning"
+      ],
+      "undeclared": [],
+      "declared_not_emitted": [],
+      "verified": true,
+      "source": "scanned LogRingBuffer's emit sites in omnisim_harness.py"
+    },
+    "supervisor": {
+      "types": [
+        "contact.began",
+        "contact.ended",
+        "joint.limit_hit",
+        "grip.acquired",
+        "grip.released",
+        "damage.impact",
+        "damage.state_transition"
+      ],
+      "emitters_found": [
+        "contact.began",
+        "contact.ended",
+        "damage.impact",
+        "damage.state_transition",
+        "grip.acquired",
+        "grip.released",
+        "joint.limit_hit"
+      ],
+      "undeclared": [],
+      "declared_not_emitted": [],
+      "verified": true,
+      "source": "scanned emit() call sites in event_bus.py + harness_supervisor.py",
+      "active": [
+        "damage.impact",
+        "damage.state_transition"
+      ],
+      "suppressed": [
+        "contact.began",
+        "contact.ended",
+        "grip.acquired",
+        "grip.released",
+        "joint.limit_hit"
+      ],
+      "suppressed_reason": "the supervisor is running with disabled tracker(s) (ContactTracker, JointLimitTracker, GripTracker -- via --light or a per-tracker toggle); /sim/events?types= is an exact-match allowlist, so filtering on a suppressed type returns an empty stream, not an error",
+      "producers": {
+        "contact.began": "ContactTracker",
+        "contact.ended": "ContactTracker",
+        "joint.limit_hit": "JointLimitTracker",
+        "grip.acquired": "GripTracker",
+        "grip.released": "GripTracker",
+        "damage.impact": "DamageTracker",
+        "damage.state_transition": "DamageTracker"
+      }
+    },
+    "active": [
+      "damage.impact",
+      "damage.state_transition",
+      "controller.log",
+      "world.warning",
+      "world.error"
+    ],
+    "suppressed": [
+      "contact.began",
+      "contact.ended",
+      "grip.acquired",
+      "grip.released",
+      "joint.limit_hit"
+    ]
+  },
+  "diagnostic_codes": [
+    "ASSET_DOWNLOAD_FAILED",
+    "CONTACT_PROPERTIES_IGNORED",
+    "CONTACT_QUERIES_BLIND",
+    "CONTROLLER_CRASHED",
+    "CONTROLLER_EXITED_NONZERO",
+    "CUDA_COMPUTE_CAPABILITY_TOO_OLD",
+    "CUDA_DEVICE_INIT_FAILED",
+    "CUDA_DRIVER_TOO_OLD",
+    "CUDA_GL_INTEROP_NOT_IMPLEMENTED",
+    "CUDA_KERNEL_EXECUTION_ERROR",
+    "CUDA_KERNEL_LAUNCH_FAILED",
+    "CUDA_MEMCPY_FAILED",
+    "CUDA_NOT_AVAILABLE",
+    "CUDA_OUT_OF_MEMORY",
+    "EXTERNPROTO_DOWNLOAD_FAILED",
+    "HEADER_INVALID",
+    "HEADER_MISSING",
+    "INERTIA_FROM_BOUNDING_OBJECT_UNAVAILABLE",
+    "JOINT_FEATURE_UNIMPLEMENTED",
+    "JOINT_REGISTRATION_FAILED",
+    "KINEMATIC_ARTICULATION",
+    "LAUNCHER_DLL_NOT_FOUND",
+    "MESH_READ_FAILED",
+    "NEWTON_BODIES_REGISTERED",
+    "NEWTON_ENFORCE_REFUSED",
+    "NEWTON_RUNTIME_ABSENT",
+    "NEWTON_RUNTIME_BROKEN",
+    "NEWTON_STATICS_NOT_REGISTERED",
+    "NEWTON_WORLD_NOT_BUILT",
+    "NEWTON_ZERO_DYNAMIC_BODIES",
+    "NO_PHYSICS_BACKEND",
+    "NO_STATIC_COLLISION_SURFACE",
+    "OCCLUSION_RAYS_UNANSWERED",
+    "PARSE_ERROR",
+    "PROTO_BASE_NAME_INVALID",
+    "PROTO_NAME_MISMATCH",
+    "PROTO_PARAM_ERROR",
+    "PROTO_RECURSIVE",
+    "QT_PLATFORM_PLUGIN_FAILED",
+    "RETIRED_ODE_SELECTOR",
+    "SENSOR_NO_SOURCE",
+    "SIMULATOR_EXITED_NONZERO",
+    "SOLID_ODE_PIN_INERT",
+    "SUPERVISOR_BIND_CEILING",
+    "SUPERVISOR_BIND_STALLED",
+    "TEXTURE_READ_FAILED",
+    "UNKNOWN",
+    "UNKNOWN_FIELD_IN_NODE",
+    "URDF_MESH_UNRESOLVED",
+    "WORLDINFO_PHYSICSBACKEND_MISNAMED",
+    "WORLD_DIR_NOT_WRITABLE",
+    "WORLD_FILE_EMPTY",
+    "WORLD_FILE_NOT_FOUND",
+    "WORLD_PARSE_INVALID_TOKENS",
+    "WORLD_PARSE_SYNTAX_ERROR",
+    "WORLD_WRONG_EXTENSION"
+  ],
+  "request_error_codes": [
+    "ARGUMENT_INVALID",
+    "ARGUMENT_MISSING",
+    "BAD_JSON",
+    "BAD_REQUEST",
+    "BAD_VIEW_MODE",
+    "CLONE_DEF_NOT_FOUND",
+    "DEF_NOT_FOUND",
+    "DEF_TAKEN",
+    "EFFECTOR_UNSPECIFIED",
+    "FIELD_NOT_ON_NODE",
+    "HARNESS_INTERNAL",
+    "IK_NO_BODY",
+    "IK_NO_JOINTS",
+    "IK_SOLVER_FAILED",
+    "IK_UNAVAILABLE",
+    "JOINTS_UNSPECIFIED",
+    "JOINT_NAME_AMBIGUOUS",
+    "JOINT_NOT_FOUND",
+    "LENGTH_REQUIRED",
+    "PARENT_DEF_NOT_FOUND",
+    "PILLOW_MISSING",
+    "POSE_UNSPECIFIED",
+    "SCREENSHOT_EMPTY",
+    "SCREENSHOT_NOT_PNG",
+    "SENSOR_NOT_SUPERVISOR_READABLE",
+    "SNAPSHOT_NAME_RESERVED",
+    "SNAPSHOT_NOT_FOUND",
+    "SPAWN_REJECTED",
+    "SPAWN_SPEC_INVALID",
+    "SUBJECT_BOUNDS_EMPTY",
+    "SUBJECT_BOUNDS_NOT_FOUND",
+    "SUBJECT_UNSPECIFIED",
+    "SUPERVISOR_INTERNAL_ERROR",
+    "SUPERVISOR_LOST",
+    "SUPERVISOR_UNAVAILABLE",
+    "TARGETS_UNSPECIFIED",
+    "UNKNOWN_ROUTE"
+  ],
+  "step_probe": null
+}
