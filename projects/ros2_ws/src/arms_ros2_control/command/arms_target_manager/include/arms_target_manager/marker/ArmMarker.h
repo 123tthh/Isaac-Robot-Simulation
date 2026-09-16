@@ -2,8 +2,8 @@
 // ArmMarker - 机械臂 Marker 管理类
 // 封装所有机械臂 marker 相关的逻辑，包括创建、更新、发布等
 // 参考本地文档:
-//   /home/gtk/ai_docs/docs.ros.org/en/rolling/p/interactive_markers/generated/classinteractive__markers_1_1InteractiveMarkerServer.md
-//   /home/gtk/ai_docs/docs.ros.org/en/rolling/p/visualization_msgs/msg/InteractiveMarkerFeedback.md
+//   https://docs.ros.org/en/rolling/p/interactive_markers/generated/classinteractive__markers_1_1InteractiveMarkerServer.md
+//   https://docs.ros.org/en/rolling/p/visualization_msgs/msg/InteractiveMarkerFeedback.md
 //
 #pragma once
 

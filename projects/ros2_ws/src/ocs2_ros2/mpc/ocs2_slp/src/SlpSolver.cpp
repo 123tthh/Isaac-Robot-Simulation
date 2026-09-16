@@ -39,7 +39,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <ocs2_oc/multiple_shooting/PerformanceIndexComputation.h>
 #include <ocs2_oc/multiple_shooting/Transcription.h>
 #include <ocs2_oc/precondition/Ruzi.h>
-#include <ocs2_oc/trajectory_adjustment/TrajectorySpreadingHelperFunctions.h>
+#include <ocs2_oc/trajectory_adjustment/teleoperationSpreadingHelperFunctions.h>
 
 #include "ocs2_slp/Helpers.h"
 

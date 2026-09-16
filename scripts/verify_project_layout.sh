@@ -4,7 +4,7 @@ set -u
 
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 project_root="${PROJECT_ROOT:-$(cd "$script_dir/.." && pwd)}"
-trace_root="$project_root/projects/Trajectory/SIM1/trace_data"
+trace_root="$project_root/projects/teleoperation/sim1/trace_data"
 failures=0
 
 check_path() {
@@ -20,7 +20,7 @@ check_path() {
 for path in \
   "$project_root/projects/ros2_ws/src/r1_lerobot_sim" \
   "$project_root/projects/ros2_ws/src/robot" \
-  "$project_root/projects/Trajectory/SIM1/game_control.sh" \
+  "$project_root/projects/teleoperation/sim1/game_control.sh" \
   "$project_root/data/ros2_log" \
   "$project_root/assets/scenes/scene.usd" \
   "$project_root/docker/Dockerfile" \
@@ -30,40 +30,26 @@ for path in \
 done
 
 if find "$project_root/assets/datasets/sac-m" -mindepth 1 -print -quit 2>/dev/null | grep -q .; then
-  printf 'FAIL legacy sac-m assets remain after 615scene migration\n'
+  printf 'FAIL legacy sac-m assets remain after workcell migration\n'
   ((failures += 1))
 else
   printf 'PASS legacy sac-m asset directory is empty\n'
 fi
 
-if find \
-  "$project_root/projects/Trajectory" \
-  "$project_root/data/ros2_log" \
-  -type d -iname 'lerobot_v21' -print -quit 2>/dev/null | grep -q .; then
-  printf 'FAIL LeRobot v2.1 user data remains\n'
-  ((failures += 1))
+# Both LeRobot versions are supported local outputs, not layout violations.
+check_path "$project_root/run.sh"
+check_path "$project_root/docs/overview.md"
+check_path "$project_root/docs/overview.zh-CN.md"
+check_path "$project_root/projects/physics_parameters"
+
+if [[ -d "$trace_root/raw" ]]; then
+  mapfile -t actual_traces < <(
+    find "$trace_root/raw" -maxdepth 1 -type f \
+      -name 'manual_ocs2_keyboard_trace_20*.csv' -printf '%f\n' | sort -u
+  )
+  printf 'INFO raw SIM1 traces available: %d\n' "${#actual_traces[@]}"
 else
-  printf 'PASS LeRobot v2.1 user data absent\n'
-fi
-
-expected_traces=(
-  manual_ocs2_keyboard_trace_20260715_133454
-)
-
-mapfile -t actual_traces < <(
-  find "$trace_root/raw" -maxdepth 1 \( -type f -o -type d \) \
-    -name 'manual_ocs2_keyboard_trace_20*' -printf '%f\n' 2>/dev/null \
-    | sed -E 's/\.(diagnostics\.csv|metadata\.json|label\.md|csv)$//' \
-    | sort -u
-)
-
-if [[ "${actual_traces[*]}" == "${expected_traces[*]}" ]]; then
-  printf 'PASS retained trace family list\n'
-else
-  printf 'FAIL retained trace family list\n'
-  printf '  expected: %s\n' "${expected_traces[*]}"
-  printf '  actual:   %s\n' "${actual_traces[*]}"
-  ((failures += 1))
+  printf 'INFO raw SIM1 traces were not supplied; collection can create %s/raw\n' "$trace_root"
 fi
 
 printf 'Layout verification completed with %d failure(s).\n' "$failures"

@@ -1,0 +1,10 @@
+{
+  "audited": 129,
+  "changed": [
+    "docs/README.md",
+    "docs/archive/REPRODUCE.md",
+    "docs/archive/GAME_GUIDE.md",
+    "docs/archive/projects_Trajectory_SIM1_GAME_GUIDE.md"
+  ],
+  "scope": "Project Markdown; third-party technical descriptions preserved, local path references normalized; dated evidence marked historical."
+}

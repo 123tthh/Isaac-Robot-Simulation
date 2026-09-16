@@ -17,7 +17,7 @@ projects/ros2_ws/src/robot/meshes/
 
 以下目录不再作为核心资源来源：
 
-- `projects/Trajectory/robot`：旧 RViz/LeRobot 独立副本；保留在当前工作树
+- `projects/teleoperation/robot`：旧 RViz/LeRobot 独立副本；保留在当前工作树
   供历史对照，但被主 Git 忽略。
 - `projects/IsaacLab-Arena/isaaclab_arena/r1_description`：Arena 可选实验副本。
 - `projects/IsaacLab-Arena/isaaclab_arena/r1_description_full`：Arena 可选实验
@@ -32,9 +32,9 @@ assets/scenes/scene.usd
 它引用的项目内资源层位于：
 
 ```text
-assets/scenes/615scene_20260723/
+assets/scenes/r1_workcell/
 ```
 
-`615scene.usd` 不是启动入口。场景资产不能用 ROS robot 目录替代。尤其在
+`workcell.usd` 不是启动入口。场景资产不能用 ROS robot 目录替代。尤其在
 `/World/Robot/base_link/visuals` 的历史引用修复完成前，必须完整保留
-`assets/scenes/615scene_20260723`。
+`assets/scenes/r1_workcell`。

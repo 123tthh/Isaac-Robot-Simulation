@@ -1,10 +1,10 @@
 # Local documentation references:
-# /home/gtk/ai_docs/docs.isaacsim.omniverse.nvidia.com/5.1.0/installation/install_container.md
-# /home/gtk/ai_docs/docs.isaacsim.omniverse.nvidia.com/5.1.0/installation/install_ros.md
-# /home/gtk/ai_docs/docs.isaacsim.omniverse.nvidia.com/5.1.0/installation/install_python.md
-# /home/gtk/ai_docs/docs.ros.org/en/rolling/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.md
+# https://docs.isaacsim.omniverse.nvidia.com/5.1.0/installation/install_container.md
+# https://docs.isaacsim.omniverse.nvidia.com/5.1.0/installation/install_ros.md
+# https://docs.isaacsim.omniverse.nvidia.com/5.1.0/installation/install_python.md
+# https://docs.ros.org/en/rolling/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.md
 # Strict reproducibility baseline from the Isaac Sim 5.1.0 local documentation:
-# /home/gtk/ai_docs/docs.isaacsim.omniverse.nvidia.com/5.1.0/installation/install_container.md
+# https://docs.isaacsim.omniverse.nvidia.com/5.1.0/installation/install_container.md
 ARG BASE_IMAGE=nvcr.io/nvidia/isaac-sim:5.1.0@sha256:93b0f99635ab126fb5b33298d513c11520f119f0ee60ff8414ccef67ea977829
 FROM ${BASE_IMAGE}
 
@@ -156,8 +156,8 @@ ENV WORKSPACE=/workspace \
     CMAKE_PREFIX_PATH=/opt/onnxruntime \
     ROS2_WS=/workspace/projects/ros2_ws \
     ROS2_INSTALL_DIR=/workspace/projects/ros2_ws/install_docker \
-    TRAJECTORY_DIR=/workspace/projects/Trajectory \
-    SIM1_DIR=/workspace/projects/Trajectory/SIM1 \
+    TRAJECTORY_DIR=/workspace/projects/teleoperation \
+    SIM1_DIR=/workspace/projects/teleoperation/sim1 \
     ROS2_LOG_DIR=/workspace/data/ros2_log \
     ISAAC_USD_PATH=/workspace/assets/scenes/scene.usd \
     OUTPUT_DIR=/workspace/outputs \

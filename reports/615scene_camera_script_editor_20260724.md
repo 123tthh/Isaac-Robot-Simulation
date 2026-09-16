@@ -1,10 +1,12 @@
+> **Historical record / 历史记录**：本页描述其记录日期的状态；当前运行以[中文指南](../docs/getting-started.zh-CN.md) / [English guide](../docs/getting-started.md)为准。Historical failures and paths are not current release claims.
+
 # 615scene 相机 Script Editor 检查报告
 
 生成时间：`2026-07-24T10:21:12`
-目标场景：`/home/gtk/isaac_ocs_project/assets/scenes/615scene_20260723/615scene.usd`
+目标场景：`${PROJECT_ROOT}/assets/scenes/r1_workcell/workcell.usd`
 检查模式：`READ_ONLY`
 
-- root_layer: `file:/home/gtk/isaac_ocs_project/assets/scenes/615scene_20260723/615scene.usd`
+- root_layer: `file:${PROJECT_ROOT}/assets/scenes/r1_workcell/workcell.usd`
 
 ## Camera prims
 

@@ -11,7 +11,7 @@ Isaac Sim + ROS2 + OCS2 + RViz2 + SIM1 主链路。
 ```text
 /workspace
   /projects/ros2_ws
-  /projects/Trajectory
+  /projects/teleoperation
   /data/ros2_log
   /assets/datasets/sac-m
   /outputs
@@ -27,8 +27,8 @@ Isaac Sim + ROS2 + OCS2 + RViz2 + SIM1 主链路。
 包括：
 
 ```text
-configuration/513_physics.usd
-configuration/513_base.usd
+configuration/physics.usd
+configuration/base.usd
 mesh/material/texture 等依赖资产
 ```
 
@@ -63,7 +63,7 @@ xhost +local:root
 sudo mkdir -p /workspace/projects /workspace/data /workspace/assets/datasets/sac-m /workspace/outputs
 
 sudo rsync -a /home/gtk/ros2_ws /workspace/projects/
-sudo rsync -a /home/gtk/Trajectory /workspace/projects/
+sudo rsync -a /home/gtk/teleoperation /workspace/projects/
 sudo rsync -a /home/gtk/ros2_log /workspace/data/
 
 sudo rsync -a --info=progress2 \
@@ -76,7 +76,7 @@ sudo rsync -a --info=progress2 \
 ```bash
 test -f /workspace/assets/datasets/sac-m/61.usd
 test -f /workspace/assets/datasets/sac-m/522.usd
-test -f /workspace/assets/datasets/sac-m/configuration/513_physics.usd
+test -f /workspace/assets/datasets/sac-m/configuration/physics.usd
 ```
 
 ## 构建镜像
@@ -316,7 +316,7 @@ find /workspace/projects/ros2_ws/install/r1_description/share/r1_description/ocs
 sudo docker exec -it demo_vla bash -lc '
 source /opt/ros/humble/setup.bash
 source /workspace/projects/ros2_ws/install/setup.bash
-cd /workspace/projects/Trajectory/SIM1
+cd /workspace/projects/teleoperation/sim1
 ./game_control.sh check
 '
 ```
@@ -336,7 +336,7 @@ sim1_reset
 terminal 模式，确认能进入示教并写入 `trace_data/raw`：
 
 ```bash
-cd /workspace/projects/Trajectory/SIM1
+cd /workspace/projects/teleoperation/sim1
 ./game_control.sh teach --input-mode terminal \
   --linear-speed 0.025 \
   --angular-speed-deg 4.0 \
@@ -466,7 +466,7 @@ timeout 5 ros2 topic echo /isaac_joint_states --once
 sudo docker exec -it demo_vla bash -lc '
 source /opt/ros/humble/setup.bash
 source /workspace/projects/ros2_ws/install/setup.bash
-cd /workspace/projects/Trajectory/SIM1
+cd /workspace/projects/teleoperation/sim1
 ./game_control.sh check
 '
 ```

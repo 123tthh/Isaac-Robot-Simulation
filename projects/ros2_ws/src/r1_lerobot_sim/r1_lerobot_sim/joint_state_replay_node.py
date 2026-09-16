@@ -1,10 +1,12 @@
-# Reference: /home/gtk/ai_docs/docs.ros.org/en/rolling/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher-py.md
-# Reference: /home/gtk/ai_docs/docs.ros.org/en/rolling/p/tf2_ros_py/tf2_ros.transform_broadcaster.md
+# Reference: https://docs.ros.org/en/rolling/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher-py.md
+# Reference: https://docs.ros.org/en/rolling/p/tf2_ros_py/tf2_ros.transform_broadcaster.md
 
 from __future__ import annotations
 
 import math
 import os
+
+from ament_index_python.packages import get_package_share_directory
 
 import rclpy
 from rclpy.node import Node
@@ -20,12 +22,12 @@ from r1_lerobot_sim.trajectory_io import (
 class JointStateReplay(Node):
     def __init__(self) -> None:
         super().__init__("r1_lerobot_joint_state_replay")
-        ros2_ws = os.environ.get("ROS2_WS", "/workspace/projects/ros2_ws")
+        robot_package = get_package_share_directory("r1_description")
         self.declare_parameter(
             "dataset_path", os.environ.get("LEROBOT_DATASET_PATH", "")
         )
         self.declare_parameter("npz_path", "")
-        self.declare_parameter("urdf_path", f"{ros2_ws}/src/robot/urdf/r1_fixed.urdf")
+        self.declare_parameter("urdf_path", f"{robot_package}/urdf/r1_fixed.urdf")
         self.declare_parameter("episode_index", 0)
         self.declare_parameter("field", "action")
         self.declare_parameter("publish_rate", 30.0)

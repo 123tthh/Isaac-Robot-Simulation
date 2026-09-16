@@ -1,3 +1,5 @@
+> **Historical record / 历史记录**：本页描述其记录日期的状态；当前运行以[中文指南](../docs/getting-started.zh-CN.md) / [English guide](../docs/getting-started.md)为准。Historical failures and paths are not current release claims.
+
 # Trace Data Cleanup Report (2026-07-23)
 
 Date: 2026-07-23

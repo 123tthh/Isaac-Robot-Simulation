@@ -4,8 +4,8 @@
 同时发布 world → odom 静态变换
 
 Local documentation referenced:
-- /home/gtk/ai_docs/docs.ros.org/en/rolling/p/rclpy/api/init_shutdown.md
-- /home/gtk/ai_docs/docs.ros.org/en/rolling/p/tf2_ros_py/tf2_ros.transform_broadcaster.md
+- https://docs.ros.org/en/rolling/p/rclpy/api/init_shutdown.md
+- https://docs.ros.org/en/rolling/p/tf2_ros_py/tf2_ros.transform_broadcaster.md
 
 修复说明:
   use_sim_time=True 时，节点启动初期 /clock 尚未收到，

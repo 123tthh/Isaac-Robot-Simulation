@@ -1,6 +1,6 @@
 // API references:
-// - /home/gtk/ai_docs/docs.ros.org/en/rolling/p/coal/generated/classcoal_1_1CollisionGeometry.md
-// - /home/gtk/ai_docs/docs.ros.org/en/rolling/p/hpp-fcl/generated/classhpp_1_1fcl_1_1CollisionGeometry.md
+// - https://docs.ros.org/en/rolling/p/coal/generated/classcoal_1_1CollisionGeometry.md
+// - https://docs.ros.org/en/rolling/p/hpp-fcl/generated/classhpp_1_1fcl_1_1CollisionGeometry.md
 
 /******************************************************************************
 Copyright (c) 2021, Farbod Farshidian. All rights reserved.

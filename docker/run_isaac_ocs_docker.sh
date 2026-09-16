@@ -28,8 +28,8 @@ mkdir -p \
 
 [[ -d "$host_project_root/projects/ros2_ws" ]] \
   || { printf 'ERROR: missing %s\n' "$host_project_root/projects/ros2_ws" >&2; exit 1; }
-[[ -d "$host_project_root/projects/Trajectory/SIM1" ]] \
-  || { printf 'ERROR: missing %s\n' "$host_project_root/projects/Trajectory/SIM1" >&2; exit 1; }
+[[ -d "$host_project_root/projects/teleoperation/sim1" ]] \
+  || { printf 'ERROR: missing %s\n' "$host_project_root/projects/teleoperation/sim1" >&2; exit 1; }
 
 host_usd="$host_project_root/assets/scenes/scene.usd"
 if [[ ! -f "$host_usd" ]]; then
@@ -77,8 +77,8 @@ exec "${docker_cmd[@]}" run -itd \
   -e WORKSPACE=/workspace \
   -e ROS2_WS=/workspace/projects/ros2_ws \
   -e ROS2_INSTALL_DIR=/workspace/projects/ros2_ws/install_docker \
-  -e TRAJECTORY_DIR=/workspace/projects/Trajectory \
-  -e SIM1_DIR=/workspace/projects/Trajectory/SIM1 \
+  -e TRAJECTORY_DIR=/workspace/projects/teleoperation \
+  -e SIM1_DIR=/workspace/projects/teleoperation/sim1 \
   -e ROS2_LOG_DIR=/workspace/data/ros2_log \
   -e ISAAC_USD_PATH=/workspace/assets/scenes/scene.usd \
   -e OUTPUT_DIR=/workspace/outputs \

@@ -40,7 +40,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <ocs2_oc/multiple_shooting/MetricsComputation.h>
 #include <ocs2_oc/multiple_shooting/PerformanceIndexComputation.h>
 #include <ocs2_oc/oc_problem/OcpSize.h>
-#include <ocs2_oc/trajectory_adjustment/TrajectorySpreadingHelperFunctions.h>
+#include <ocs2_oc/trajectory_adjustment/teleoperationSpreadingHelperFunctions.h>
 
 #include "ocs2_ipm/IpmHelpers.h"
 #include "ocs2_ipm/IpmInitialization.h"

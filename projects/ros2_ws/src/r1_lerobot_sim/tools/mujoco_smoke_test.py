@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Reference: /home/gtk/ai_docs/docs.ros.org/en/rolling/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher-py.md
+# Reference: https://docs.ros.org/en/rolling/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher-py.md
 
 from __future__ import annotations
 
@@ -41,7 +41,7 @@ def make_mujoco_urdf(urdf_path: Path, robot_pkg_root: Path, strip_meshes: bool) 
 
 
 def main() -> None:
-    ros2_ws = os.environ.get("ROS2_WS", "/workspace/projects/ros2_ws")
+    ros2_ws = os.environ.get("ROS2_WS", str(Path(__file__).resolve().parents[3]))
     parser = argparse.ArgumentParser()
     parser.add_argument("--urdf", default=f"{ros2_ws}/src/robot/urdf/r1_fixed.urdf")
     parser.add_argument("--robot-pkg-root", default=f"{ros2_ws}/src/robot")

@@ -40,7 +40,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <ocs2_oc/oc_problem/OptimalControlProblemHelperFunction.h>
 #include <ocs2_oc/rollout/InitializerRollout.h>
-#include <ocs2_oc/trajectory_adjustment/TrajectorySpreadingHelperFunctions.h>
+#include <ocs2_oc/trajectory_adjustment/teleoperationSpreadingHelperFunctions.h>
 
 #include <ocs2_ddp/DDP_HelperFunctions.h>
 #include <ocs2_ddp/HessianCorrection.h>

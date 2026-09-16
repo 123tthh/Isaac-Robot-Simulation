@@ -5,7 +5,7 @@
 背景路径如下：
 
 - 当前 ROS2/OCS2 工作区：`~/ros2_ws`
-- 当前示教/回放/数据工程：`~/Trajectory`，核心目录是 `~/Trajectory/SIM1`
+- 当前示教/回放/数据工程：`~/teleoperation`，核心目录是 `~/teleoperation/sim1`
 - 当前历史日志和夹爪调试脚本：`~/ros2_log`
 - 当前 Isaac Sim 5.1 是本地部署的，平时通过图标启动
 - 当前 USD/场景资源：~/Desktop/IssacLab_arena_assets/datasets/sac-m/61.usd
@@ -17,8 +17,8 @@
 2. 统一使用环境变量：
    - `WORKSPACE=/workspace`
    - `ROS2_WS=/workspace/projects/ros2_ws`
-   - `TRAJECTORY_DIR=/workspace/projects/Trajectory`
-   - `SIM1_DIR=/workspace/projects/Trajectory/SIM1`
+   - `TRAJECTORY_DIR=/workspace/projects/teleoperation`
+   - `SIM1_DIR=/workspace/projects/teleoperation/sim1`
    - `ROS2_LOG_DIR=/workspace/data/ros2_log`
    - `ISAAC_USD_PATH=/workspace/assets/scenes/scene.usd`
    - `OUTPUT_DIR=/workspace/outputs`
@@ -39,7 +39,7 @@ sudo docker run -itd --gpus all \
 
 第一步：扫描工程中的本地强耦合路径。
 
-在 `~/ros2_ws`、`~/Trajectory`、`~/ros2_log` 中搜索：
+在 `~/ros2_ws`、`~/teleoperation`、`~/ros2_log` 中搜索：
 
 - `/home/gtk`
 - `/home/bt`
@@ -57,7 +57,7 @@ sudo docker run -itd --gpus all \
 
 第二步：创建 Docker 目录结构。
 
-在当前项目根目录或 `~/Trajectory/SIM1` 下创建：
+在当前项目根目录或 `~/teleoperation/sim1` 下创建：
 
 ```text
 docker/
@@ -78,8 +78,8 @@ scripts/
 ```bash
 WORKSPACE=/workspace
 ROS2_WS=/workspace/projects/ros2_ws
-TRAJECTORY_DIR=/workspace/projects/Trajectory
-SIM1_DIR=/workspace/projects/Trajectory/SIM1
+TRAJECTORY_DIR=/workspace/projects/teleoperation
+SIM1_DIR=/workspace/projects/teleoperation/sim1
 ROS2_LOG_DIR=/workspace/data/ros2_log
 ISAAC_USD_PATH=/workspace/assets/scenes/scene.usd
 OUTPUT_DIR=/workspace/outputs
@@ -128,7 +128,7 @@ NVIDIA_DRIVER_CAPABILITIES=compute,utility,graphics,display
 
 - 自动创建 `/workspace/projects`、`/workspace/data`、`/workspace/assets`、`/workspace/outputs`
 - 检查 `/workspace/projects/ros2_ws` 是否存在
-- 检查 `/workspace/projects/Trajectory/SIM1` 是否存在
+- 检查 `/workspace/projects/teleoperation/sim1` 是否存在
 - 检查 `$ISAAC_USD_PATH` 是否存在，不存在只 warning，不要退出
 - 如果已有同名容器 `demo_vla`，提示用户是否删除，或提供 `--replace` 参数
 - 运行命令使用：
@@ -140,8 +140,8 @@ sudo docker run -itd --gpus all \
   -v /workspace:/workspace \
   -e WORKSPACE=/workspace \
   -e ROS2_WS=/workspace/projects/ros2_ws \
-  -e TRAJECTORY_DIR=/workspace/projects/Trajectory \
-  -e SIM1_DIR=/workspace/projects/Trajectory/SIM1 \
+  -e TRAJECTORY_DIR=/workspace/projects/teleoperation \
+  -e SIM1_DIR=/workspace/projects/teleoperation/sim1 \
   -e ROS2_LOG_DIR=/workspace/data/ros2_log \
   -e ISAAC_USD_PATH=/workspace/assets/scenes/scene.usd \
   -e OUTPUT_DIR=/workspace/outputs \
@@ -173,8 +173,8 @@ sudo docker run -itd --gpus all \
 只对明显安全的脚本进行最小修改：
 
 - 把 `/home/gtk/ros2_ws` 替换为 `${ROS2_WS:-/workspace/projects/ros2_ws}`
-- 把 `/home/gtk/Trajectory` 替换为 `${TRAJECTORY_DIR:-/workspace/projects/Trajectory}`
-- 把 `/home/gtk/Trajectory/SIM1` 替换为 `${SIM1_DIR:-/workspace/projects/Trajectory/SIM1}`
+- 把 `/home/gtk/teleoperation` 替换为 `${TRAJECTORY_DIR:-/workspace/projects/teleoperation}`
+- 把 `/home/gtk/teleoperation/sim1` 替换为 `${SIM1_DIR:-/workspace/projects/teleoperation/sim1}`
 - 把 `/home/gtk/ros2_log` 替换为 `${ROS2_LOG_DIR:-/workspace/data/ros2_log}`
   - 把硬编码 USD 路径替换为 `${ISAAC_USD_PATH:-/workspace/assets/scenes/scene.usd}`
 

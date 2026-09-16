@@ -5,7 +5,7 @@ Date: 2026-07-23
 Scanned roots:
 
 - `projects/ros2_ws`
-- `projects/Trajectory`
+- `projects/teleoperation`
 - `data/ros2_log`
 
 Excluded generated/build/cache trees (`.git`, `build`, `install`, `log`,
@@ -20,24 +20,24 @@ provenance.
 | Host path | Runtime replacement |
 | --- | --- |
 | `/home/gtk/ros2_ws` | `${ROS2_WS:-/workspace/projects/ros2_ws}` |
-| `/home/gtk/Trajectory` | `${TRAJECTORY_DIR:-/workspace/projects/Trajectory}` |
-| `/home/gtk/Trajectory/SIM1` | `${SIM1_DIR:-/workspace/projects/Trajectory/SIM1}` |
+| `/home/gtk/teleoperation` | `${TRAJECTORY_DIR:-/workspace/projects/teleoperation}` |
+| `/home/gtk/teleoperation/sim1` | `${SIM1_DIR:-/workspace/projects/teleoperation/sim1}` |
 | `/home/gtk/ros2_log` | `${ROS2_LOG_DIR:-/workspace/data/ros2_log}` |
-| `.../scenes/615scene_20260723/615scene.usd` | `${ISAAC_USD_PATH:-/workspace/assets/scenes/scene.usd}` |
+| `.../scenes/r1_workcell/workcell.usd` | `${ISAAC_USD_PATH:-/workspace/assets/scenes/scene.usd}` |
 
 ## Current runtime files
 
 | File | Use | Disposition |
 | --- | --- | --- |
-| `projects/Trajectory/SIM1/game_control.sh` | Main SIM1 launcher | Already environment-driven |
-| `projects/Trajectory/SIM1/script_gripper_v4.2.py` | Gripper diagnostic log output | Replaced with `ROS2_LOG_DIR` |
-| `projects/Trajectory/SIM1/isaac_script_editor_diagnostics/inspect_arm_control_graph_attrs.py` | Report output | Replaced with `SIM1_DIR` |
-| `projects/Trajectory/SIM1/isaac_script_editor_diagnostics/inspect_arm_joint1_7_drive_attrs.py` | Report output | Replaced with `SIM1_DIR` |
-| `projects/Trajectory/SIM1/isaac_save_arm_initial_pose_to_usd.py` | Pose snapshot input | Replaced with `SIM1_DIR` |
-| `projects/Trajectory/SIM1/trace_cleaning/scripts/clean_ocs2_trace.py` | Cleaned trace output | Replaced with `SIM1_DIR` |
-| `projects/Trajectory/SIM1/trace_cleaning/scripts/clean_sim1_episode.py` | Cleaned episode output | Replaced with `SIM1_DIR` |
-| `projects/Trajectory/SIM1/trace_cleaning/scripts/convert_ocs2_trace_to_lerobot_v21.py` | LeRobot v2.1 output | Replaced with `SIM1_DIR` |
-| `projects/Trajectory/SIM1/trace_cleaning/scripts/convert_ocs2_trace_to_lerobot_v30.py` | LeRobot v3.0 output | Replaced with `SIM1_DIR` |
+| `projects/teleoperation/sim1/game_control.sh` | Main SIM1 launcher | Already environment-driven |
+| `projects/teleoperation/sim1/script_gripper_v4.2.py` | Gripper diagnostic log output | Replaced with `ROS2_LOG_DIR` |
+| `projects/teleoperation/sim1/isaac_script_editor_diagnostics/inspect_arm_control_graph_attrs.py` | Report output | Replaced with `SIM1_DIR` |
+| `projects/teleoperation/sim1/isaac_script_editor_diagnostics/inspect_arm_joint1_7_drive_attrs.py` | Report output | Replaced with `SIM1_DIR` |
+| `projects/teleoperation/sim1/isaac_save_arm_initial_pose_to_usd.py` | Pose snapshot input | Replaced with `SIM1_DIR` |
+| `projects/teleoperation/sim1/trace_cleaning/scripts/clean_ocs2_trace.py` | Cleaned trace output | Replaced with `SIM1_DIR` |
+| `projects/teleoperation/sim1/trace_cleaning/scripts/clean_sim1_episode.py` | Cleaned episode output | Replaced with `SIM1_DIR` |
+| `projects/teleoperation/sim1/trace_cleaning/scripts/convert_ocs2_trace_to_lerobot_v21.py` | LeRobot v2.1 output | Replaced with `SIM1_DIR` |
+| `projects/teleoperation/sim1/trace_cleaning/scripts/convert_ocs2_trace_to_lerobot_v30.py` | LeRobot v3.0 output | Replaced with `SIM1_DIR` |
 | `projects/ros2_ws/src/r1_lerobot_sim/launch/r1_lerobot_rviz_replay.launch.py` | Dataset, URDF and mesh defaults | Uses `LEROBOT_DATASET_PATH`/`TRAJECTORY_DIR` |
 | `projects/ros2_ws/src/r1_lerobot_sim/r1_lerobot_sim/joint_state_replay_node.py` | Dataset and URDF defaults | Uses `LEROBOT_DATASET_PATH`/`ROS2_WS` |
 | `projects/ros2_ws/src/r1_lerobot_sim/r1_lerobot_sim/pose_path_replay_node.py` | Dataset default | Uses `LEROBOT_DATASET_PATH` |
@@ -54,7 +54,7 @@ satisfy project provenance requirements.
 
 - `data/ros2_log/**`: historical logs, generated graphs, diagnostics and prior
   experiment reports.
-- `projects/Trajectory/SIM1/*.md` and Python header reference lists: evidence
+- `projects/teleoperation/sim1/*.md` and Python header reference lists: evidence
   of original sources and local documentation.
 - abandoned URDF snapshots under `projects/ros2_ws/src/robot/urdf`: historical
   source locations embedded in mesh declarations.
@@ -68,5 +68,5 @@ rg -n --hidden \
   -g '!**/.git/**' -g '!**/trace_data/**' -g '!**/build/**' \
   -g '!**/install/**' -g '!**/log/**' -g '!**/__pycache__/**' \
   '/home/(gtk|bt)|/workspace|Desktop|522\.usd|\.usd' \
-  projects/ros2_ws projects/Trajectory data/ros2_log
+  projects/ros2_ws projects/teleoperation data/ros2_log
 ```

@@ -1,6 +1,6 @@
 //
 // Gravity Compensation Utility using Pinocchio
-// Compatibility reference: /home/gtk/ai_docs/docs.isaacsim.omniverse.nvidia.com/5.1.0/installation/install_container.md
+// Compatibility reference: https://docs.isaacsim.omniverse.nvidia.com/5.1.0/installation/install_container.md
 //
 #pragma once
 

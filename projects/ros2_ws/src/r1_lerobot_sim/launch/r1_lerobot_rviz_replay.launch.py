@@ -1,5 +1,5 @@
-# Reference: /home/gtk/ai_docs/docs.ros.org/en/rolling/Tutorials/Intermediate/Launch/Creating-Launch-Files.md
-# Reference: /home/gtk/ai_docs/docs.ros.org/en/rolling/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher-py.md
+# Reference: https://docs.ros.org/en/rolling/Tutorials/Intermediate/Launch/Creating-Launch-Files.md
+# Reference: https://docs.ros.org/en/rolling/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher-py.md
 
 import os
 from pathlib import Path
@@ -102,8 +102,7 @@ def launch_setup(context, *args, **kwargs):
 
 
 def generate_launch_description():
-    ros2_ws = os.environ.get("ROS2_WS", "/workspace/projects/ros2_ws")
-    robot_package = Path(ros2_ws) / "src/robot"
+    robot_package = Path(get_package_share_directory("r1_description"))
     dataset_path = os.environ.get("LEROBOT_DATASET_PATH", "")
     return LaunchDescription(
         [

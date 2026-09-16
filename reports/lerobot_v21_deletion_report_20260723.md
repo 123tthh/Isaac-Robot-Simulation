@@ -1,3 +1,5 @@
+> **Historical record / 历史记录**：本页描述其记录日期的状态；当前运行以[中文指南](../docs/getting-started.zh-CN.md) / [English guide](../docs/getting-started.md)为准。Historical failures and paths are not current release claims.
+
 # LeRobot v2.1 Data Deletion Report (2026-07-23)
 
 Date: 2026-07-23
@@ -8,12 +10,12 @@ Status: applied successfully. Post-deletion scans found zero user
 
 ## User data selected for deletion
 
-- `/home/gtk/Trajectory/SIM1/trace_data/lerobot_v21`
-- `/home/gtk/isaac_ocs_project/projects/Trajectory/SIM1/trace_data/lerobot_v21`
+- `/home/gtk/teleoperation/sim1/trace_data/lerobot_v21`
+- `${PROJECT_ROOT}/projects/teleoperation/sim1/trace_data/lerobot_v21`
 - `/home/gtk/ros2_log/SIM1/trace_data/lerobot_v21`
-- `/home/gtk/isaac_ocs_project/data/ros2_log/SIM1/trace_data/lerobot_v21`
-- `/home/gtk/ros2_ws/Trajectory/place_tray_middle`
-- `/home/gtk/isaac_ocs_project/projects/Trajectory/converted_lerobot/local/place_tray_middle`
+- `${PROJECT_ROOT}/data/ros2_log/SIM1/trace_data/lerobot_v21`
+- `/home/gtk/ros2_ws/teleoperation/place_tray_middle`
+- `${PROJECT_ROOT}/projects/teleoperation/converted_lerobot/local/place_tray_middle`
 
 The last two directories do not contain `v21` in their names, but their
 `meta/info.json` files explicitly declare `"codebase_version": "v2.1"`.

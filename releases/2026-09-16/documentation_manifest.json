@@ -1,0 +1,800 @@
+{
+  "date": "2026-09-16",
+  "files": [
+    {
+      "path": "GAME_GUIDE.md",
+      "sha256": "2ffe7ce7de2a40f6b4deb1c8ec0098400f3fa45bb0c191b50a4666a00cf8ce3e",
+      "size": 317
+    },
+    {
+      "path": "README.md",
+      "sha256": "2bd3d1d3c6977186a929a4e6b5b67de9879933e650cb3e0ae4c91be375ef1564",
+      "size": 3792
+    },
+    {
+      "path": "README_CN.md",
+      "sha256": "8de400a7d3f754a67aa1277e9e31b079405045250303505e991eede2f0df8465",
+      "size": 3412
+    },
+    {
+      "path": "REPRODUCE.md",
+      "sha256": "2ffe7ce7de2a40f6b4deb1c8ec0098400f3fa45bb0c191b50a4666a00cf8ce3e",
+      "size": 317
+    },
+    {
+      "path": "dependencies/CONDA_SIM1_JAZZY.md",
+      "sha256": "87e4b8554e65ece03c9da2247149018b434dbb46e6d970c489acd825337a3aef",
+      "size": 1474
+    },
+    {
+      "path": "dependencies/README.md",
+      "sha256": "cf7472a8ebee6cff10808551967a36577035f585abcef06bf53e18e1d5049b1d",
+      "size": 663
+    },
+    {
+      "path": "docker/DOCKER_PROJECT_TEST_USE_DISTRIBUTE.md",
+      "sha256": "b72b453823d97ee44dc4b74b180b36640b68b46130fb8742eed6a82796154da3",
+      "size": 14080
+    },
+    {
+      "path": "docker/FAST_DDS_DOCKER_IPC_UID_NOTES.md",
+      "sha256": "66f37ef21886d61f4b667c6ff04a7b7707bf1907c382fefd1470fdf52e6f4bb9",
+      "size": 5132
+    },
+    {
+      "path": "docker/PATH_AUDIT.md",
+      "sha256": "53d77529705a9275fb181ce5717a694ac16f0fb227be4fbae26c589ff4c7e425",
+      "size": 4002
+    },
+    {
+      "path": "docker/README_DOCKER.md",
+      "sha256": "4edacc5f2259c7689d2617a8d035df8a66baef24463a8c136ac3bfad40c9e0a0",
+      "size": 3201
+    },
+    {
+      "path": "docker/RUNTIME_VALIDATION.md",
+      "sha256": "52e4cad65a11f4e971b8e29dec12d4e532fab989a2373e62ea284afef68c66af",
+      "size": 7583
+    },
+    {
+      "path": "docs/OPERATIONS_EN.md",
+      "sha256": "007b98d74b8f4557802ea2ba88bba82cb2ab7b8980403bf8b9b7855dd1571148",
+      "size": 5352
+    },
+    {
+      "path": "docs/OPERATIONS_ZH.md",
+      "sha256": "7d84b837e325e886141a99800d376a0c3108abe8b0a318ca36e1f7fb76b0cf2d",
+      "size": 4765
+    },
+    {
+      "path": "docs/PROJECT_HANDOVER_20260730_zh.md",
+      "sha256": "1a0ccf21a0a92d2c9c4fc07f3857a62d754e04cb6d1836cc0422b71192a0ef2c",
+      "size": 19977
+    },
+    {
+      "path": "docs/ROBOT_RESOURCE_POLICY.md",
+      "sha256": "76330beaa8f5cfc5290a869896de5477ba3897e71d6cc922269a3521002b4106",
+      "size": 1114
+    },
+    {
+      "path": "docs/archive/GAME_GUIDE.md",
+      "sha256": "9a5575b57b42d5d4a888274c0a007af11563c29eb680ac566b7fc3d7c9e6a603",
+      "size": 14077
+    },
+    {
+      "path": "docs/archive/REPRODUCE.md",
+      "sha256": "21ec2dfafaf90004cc5530a9d1ac939c7fdca8820c23d2fff3112823dee8bcfa",
+      "size": 1864
+    },
+    {
+      "path": "docs/archive/projects_Trajectory_SIM1_GAME_GUIDE.md",
+      "sha256": "c0530e6703e53244d682dd2f9462a6e82bc0021718f939993f550d0c79467187",
+      "size": 44192
+    },
+    {
+      "path": "docs/archive/projects_Trajectory_SIM1_PROJECT_OVERVIEW.md",
+      "sha256": "73224eff0602b3a9919940b597ff43fc7b70349c48cd98036909ccb64c7bd548",
+      "size": 9229
+    },
+    {
+      "path": "docs/document_index_20260723_zh.md",
+      "sha256": "c3a03bcff8dd16942fd49aed059b5e043d9596fa6b2e8580b74d1cb371b19cfd",
+      "size": 1059
+    },
+    {
+      "path": "docs/startup_guide_20260723_zh.md",
+      "sha256": "7940f3484f976f78168806701307562b82b199cb18ec3f1aaf44e9d9aa557557",
+      "size": 542
+    },
+    {
+      "path": "evaluations/omnisim/README.md",
+      "sha256": "ad9d6780053df9aa160bc39e7e69fe391b449092d1ccc0e15e399ab23f09441d",
+      "size": 6502
+    },
+    {
+      "path": "evaluations/omnisim/results/capabilities.json",
+      "sha256": "f533a89748554627ce621724ec4d81f4b22b88cca8933f541f011ab8ac065f02",
+      "size": 46614
+    },
+    {
+      "path": "evaluations/omnisim/results/cube_floor_control.json",
+      "sha256": "d0520513a2765542b8314422cd23be9dcf2985fb5db1fd2464929c01ea9d1385",
+      "size": 9105
+    },
+    {
+      "path": "evaluations/omnisim/results/joint_mapping.csv",
+      "sha256": "cbeeef14f52954bd755e413e56c04a0cd5250dcd4c08d65503e1c56622032a6f",
+      "size": 1779
+    },
+    {
+      "path": "evaluations/omnisim/results/joints.json",
+      "sha256": "8b458bcd6f23e5072720dcadfdeef10ee172a4aa065a24eaf46c482ffc0e88bf",
+      "size": 5489
+    },
+    {
+      "path": "evaluations/omnisim/results/load.json",
+      "sha256": "8cf3dadd8f39aea3d05324326384ad86f67fadba3d23f31a33450dd8d3c7826c",
+      "size": 20539
+    },
+    {
+      "path": "evaluations/omnisim/results/portable_import_failure_20260915.log",
+      "sha256": "0bc651e3307c579da480c4ac3adcfe13abf541da6d3b218ab19c4b573535eb9a",
+      "size": 5473
+    },
+    {
+      "path": "evaluations/omnisim/results/pose_0.json",
+      "sha256": "b94d2d8d60028ff3242fa6434e137bee53d5913d582b8457019b352201b963cf",
+      "size": 43907
+    },
+    {
+      "path": "evaluations/omnisim/results/pose_1.json",
+      "sha256": "6ccba74d7f9cbbfc7525cbe6ee4d03bc17b7afb71076e526a5cc3f13544952e4",
+      "size": 30790
+    },
+    {
+      "path": "evaluations/omnisim/results/pose_2.json",
+      "sha256": "8000c3d2c53a9bf7f9f581be440524817f4caef63aa52c046b0d4578a602794c",
+      "size": 29682
+    },
+    {
+      "path": "evaluations/omnisim/results/provenance.json",
+      "sha256": "9468de0f8a19919ba0c3678584866abd82daff0dd3f27152c7dfdbc098e2beb8",
+      "size": 902
+    },
+    {
+      "path": "evaluations/omnisim/results/summary.csv",
+      "sha256": "b44d839a04482845de6302e6ad8ce1d08b9520a08178dcde01dda6b9ebca7f4a",
+      "size": 488
+    },
+    {
+      "path": "evaluations/omnisim/results/summary.json",
+      "sha256": "951fc1ddf9f12c5983d8456f5ceac4b8adf51d3c1663e8893bf70357b7dbc7ec",
+      "size": 1028
+    },
+    {
+      "path": "evaluations/omnisim/results/tree.json",
+      "sha256": "d530d2a743cb3fff81c268f99013b1be377cd597cde53842c902fcb6b31d6d9f",
+      "size": 158715
+    },
+    {
+      "path": "evaluations/omnisim/scripts/run_control.py",
+      "sha256": "a81cf4e61aef42e44057f612e44ca37559725ccdcf732de16969df7c1b9fefe6",
+      "size": 1266
+    },
+    {
+      "path": "evaluations/omnisim/scripts/run_evaluation.py",
+      "sha256": "58b9814df9123c4894bacab4931cba7171ad88aa3fd603c27f09b758f75100a6",
+      "size": 2625
+    },
+    {
+      "path": "evaluations/omnisim/worlds/..harness_cube_floor_control.omniperspective",
+      "sha256": "2104f15c36086aaae04304cc76e0a8259975094e4e8745efcd8bd26334587ece",
+      "size": 706
+    },
+    {
+      "path": "evaluations/omnisim/worlds/..harness_pose_0.omniperspective",
+      "sha256": "2104f15c36086aaae04304cc76e0a8259975094e4e8745efcd8bd26334587ece",
+      "size": 706
+    },
+    {
+      "path": "evaluations/omnisim/worlds/..harness_pose_1.omniperspective",
+      "sha256": "2104f15c36086aaae04304cc76e0a8259975094e4e8745efcd8bd26334587ece",
+      "size": 706
+    },
+    {
+      "path": "evaluations/omnisim/worlds/..harness_pose_2.omniperspective",
+      "sha256": "2104f15c36086aaae04304cc76e0a8259975094e4e8745efcd8bd26334587ece",
+      "size": 706
+    },
+    {
+      "path": "evaluations/omnisim/worlds/..harness_r1_gripper.omniperspective",
+      "sha256": "a504deaaadf5da5c975a507bfe9ba37cab7fb75d1d293df7c5d3e55c09cebfc9",
+      "size": 706
+    },
+    {
+      "path": "evaluations/omnisim/worlds/cube_floor_control.omniworld",
+      "sha256": "b0ca86bf438db734fe787b6bc74f91aac921c132315dfb4b83a7ac001067c890",
+      "size": 831
+    },
+    {
+      "path": "evaluations/omnisim/worlds/pose_0.omniworld",
+      "sha256": "1a3a04be68112c035b5da97b7c15045e3b25d1993f6b98f049d298fb5b6184ed",
+      "size": 985
+    },
+    {
+      "path": "evaluations/omnisim/worlds/pose_1.omniworld",
+      "sha256": "11062995561eccb35202c6fc315987d5125b2c77c66dfb8704627f50fe926eae",
+      "size": 988
+    },
+    {
+      "path": "evaluations/omnisim/worlds/pose_2.omniworld",
+      "sha256": "52c2368aa0193b0b19d55410e2cffb98c14b059a6cbb0c215fdb1f83e5272feb",
+      "size": 987
+    },
+    {
+      "path": "evaluations/omnisim/worlds/r1_gripper.omniworld",
+      "sha256": "c23d7876f54eb570c3b42ea0882e36da099bae8ac35b1100dd26e7da54519289",
+      "size": 699
+    },
+    {
+      "path": "projects/Trajectory/Phase3_TaskPlan_updated.md",
+      "sha256": "2042ae24bdc98a8e42aac6eb4afb44c2ae527bc6aefa403ac6dd817372b0abb6",
+      "size": 33545
+    },
+    {
+      "path": "projects/Trajectory/SIM1/CLAUDE_HANDOFF_GRIPPER_PROJECT.md",
+      "sha256": "a63f076a267c724a60c3465f648d681dfc3b05cfca9ee5951b2a3e1807f99414",
+      "size": 27699
+    },
+    {
+      "path": "projects/Trajectory/SIM1/GAME_GUIDE.md",
+      "sha256": "6a32a584ea88140fbf1d6aa6920f7a66104637283102b4b061387947fb4f3b9f",
+      "size": 335
+    },
+    {
+      "path": "projects/Trajectory/SIM1/OCS2_DYNAMIC_NULLSPACE_REGULARIZATION.md",
+      "sha256": "4abce1b6f07cc2a4939c8bb606bf03bbdd4b79c4d94fd98e97632154bd5bd8af",
+      "size": 4213
+    },
+    {
+      "path": "projects/Trajectory/SIM1/PROJECT_OVERVIEW.md",
+      "sha256": "6a32a584ea88140fbf1d6aa6920f7a66104637283102b4b061387947fb4f3b9f",
+      "size": 335
+    },
+    {
+      "path": "projects/Trajectory/SIM1/ROS2_LOG_CLEANUP_PLAN.md",
+      "sha256": "67355f05a9d28691eec881af58dfcbb9376fff4d69ea6793d3151dd682c8f04a",
+      "size": 6382
+    },
+    {
+      "path": "projects/Trajectory/SIM1/TRACE_DATA_FORMAT.md",
+      "sha256": "6b7569100258deae427dec7ea04783ab0170ba2fcd88f33ab4b1a8b48d3ffb15",
+      "size": 27930
+    },
+    {
+      "path": "projects/Trajectory/SIM1/graph/ALL_Graph.md",
+      "sha256": "60d3d08ecb6f776d28f2ab44e3778407f030103fc75a29d7f073c51b51de6b5c",
+      "size": 45825
+    },
+    {
+      "path": "projects/Trajectory/SIM1/graph/Gripper_Control_Graph.md",
+      "sha256": "cf041eec3ef1fc9b8972ea29a44ce642d4844d9729b604cd7ed2144295f3549f",
+      "size": 3131
+    },
+    {
+      "path": "projects/Trajectory/SIM1/graph/gripper_full_diagnosis.md",
+      "sha256": "796f2eca061e146321445578bf965b3242877540339a7b00fd636aca9c31859e",
+      "size": 92036
+    },
+    {
+      "path": "projects/Trajectory/SIM1/graph/scene_structure.md",
+      "sha256": "c54f4ecccb41db2eaf7051e2fdb02c09bc3c36eb415286da47d724c61a1447a1",
+      "size": 24940
+    },
+    {
+      "path": "projects/Trajectory/SIM1/isaac_script_editor_diagnostics/README.md",
+      "sha256": "7d329a8a2a8e1f12d01aa074a78dc654838135fba9f8f4cdab7a6368d07bf99f",
+      "size": 2592
+    },
+    {
+      "path": "projects/Trajectory/SIM1/\u5e95\u76d8\u5dee\u901f\u9a71\u52a8/SIM1_base_drive_debug_lessons.md",
+      "sha256": "5ba2a8bcfee57e65283cf2871f4a56ba9d47ac2b1610536583b9ca84e62c655f",
+      "size": 13765
+    },
+    {
+      "path": "projects/Trajectory/SIM1/\u5e95\u76d8\u5dee\u901f\u9a71\u52a8/SIM1_base_drive_recording_handoff.md",
+      "sha256": "3575654b29f18225189ea6af38e27426dcf1573dee5ec49d648540b766cc580c",
+      "size": 14690
+    },
+    {
+      "path": "projects/Trajectory/SIM1/\u5e95\u76d8\u5dee\u901f\u9a71\u52a8/SIM1_base_drive_user_manual.md",
+      "sha256": "09db233a660aae64060f5addd2e3eed7d1c1cff5b3e663027164a06c2322c0aa",
+      "size": 10585
+    },
+    {
+      "path": "projects/Trajectory/gripper_full_diagnosis/ROS2_LOG_CLEANUP_PLAN.md",
+      "sha256": "92b629e2cf07d158a8ca84103051d865f96fc321f12debf6ffeb421a59c0c18f",
+      "size": 5933
+    },
+    {
+      "path": "projects/ros2_ws/MD/CLAUDE/CLAUDE0.md",
+      "sha256": "2d864f84d8d4c37b925df01745e861e37082dc80c0402d7da2bc34d148f5e664",
+      "size": 21476
+    },
+    {
+      "path": "projects/ros2_ws/MD/CLAUDE/CLAUDE1.md",
+      "sha256": "91482c1de12f63f472a164539b9f8740972b653470ebaec0e5ba4f457895e589",
+      "size": 5532
+    },
+    {
+      "path": "projects/ros2_ws/MD/Phase3_TaskPlan.md",
+      "sha256": "393eba74ce41608563d26ab31f72a01bd3740dee7534c73ca1c2050e3e95706b",
+      "size": 14007
+    },
+    {
+      "path": "projects/ros2_ws/MD/R1_OCS2_HILSERL_Complete_Guide.md",
+      "sha256": "67b4035fd395aa57506e7a3f38bfe0ef90b4fa55b376dbf23a27a58150cb4d77",
+      "size": 40550
+    },
+    {
+      "path": "projects/ros2_ws/MD/ocs2_fix/final_launch_fix.md",
+      "sha256": "137629e0da3f21d9b518cfffbf9b7055eecf205cefa0722a73c1e6966a3feb6c",
+      "size": 6168
+    },
+    {
+      "path": "projects/ros2_ws/MD/ocs2_fix/fix_dynamic_tf.md",
+      "sha256": "be56da374357d8168fed558270c798895a9817085ca2b32da3ffebccd0b8c2f8",
+      "size": 7121
+    },
+    {
+      "path": "projects/ros2_ws/MD/ocs2_fix/fix_perception_tf_pipeline.md",
+      "sha256": "427eb1fb524d2e7f7f2e96f5bed1999a5809c9e6c9353242c79afec8fd1fc3dd",
+      "size": 9300
+    },
+    {
+      "path": "projects/ros2_ws/MD/ocs2_fix/fix_tf_conflict.md",
+      "sha256": "2ab1cb7d85d4b0790c2e5f18c67db3320dc4b3ac8140c9822ba7d6ab983ece20",
+      "size": 6660
+    },
+    {
+      "path": "projects/ros2_ws/MD/ocs2_fix/fix_tf_tree.md",
+      "sha256": "75ac8c92c43a6b445a4c922754324579e31cfabbd7ab6596457d70008637d45a",
+      "size": 3586
+    },
+    {
+      "path": "projects/ros2_ws/MD/\u573a\u666f\u51c6\u5907/R1_ActionGraph_Complete_v2.md",
+      "sha256": "5534cd96ca53884d1ca45c595627f67b8d2ce33071634f4a4939f4ee6d0228b2",
+      "size": 30462
+    },
+    {
+      "path": "projects/ros2_ws/MD/\u573a\u666f\u51c6\u5907/RM75.md",
+      "sha256": "21a7e647c55ba03dc82c212bbe028d17540bdcf576dd3540811acf3c4fd07c20",
+      "size": 10380
+    },
+    {
+      "path": "projects/ros2_ws/MD/\u573a\u666f\u51c6\u5907/cam_head_rgb \u5185\u53c2\u5916\u53c2\u77e9\u9635.md",
+      "sha256": "644130967291bf35d44f5b110197b0e5b331e5e2be4b3581cc2eae91e8aeb696",
+      "size": 877
+    },
+    {
+      "path": "projects/ros2_ws/MD/\u573a\u666f\u51c6\u5907/cam_inform.md",
+      "sha256": "6d9ac21c9587be7a190957843cbfc6767d1431d68def04bffe23d6caf332cdb6",
+      "size": 6547
+    },
+    {
+      "path": "projects/ros2_ws/MD/\u573a\u666f\u51c6\u5907/camera_config.md",
+      "sha256": "f6564eb791320af5d8f645e4d0b0922dff752a998e2aeb67a789b3bf1d8ab369",
+      "size": 12273
+    },
+    {
+      "path": "projects/ros2_ws/MD/\u573a\u666f\u51c6\u5907/\u673a\u5668\u4eba\u5bfc\u5165\u8bbe\u7f6e.md",
+      "sha256": "c5e3152b17fd4fd9e7acde275965bd78c61e97b4a70872b9af801d25008d0ddc",
+      "size": 8447
+    },
+    {
+      "path": "projects/ros2_ws/src/arms_moveit/README.md",
+      "sha256": "d55f30ad2cac40f6a305d1b829c236d2300565e1abe7e245393fcc326020e7c5",
+      "size": 5056
+    },
+    {
+      "path": "projects/ros2_ws/src/arms_moveit/README_CN.md",
+      "sha256": "90f87bf3385e418f140a7524137924b1e143cd1093d79092c29ccb3037397094",
+      "size": 4702
+    },
+    {
+      "path": "projects/ros2_ws/src/arms_moveit/libraries/moveit_common_config/README.md",
+      "sha256": "86b9c8db884489442e1e9371064fbeec6b0fff6448fedb8674d7fa3dad7da368",
+      "size": 383
+    },
+    {
+      "path": "projects/ros2_ws/src/arms_moveit/moveit_config/ARX/arx5_moveit_config/README.md",
+      "sha256": "a09a0b24b2ff16fd2e9d5d7bb37a1edfc78f8b5f68f8e7b7a1e1ebbe3ad43a95",
+      "size": 1082
+    },
+    {
+      "path": "projects/ros2_ws/src/arms_moveit/moveit_config/Dobot/cr5_moveit_config/README.md",
+      "sha256": "c66af57ba44914fa78988354b10b75cdc3127c269b45fdcb66311be6ebf6e85e",
+      "size": 1159
+    },
+    {
+      "path": "projects/ros2_ws/src/arms_moveit/moveit_config/Ragtime-Lab/panthera_moveit_config/README.md",
+      "sha256": "2c809f3176b86f704c6fd3c9828039bb0da0baaad5294cd05a32177dc062638c",
+      "size": 1526
+    },
+    {
+      "path": "projects/ros2_ws/src/arms_ros2_control/README.md",
+      "sha256": "5b3a5923d84d6e7c093404fb75432f3210de50f1d64a0fe23cc540c8f92e40e2",
+      "size": 10756
+    },
+    {
+      "path": "projects/ros2_ws/src/arms_ros2_control/README_zh.md",
+      "sha256": "bb07f3d2f8a05347f7f787012094b65fcd72b60d2003500c17274dc3d2c315e5",
+      "size": 9581
+    },
+    {
+      "path": "projects/ros2_ws/src/arms_ros2_control/command/README.md",
+      "sha256": "cb34c6edb7c99d422591f43fd85eec79b78bb19c4f6df543b390252307159017",
+      "size": 105
+    },
+    {
+      "path": "projects/ros2_ws/src/arms_ros2_control/command/arms_rviz_control_plugin/README.md",
+      "sha256": "5ea9ce2c108de74ae6d28eac8a77c479e3aa2ac8090a0c9d38c5b71e02ae8648",
+      "size": 2272
+    },
+    {
+      "path": "projects/ros2_ws/src/arms_ros2_control/command/arms_target_manager/README.md",
+      "sha256": "a1361ed7002c4cef357f4b9b7b62018cb694179458734dea2453a2ef4a3ea746",
+      "size": 2890
+    },
+    {
+      "path": "projects/ros2_ws/src/arms_ros2_control/command/arms_target_manager/VR_INPUT_HANDLER_README.md",
+      "sha256": "16eb77155ad7c085edf94ad19b789457ef204fb7ceee9fc9f2742004f4f90002",
+      "size": 4680
+    },
+    {
+      "path": "projects/ros2_ws/src/arms_ros2_control/command/arms_teleop/README.md",
+      "sha256": "e671b5e838936e867ac391bb278dce78467ea4eafae8520b12f58208298f72d3",
+      "size": 2072
+    },
+    {
+      "path": "projects/ros2_ws/src/arms_ros2_control/controller/adaptive_gripper_controller/README.md",
+      "sha256": "adc8b4f9052cca35199c96e5e47c31090dc9630b71a590a4fa54049e9d17e2a9",
+      "size": 2269
+    },
+    {
+      "path": "projects/ros2_ws/src/arms_ros2_control/controller/basic_joint_controller/README.md",
+      "sha256": "67b505a482fd0a2825fe8534c95ea291525c1ac60cbe37e61165f17b16653297",
+      "size": 5981
+    },
+    {
+      "path": "projects/ros2_ws/src/arms_ros2_control/controller/basic_joint_controller/README_zh.md",
+      "sha256": "99b679cbd442876c935a2e80e0754690c2e844544763feff926427b15c9d5616",
+      "size": 5673
+    },
+    {
+      "path": "projects/ros2_ws/src/arms_ros2_control/controller/ocs2_arm_controller/README.md",
+      "sha256": "74118cb9278f7fea780c0b86c23f30f170e7dff20a033b35a2f847b1aac651a4",
+      "size": 5179
+    },
+    {
+      "path": "projects/ros2_ws/src/arms_ros2_control/hardwares/README.md",
+      "sha256": "fb41cd3bf36512fba995b5700637ca700ccc022a1c8c1bfcff66447735145b0a",
+      "size": 623
+    },
+    {
+      "path": "projects/ros2_ws/src/arms_ros2_control/hardwares/gripper_hardware/CHANGELOG.md",
+      "sha256": "3f5cb7cb5cc49fa3e672d72d2665a9b7d2b9304651f99257a93d9b400eff8e21",
+      "size": 3284
+    },
+    {
+      "path": "projects/ros2_ws/src/arms_ros2_control/hardwares/gripper_hardware/PROJECT_OVERVIEW.md",
+      "sha256": "982a2507a86f758b3c0dc93b20dcbbc8803547253fa62aa17d19f969a17a8224",
+      "size": 8098
+    },
+    {
+      "path": "projects/ros2_ws/src/arms_ros2_control/hardwares/gripper_hardware/QUICKSTART.md",
+      "sha256": "7e8dad96c6fca4f1f706667db9a5aeb3a3e243f32aa4df46266fcb5b704038a7",
+      "size": 3544
+    },
+    {
+      "path": "projects/ros2_ws/src/arms_ros2_control/hardwares/gripper_hardware/README.md",
+      "sha256": "512635aac9ea7e36b7f968bfaecafe1457d56c80a3175817806ebbbf782dfccb",
+      "size": 6909
+    },
+    {
+      "path": "projects/ros2_ws/src/arms_ros2_control/hardwares/rm_ros_interfaces/README.md",
+      "sha256": "126726531e2d6627407cf28c46bbd527a041049508e96092b38f0120edee7b42",
+      "size": 28152
+    },
+    {
+      "path": "projects/ros2_ws/src/arms_ros2_control/hardwares/rm_ros_interfaces/README_CN.md",
+      "sha256": "b353d49d84267ce4a92d96449ab43091c004581501952d52cfec9617e2ac4465",
+      "size": 25795
+    },
+    {
+      "path": "projects/ros2_ws/src/arms_ros2_control/hardwares/topic_based_ros2_control/CONTRIBUTING.md",
+      "sha256": "023ab43add95681790f19b966f7a6bce4adb86f0e6b6e7cfd59015575b3be4fb",
+      "size": 167
+    },
+    {
+      "path": "projects/ros2_ws/src/arms_ros2_control/hardwares/topic_based_ros2_control/README.md",
+      "sha256": "3adb55ee5805a048be65214ed1c563b873db326522805632411e63a0080b94e8",
+      "size": 3183
+    },
+    {
+      "path": "projects/ros2_ws/src/arms_ros2_control/hardwares/topic_based_ros2_control/doc/developer.md",
+      "sha256": "38cecaac3f36e25b8c7eba8687bf043bf33e8626293b0154dc0d71d54a581f4a",
+      "size": 1904
+    },
+    {
+      "path": "projects/ros2_ws/src/arms_ros2_control/hardwares/topic_based_ros2_control/doc/installation.md",
+      "sha256": "66ab9176da141c2905f7f048de9f0ec35013e031652751f2829c84cde6f96ba5",
+      "size": 2050
+    },
+    {
+      "path": "projects/ros2_ws/src/arms_ros2_control/hardwares/topic_based_ros2_control/doc/user.md",
+      "sha256": "f96f3d6142e436219125429e0d05a82bfdaf2fff10c0aef33fa7f1c61818a0f8",
+      "size": 4546
+    },
+    {
+      "path": "projects/ros2_ws/src/arms_ros2_control/libraries/arms_controller_common/IMPLEMENTATION_SUMMARY.md",
+      "sha256": "afd149f9884a2d4aa9c54709ffe1c0820e176d689b9ab759d421b8bd93f96179",
+      "size": 4440
+    },
+    {
+      "path": "projects/ros2_ws/src/arms_ros2_control/libraries/arms_controller_common/README.md",
+      "sha256": "89b81d41838c6b02d6536c031592e6d03fa78bd830f8f6c12be35160b5dbc70c",
+      "size": 7537
+    },
+    {
+      "path": "projects/ros2_ws/src/arms_ros2_control/libraries/arms_controller_common/USAGE_EXAMPLES.md",
+      "sha256": "2761de93043f22896b82287bd9607adc9d81c2b576387218d100ffb75d279389",
+      "size": 2816
+    },
+    {
+      "path": "projects/ros2_ws/src/arms_ros2_control/libraries/gripper_hardware_common/README.md",
+      "sha256": "9e2f718d9da1b40f972caa93e4eb66f33c58e506b9a31da23622b7ca89ca13b3",
+      "size": 5876
+    },
+    {
+      "path": "projects/ros2_ws/src/ocs2_ros2/README.md",
+      "sha256": "df653ab992da0fe38f94abe5bbaf495d357ed68a1296fda68a5fd6990f301c56",
+      "size": 6478
+    },
+    {
+      "path": "projects/ros2_ws/src/ocs2_ros2/advance examples/ocs2_mpcnet/README.md",
+      "sha256": "258f449cfe3e513e495dc5aede9c70c44eb17803e998549f8b829900fb7e3c13",
+      "size": 3572
+    },
+    {
+      "path": "projects/ros2_ws/src/ocs2_ros2/advance examples/ocs2_perceptive_anymal/README.md",
+      "sha256": "88b3418b522b0f53f6a6e6a9725f63350bca04b3cc55c6245bb1862a534fb64a",
+      "size": 307
+    },
+    {
+      "path": "projects/ros2_ws/src/ocs2_ros2/advance examples/ocs2_perceptive_anymal/ocs2_anymal_loopshaping_mpc/README.md",
+      "sha256": "d58f3d321d5d4ca8b248f116f96b303f369ea446d62bdab23afd3490470fcba3",
+      "size": 1507
+    },
+    {
+      "path": "projects/ros2_ws/src/ocs2_ros2/advance examples/ocs2_perceptive_anymal/ocs2_anymal_models/README.md",
+      "sha256": "b9776f40b875317f7867ee653e3cc9f7386b1ce7baa740f4f3b4544a590930c9",
+      "size": 615
+    },
+    {
+      "path": "projects/ros2_ws/src/ocs2_ros2/advance examples/ocs2_perceptive_anymal/ocs2_anymal_mpc/README.md",
+      "sha256": "7c3f1ba3f9467bf05c4923b003130e85de7b06a9225c15eb7866fccefde7f358",
+      "size": 444
+    },
+    {
+      "path": "projects/ros2_ws/src/ocs2_ros2/advance examples/ocs2_raisim/README.md",
+      "sha256": "fb10c4548199d7e97ee8948cda905843781cc11e1413a95aa57ffd5c3e3ac350",
+      "size": 927
+    },
+    {
+      "path": "projects/ros2_ws/src/ocs2_ros2/mpc/ocs2_ddp/README.md",
+      "sha256": "94c5b91495fe352c86155d578f69147615ce52087218648b0022428c61f17fd6",
+      "size": 1552
+    },
+    {
+      "path": "projects/ros2_ws/src/ocs2_ros2/mpc/ocs2_ipm/README.md",
+      "sha256": "8dd4cafd541120caa5bb51d5c5c8e7cecbafd1c289b2d799bb41905d19b97fe0",
+      "size": 1631
+    },
+    {
+      "path": "projects/ros2_ws/src/ocs2_ros2/mpc/ocs2_slp/README.md",
+      "sha256": "76094ea65c1ff6cd417a270d7e79323dd6c7290f956bed42248ab32b077df9c6",
+      "size": 1322
+    },
+    {
+      "path": "projects/ros2_ws/src/ocs2_ros2/mpc/ocs2_sqp/README.md",
+      "sha256": "8ccde0c9e2ef61bcb0c17635a21171286177255e1de33915a019ecd907ac4502",
+      "size": 1548
+    },
+    {
+      "path": "projects/ros2_ws/src/ocs2_ros2/mpc/ocs2_sqp/ocs2_sqp/README.md",
+      "sha256": "395c25817925534fc5d7a6fd8d0d54a9c93103e04cbbeeb9c7d77821ca14f7ed",
+      "size": 343
+    },
+    {
+      "path": "projects/ros2_ws/src/ocs2_ros2/submodules/grid_map_sdf/README.md",
+      "sha256": "9bb5db4d2db0d7674964c922a837ca41293db1fe6eea4b3d6e2b347d90448f7d",
+      "size": 105
+    },
+    {
+      "path": "projects/ros2_ws/src/ocs2_ros2/submodules/ocs2_robotic_assets/README.md",
+      "sha256": "e1d36178b57a9c2a4dffcd9b21ee9f3f66ebb0c11cbdc39956ba4ebd781c0e21",
+      "size": 2407
+    },
+    {
+      "path": "projects/ros2_ws/src/ocs2_ros2/submodules/ocs2_robotic_assets/docs/MobileManipulatorUrdfAssets.md",
+      "sha256": "cef883d1bf6a45167f8e51915166ae80cff89cd18887330e4bb42ed1adbf07ef",
+      "size": 7996
+    },
+    {
+      "path": "projects/ros2_ws/src/ocs2_ros2/submodules/plane_segmentation_ros2/README.md",
+      "sha256": "021612e526774a09bf3249be62161d78f2865e3b2a605342a36184c38cb22caa",
+      "size": 1158
+    },
+    {
+      "path": "projects/ros2_ws/src/ocs2_ros2/submodules/plane_segmentation_ros2/cgal5_colcon/README.md",
+      "sha256": "10184691377e6900f5ba1eee11cb6fef81e387298b047f0ee63ae686ebeaf56c",
+      "size": 86
+    },
+    {
+      "path": "projects/ros2_ws/src/r1_lerobot_sim/README.md",
+      "sha256": "18d920f0e1c4d6364d43c9cb163a11106431b4c868fe16169af4ac773d1ad6d7",
+      "size": 1517
+    },
+    {
+      "path": "projects/ros2_ws/src/robot/meshes/meshes_tree.md",
+      "sha256": "b2ee70a5197a6233b33832277ecc6f8dd091b3b042f9c667d72861a2e729a08b",
+      "size": 1247
+    },
+    {
+      "path": "releases/2026-09-16/FREEZE.md",
+      "sha256": "775645d2d496e502923ccafe976f59f60e7762ba9448bacbf9c4b08a0370dac5",
+      "size": 2341
+    },
+    {
+      "path": "reports/615scene_camera_script_editor_20260724.md",
+      "sha256": "e4d3893530cad9efa3cee81ebd223a9ddaa1c89fb9c1c69c43726b5e610369db",
+      "size": 1899
+    },
+    {
+      "path": "reports/LOCAL_VALIDATION_20260915.md",
+      "sha256": "488f4557fff7273267035800606b082dc530a41ffcf85020f8c18040cf6ca7ee",
+      "size": 11584
+    },
+    {
+      "path": "reports/VALIDATION_20260916.md",
+      "sha256": "58cb40b126550aea68440dea09b8c95d3549cbe29c9c9a115a813c3ad0417a62",
+      "size": 4902
+    },
+    {
+      "path": "reports/camera_recording_diagnosis_20260723.md",
+      "sha256": "6f0369edc4d7de51e20fe7ac52dbca658a201299fbf7e25b4f07f26db8e155df",
+      "size": 5554
+    },
+    {
+      "path": "reports/environment_compatibility_report_20260723.md",
+      "sha256": "585fb309324e6a83990d8e9ea43208cd4bd1a9ffc57fce0ac6bb8fb17a075d0f",
+      "size": 2881
+    },
+    {
+      "path": "reports/head_rgb_renderproduct_fix_20260724.md",
+      "sha256": "139e06701b6eedbeb518181c52b7a75fc96837fadfbbe748bd9a490ba7d29ef2",
+      "size": 1481
+    },
+    {
+      "path": "reports/lerobot_export_validation_20260916.json",
+      "sha256": "4465dd3cc885fa437a0eb03232d8a64286a2b6f92fec5fbbda7d2fc5fc8d83e2",
+      "size": 1155
+    },
+    {
+      "path": "reports/lerobot_v21_deletion_report_20260723.md",
+      "sha256": "aacfd87432af4ecb459f30034b23f74671158a4b1297522fff44afead745eaac",
+      "size": 1778
+    },
+    {
+      "path": "reports/lerobot_v30_cleanup_report_20260724.md",
+      "sha256": "a1ae6d8903a46d726b13fb730fafcf9a53a68ae29aac8dd4fa17917b82e97e1a",
+      "size": 958
+    },
+    {
+      "path": "reports/markdown_audit_20260916.json",
+      "sha256": "4950b2d468506db8f4c8324b16a8fa1d9e2a6b3b3aaf7272322623ae2ca6482a",
+      "size": 353
+    },
+    {
+      "path": "reports/migration_finalization_20260724.md",
+      "sha256": "3f5362a198b5f5e2f792101e1dcfdd1f4bf5b81b89f6e5a0efa9e584e260cef3",
+      "size": 4264
+    },
+    {
+      "path": "reports/project_inventory_20260723.md",
+      "sha256": "f9bbac3ed07846d8d2c179126175058aa42dcd789d7727a977b12eca000d0b9c",
+      "size": 2401
+    },
+    {
+      "path": "reports/project_use_validation_20260723.md",
+      "sha256": "3785689f0cee9f0bfbae1dc0b61c53a1a9e8faec3cabf9b86e2f5344ece4448d",
+      "size": 3742
+    },
+    {
+      "path": "reports/recording_validation_20260916.json",
+      "sha256": "d1c61a89019466ddff5d024169d1284c522f8d37c954be2329e67a70410c1afc",
+      "size": 605
+    },
+    {
+      "path": "reports/trace_data_cleanup_report_20260723.md",
+      "sha256": "9c55bfab2fc10e5fbff92c7d05bbbad73ef22ab13a926ce848459673be7da2c7",
+      "size": 2649
+    },
+    {
+      "path": "reports/usd_scene_migration_20260723.md",
+      "sha256": "70cbdbd1546e2036060c4b0b5811c84d040e3c95475db6a09159a3541e15348b",
+      "size": 1485
+    },
+    {
+      "path": "reproducibility/README.md",
+      "sha256": "4a7cb52177ef3b5e6c84919643d16dced9c7a870ad44afcdac6de207ebb59577",
+      "size": 467
+    },
+    {
+      "path": "reproducibility/VALIDATION_20260724.md",
+      "sha256": "18b63c835d604ea5f97d9314f41ca52b18d0ba5751c3286c32a66c8fa74dbf87",
+      "size": 2154
+    },
+    {
+      "path": "reproducibility/artifacts/README.md",
+      "sha256": "a621fd170ce0a9498a0cd2d4d89e27163d1084f221d98167307c230a5f22daed",
+      "size": 192
+    },
+    {
+      "path": "reproducibility/manifests/README.md",
+      "sha256": "25a097be7f6cbb599881a4ab6c0558a5fc8853188dca65306b33e6b1505b80dd",
+      "size": 624
+    },
+    {
+      "path": "reproducibility/patches/README.md",
+      "sha256": "bc2cb7bc3f9608621a898d660d5d1f407ac03a3b03df3a5f11a946988677fbe6",
+      "size": 195
+    },
+    {
+      "path": "spec/docker_build_requirements_zh.md",
+      "sha256": "fbfc29cb270a22dc97ce79a735b09e3ff712d578bf124d6d5992fc0ddb0eda43",
+      "size": 7253
+    },
+    {
+      "path": "vendor/isaac_sim_5_1_python/README_20260723.md",
+      "sha256": "96f4c4a6371c307972ac7e12dd2d07fe5b257c4397e19235730dd4f15c5bd0a1",
+      "size": 1091
+    },
+    {
+      "path": "\u7269\u7406\u4eff\u771f\u4e0e\u53c2\u6570\u83b7\u53d6/result/data&plan.md",
+      "sha256": "2de9c51f84ed5c0d1840ab06b88d4c93f567f4a09369fc15e4c95086c99370f5",
+      "size": 22801
+    },
+    {
+      "path": "\u7269\u7406\u4eff\u771f\u4e0e\u53c2\u6570\u83b7\u53d6/result/final_release_space.md",
+      "sha256": "7f2741ffacf3206b3bd0bb08e3af3e8024bf6d88e1835b96944068555d5e324a",
+      "size": 2949
+    },
+    {
+      "path": "\u7269\u7406\u4eff\u771f\u4e0e\u53c2\u6570\u83b7\u53d6/result/mass.md",
+      "sha256": "ce7cc8294adec113eaf4cf9691907c27472c60386f907a78b8f34a075cd09a75",
+      "size": 3173
+    },
+    {
+      "path": "\u7269\u7406\u4eff\u771f\u4e0e\u53c2\u6570\u83b7\u53d6/result/pic_st.md",
+      "sha256": "5fb1a4cf4b92c08cde01bd6e4ea591b953d0adad61613ac1b94c376468fc8ce9",
+      "size": 131
+    },
+    {
+      "path": "\u9879\u76ee\u4ea4\u63a5\u6587\u6863.md",
+      "sha256": "7be6f2a743fd619134b34d40724b2339da740cb39ac4ecbe4510f17c8319fa8b",
+      "size": 47497
+    }
+  ]
+}

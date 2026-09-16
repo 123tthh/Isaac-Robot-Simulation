@@ -1,0 +1,27 @@
+{
+  "updated_layers": [
+    "assets/scenes/scene.usd",
+    "assets/scenes/physics_overrides.usd",
+    "assets/scenes/r1_workcell/workcell.usd",
+    "assets/scenes/r1_workcell/configuration/physics.usd"
+  ],
+  "up_axis": "Z",
+  "meters_per_unit": 1.0,
+  "layers": [
+    "assets/scenes/scene_portable.usda",
+    "assets/scenes/r1_workcell/configuration/base.usd",
+    "assets/scenes/r1_workcell/configuration/physics.usd",
+    "assets/scenes/r1_workcell/configuration/robot.usd",
+    "assets/scenes/r1_workcell/configuration/sensors.usd",
+    "assets/scenes/r1_workcell/equipment.usd",
+    "assets/scenes/r1_workcell/isaac_assets/rsd455.usd",
+    "assets/scenes/scene.usd"
+  ],
+  "unresolved_assets": [
+    "/home/descfly/Videos/Isaac-Robot-Simulation-main/assets/Materials/Base/Metals/Aluminum_Anodized.mdl",
+    "/home/descfly/Videos/Isaac-Robot-Simulation-main/assets/Materials/Base/Metals/Aluminum_Cast.mdl",
+    "/home/descfly/Videos/Isaac-Robot-Simulation-main/assets/Materials/Base/Plastics/Plastic_ABS.mdl",
+    "OmniGlass.mdl",
+    "OmniPBR.mdl"
+  ]
+}

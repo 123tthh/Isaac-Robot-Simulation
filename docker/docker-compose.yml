@@ -23,8 +23,8 @@ services:
       WORKSPACE: /workspace
       ROS2_WS: /workspace/projects/ros2_ws
       ROS2_INSTALL_DIR: /workspace/projects/ros2_ws/install_docker
-      TRAJECTORY_DIR: /workspace/projects/Trajectory
-      SIM1_DIR: /workspace/projects/Trajectory/SIM1
+      TRAJECTORY_DIR: /workspace/projects/teleoperation
+      SIM1_DIR: /workspace/projects/teleoperation/sim1
       ROS2_LOG_DIR: /workspace/data/ros2_log
       ISAAC_USD_PATH: /workspace/assets/scenes/scene.usd
       OUTPUT_DIR: /workspace/outputs

@@ -1,11 +1,13 @@
+> **Historical record / 历史记录**：本页描述其记录日期的状态；当前运行以[中文指南](../docs/getting-started.zh-CN.md) / [English guide](../docs/getting-started.md)为准。Historical failures and paths are not current release claims.
+
 # LeRobot v3.0 派生数据清理报告（2026-07-24）
 
 已删除旧的 LeRobotDataset v3.0 派生输出，共约 91 MB：
 
 - `/home/gtk/ros2_log/SIM1/trace_data/lerobot_v30`
-- `/home/gtk/isaac_ocs_project/projects/Trajectory/SIM1/trace_data/lerobot_v30`
+- `${PROJECT_ROOT}/projects/teleoperation/sim1/trace_data/lerobot_v30`
 
-`/home/gtk/Trajectory/SIM1` 是工程 `projects/Trajectory` 的软链接，因此没有
+`/home/gtk/teleoperation/sim1` 是工程 `projects/teleoperation` 的软链接，因此没有
 额外第三份数据。
 
 保留内容：

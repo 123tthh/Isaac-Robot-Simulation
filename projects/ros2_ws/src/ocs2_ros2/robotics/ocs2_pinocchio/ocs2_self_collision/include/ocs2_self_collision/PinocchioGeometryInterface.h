@@ -30,8 +30,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #pragma once
 
 // ROS/Isaac compatibility references:
-//   /home/gtk/ai_docs/docs.isaacsim.omniverse.nvidia.com/5.1.0/installation/install_ros.md
-//   /home/gtk/ai_docs/docs.isaacsim.omniverse.nvidia.com/5.1.0/installation/install_container.md
+//   https://docs.isaacsim.omniverse.nvidia.com/5.1.0/installation/install_ros.md
+//   https://docs.isaacsim.omniverse.nvidia.com/5.1.0/installation/install_container.md
 
 // Pinocchio 3 on ROS 2 Humble exposes collision results through hpp-fcl,
 // while Pinocchio 4 on ROS 2 Jazzy exposes the same API through COAL.

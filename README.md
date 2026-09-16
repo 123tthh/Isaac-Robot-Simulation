@@ -1,67 +1,96 @@
-# Isaac OCS Project
+# Isaac Robot Simulation
 
-Portable working copy for Isaac Sim 5.1.0, ROS 2/OCS2 and SIM1 trace
-handling. IsaacLab-Arena is an optional experiment source, not a core runtime
-dependency.
+[中文](README.zh-CN.md) · [Operations](docs/getting-started.md) · [Validation](reports/VALIDATION_20260916.md)
 
-## Simulation demos
-
-Two animated excerpts show the Isaac Sim robot working in the simulation scene.
-Click either preview to watch its full recording.
-
-### Part 1 · 8 minutes
-
-[![Part 1: robot interacting with the simulation scene](docs/demo/test_part1.gif)](docs/demo/test_part1.mp4)
-
-### Part 2 · 10 minutes
-
-[![Part 2: close-up of the robot handling an object](docs/demo/test_part2.gif)](docs/demo/test_part2.mp4)
+Isaac Sim 5.1 / ROS 2 Jazzy / OCS2 framework for R1 dual-arm and gripper
+teleoperation, differential base control, three RGB-D cameras and local LeRobot exports.
 
 ## Start here
 
-Canonical host startup:
+- **Project introduction and layout:** [Overview](docs/overview.md)
+- **Installation and operation:** [Getting started](docs/getting-started.md)
+- **Command entry:** `./run.sh` in the repository root (no arguments show help)
+- **Documentation:** [Index](docs/README.md)
+
+| Task | Command |
+| --- | --- |
+| Simulation only | `./run.sh start-isaac` |
+| Teaching and recording | `./run.sh sim1-session --name my_episode` |
+| Convert existing data | `./run.sh sim1-process outputs/sessions/my_episode/trace.csv --with-v21` |
+
+## Quick start
 
 ```bash
-cd /path/to/isaac_ocs_project
-./scripts/project_control_20260723.sh build
-./scripts/project_control_20260723.sh preflight
+git lfs install
+git lfs pull
+python3 scripts/prepare_portable_urdf.py
+export ISAAC_SIM_ROOT=/path/to/isaac-sim-standalone-5.1.0-linux-x86_64
+source scripts/activate_sim1_conda.sh
+./run.sh preflight
+./run.sh sim1-session --name my_episode
 ```
 
-Then follow [the Chinese startup guide](docs/startup_guide_20260723_zh.md). The
-[document index](docs/document_index_20260723_zh.md) separates current instructions
-from historical handoff and diagnosis notes.
+Install/build prerequisites first: [English](docs/getting-started.md),
+[中文](docs/getting-started.zh-CN.md), [Conda/ROS dependencies](dependencies/CONDA_SIM1_JAZZY.md).
+The session starts Play, OCS2, pygame recording and all six camera previews.
+Press Q in pygame to finalize. Outputs: `outputs/sessions/my_episode/`.
+The simulator installation is external; asset and source paths are repository-relative.
+
+## Validation status
+
+The full scene and ROS Bridge run. Root USD metadata is Z-up/metres; bridge
+registration is completed before scene loading. Pygame is the only arm target
+publisher in a teaching session. Six RGB/depth streams and actual base/joint
+feedback were recorded. Small-motion OCS2 tracking and local LeRobot v2.1/v3.0
+exports were checked; see the measured limits in the [report](reports/VALIDATION_20260916.md).
+Depth is retained as lossless auxiliary arrays; the standard video features are
+three RGB streams. Official LeRobot training-loader integration and physical
+hardware transfer are not claimed.
+
+The 2026-09-16 core is [frozen with file hashes and a source snapshot](releases/naming-v3/FREEZE.md).
+Both local export formats passed validation (131 frames, 20 FPS). The last
+automatic-base command fix was not re-recorded; its verification limit is retained
+in the report.
+
+```bash
+./run.sh sim1-process outputs/sessions/my_episode/trace.csv --with-v21
+```
 
 ## Layout
 
-| Directory | Content | Original source |
-| --- | --- | --- |
-| `projects/ros2_ws` | ROS 2 and OCS2 source workspace | `projects/ros2_ws` |
-| `projects/Trajectory` | SIM1 and trajectory tools | `projects/Trajectory` |
-| `projects/IsaacLab-Arena` | Optional Arena experiments; excluded from core Git | `projects/IsaacLab-Arena` |
-| `data/ros2_log` | Historical runtime and diagnosis logs | `data/ros2_log` |
-| `assets/datasets/sac-m` | USD/dataset assets | `assets/datasets/sac-m` |
-| `docker` | Container configuration and usage | consolidated |
-| `backups/dockerize` | Pre-change runtime files with `.bak_dockerize` suffix | generated |
-| `reports` | Cleanup and audit reports | generated |
-| `scripts` | Project maintenance and environment checks | generated |
-| `outputs` | New runtime/training outputs | generated |
+| Directory | Purpose |
+| --- | --- |
+| `assets/` | LFS scene and model assets |
+| `projects/ros2_ws/src/` | ROS / OCS2 source packages |
+| `projects/teleoperation/sim1/` | teaching, cleaning, export and replay |
+| `projects/physics_parameters/` | Optional physics parameter experiments |
+| `run.sh` | Public command entry |
+| `scripts/` | stable launch, validation and asset preparation |
+| `dependencies/` | pinned external dependencies |
+| `docs/`, `reports/` | current operation, historical evidence and validation |
+| `evaluations/omnisim/` | isolated cross-simulator tests |
+| `releases/` | freeze manifest and integrity checks |
+| `outputs/`, `.runtime/` | ignored local data, logs and dependencies |
 
-The canonical R1 robot package is `projects/ros2_ws/src/robot`; see
-`docs/ROBOT_RESOURCE_POLICY.md`. External repositories and exact commits are
-recorded in `dependencies/repositories.lock.yaml`.
+Canonical robot source: `projects/ros2_ws/src/robot`.
+The ROS URDF uses package URIs; `r1_fixed_portable.urdf` uses relative mesh paths.
+A source ZIP or LFS pointer is not a complete geometry asset. Use a hydrated clone.
+Optional IsaacLab-Arena is not a core dependency. Historical notes remain labelled
+and indexed; use the current operation guide for commands.
 
-The old standalone `Trajectory/SIM` package was useful and was integrated as
-`projects/ros2_ws/src/r1_lerobot_sim`; generated build/install/log files and
-the now-redundant copied `SIM` directory were removed only from this normalized
-copy.
+## Cross-simulator validation
 
-All user LeRobot v2.1 datasets, including the former
-`ros2_ws/Trajectory/place_tray_middle` dataset, were removed on 2026-07-23.
-Replay now requires an explicit v3.0 dataset through
-`LEROBOT_DATASET_PATH` or `LEROBOT_NPZ_PATH`. LeRobot v2.1 generation remains
-available on demand with `--with-v21`, `sim1_convert_v21`, or
-`SIM1_GENERATE_LEROBOT_V21=1`.
+See [the isolated evaluation](evaluations/omnisim/README.md). The email's LFS
+pointer and ROS package-URI issues were reproduced and addressed. OmniSim 8.5.1
+also requires a fixed-parent compatibility variant; normal ROS/Isaac imports keep
+the original kinematic description. Fixed gripper-cycle measurements, contact
+queries, versions and limitations are reported there. Successful import or finger
+motion is not evidence of a completed object grasp.
+Measured gripper closing error was 1.803–1.859 mm. A cube/floor control also failed
+without R1, so object-contact and grasp validation remain unresolved in this build.
 
-Trace data is migrated per file with byte comparison before the source file is
-unlinked. See `reports/trace_data_cleanup_report_20260723.md` for the applied retention
-rules and `docker/README_DOCKER.md` for container use.
+## Earlier simulation demos
+
+[Part 1](docs/demo/test_part1.mp4) · [Part 2](docs/demo/test_part2.mp4)
+
+These historical demonstrations are separate from this machine's validation data.

@@ -35,7 +35,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "ocs2_oc/oc_data/DualSolution.h"
 #include "ocs2_oc/oc_data/PrimalSolution.h"
-#include "ocs2_oc/trajectory_adjustment/TrajectorySpreading.h"
+#include "ocs2_oc/trajectory_adjustment/teleoperationSpreading.h"
 
 namespace ocs2 {
 

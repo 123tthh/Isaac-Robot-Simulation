@@ -3,8 +3,8 @@
 Publish complete R1 joint states, using Isaac telemetry when available.
 
 Local documentation referenced:
-- /home/gtk/ai_docs/docs.ros.org/en/rolling/p/rclpy/api/init_shutdown.md
-- /home/gtk/ai_docs/docs.ros.org/en/rolling/p/rclpy/rclpy.node.md
+- https://docs.ros.org/en/rolling/p/rclpy/api/init_shutdown.md
+- https://docs.ros.org/en/rolling/p/rclpy/rclpy.node.md
 
 关键修复点：
 1. /isaac_joint_states -> /joint_states 时，严格按 joint name 映射 position/velocity/effort。

@@ -1,0 +1,38 @@
+[
+  {
+    "version": "v2.1",
+    "frames": 131,
+    "fps": 20,
+    "duration_s": 6.55,
+    "rgb_videos": {
+      "videos/chunk-000/observation.images.left_wrist/episode_000000.mp4": 131,
+      "videos/chunk-000/observation.images.head/episode_000000.mp4": 131,
+      "videos/chunk-000/observation.images.right_wrist/episode_000000.mp4": 131
+    },
+    "depth_sidecar_frames": {
+      "head_depth": 251,
+      "left_depth": 251,
+      "right_depth": 252
+    },
+    "passed": true,
+    "scope": "Local schema/content/decode validation; official LeRobot training loader not executed."
+  },
+  {
+    "version": "v3.0",
+    "frames": 131,
+    "fps": 20,
+    "duration_s": 6.55,
+    "rgb_videos": {
+      "videos/observation.images.left_wrist/chunk-000/file-000.mp4": 131,
+      "videos/observation.images.head/chunk-000/file-000.mp4": 131,
+      "videos/observation.images.right_wrist/chunk-000/file-000.mp4": 131
+    },
+    "depth_sidecar_frames": {
+      "head_depth": 251,
+      "left_depth": 251,
+      "right_depth": 252
+    },
+    "passed": true,
+    "scope": "Local schema/content/decode validation; official LeRobot training loader not executed."
+  }
+]

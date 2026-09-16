@@ -1,3 +1,5 @@
+> **Historical record / 历史记录**：本页描述其记录日期的状态；当前运行以[中文指南](../docs/getting-started.zh-CN.md) / [English guide](../docs/getting-started.md)为准。Historical failures and paths are not current release claims.
+
 # 冷启动与迁移验证记录（2026-07-24）
 
 ## 范围
@@ -31,8 +33,8 @@
   Grid Map、MoveIt Servo、Ignition Gazebo 依赖，且部分旧包与用户级
   CMake 4.3 策略不兼容。核心复现使用无 `--all` 的构建命令。
 - 场景可加载，但 USD 报告既有警告：
-  `513_base.usd</r1/base_link/visuals>` 指向
-  `513_physics.usd</visuals/base_link>`，目标 prim 不存在。
+  `base.usd</r1/base_link/visuals>` 指向
+  `physics.usd</visuals/base_link>`，目标 prim 不存在。
 - 历史镜像 `issac_ocs_docker:20260724-full` 的实际 Isaac Sim 是
   `5.0.0-rc.45`，并继承 Arena 环境变量；它只用于兼容和归档验证。
   严格复现镜像必须从 `nvcr.io/nvidia/isaac-sim:5.1.0` 重新构建。

@@ -3,9 +3,9 @@ OCS2 + Isaac Sim 闭环控制 launch 文件
 R1 双臂机器人 (14-DOF, 停车模式)
 
 本地文档参考:
-  /home/gtk/ai_docs/docs.ros.org/en/rolling/p/controller_manager/doc/userdoc.md
-  /home/gtk/ai_docs/docs.ros.org/en/rolling/p/robot_state_publisher/__README.md
-  /home/gtk/ai_docs/docs.ros.org/en/rolling/p/xacro/xacro.cli.md
+  https://docs.ros.org/en/rolling/p/controller_manager/doc/userdoc.md
+  https://docs.ros.org/en/rolling/p/robot_state_publisher/__README.md
+  https://docs.ros.org/en/rolling/p/xacro/xacro.cli.md
 
 前提条件:
   - Isaac Sim 已按下 Play，State_Telemetry_Graph 发布 /isaac_joint_states

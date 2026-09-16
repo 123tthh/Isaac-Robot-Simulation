@@ -5,7 +5,7 @@ set -u
 WORKSPACE="${WORKSPACE:-/workspace}"
 ROS2_WS="${ROS2_WS:-$WORKSPACE/projects/ros2_ws}"
 ROS2_INSTALL_DIR="${ROS2_INSTALL_DIR:-$ROS2_WS/install_docker}"
-SIM1_DIR="${SIM1_DIR:-$WORKSPACE/projects/Trajectory/SIM1}"
+SIM1_DIR="${SIM1_DIR:-$WORKSPACE/projects/teleoperation/sim1}"
 ISAAC_USD_PATH="${ISAAC_USD_PATH:-$WORKSPACE/assets/scenes/scene.usd}"
 ROS_DISTRO_TARGET="${ROS_DISTRO_TARGET:-jazzy}"
 failures=0

@@ -1,0 +1,5 @@
+# Install into Conda Python 3.12; ROS/Ubuntu supplies numpy, scipy and cv2.
+pygame==2.6.1
+pandas==3.0.3
+pyarrow==24.0.0
+filelock==3.19.1

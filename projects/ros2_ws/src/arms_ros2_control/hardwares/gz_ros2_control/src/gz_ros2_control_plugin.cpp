@@ -13,8 +13,8 @@
 // limitations under the License.
 //
 // Local API references:
-// /home/gtk/ai_docs/docs.ros.org/en/rolling/p/hardware_interface/generated/classhardware__interface_1_1ResourceManager.md
-// /home/gtk/ai_docs/docs.ros.org/en/rolling/p/hardware_interface/generated/structhardware__interface_1_1HardwareInfo.md
+// https://docs.ros.org/en/rolling/p/hardware_interface/generated/classhardware__interface_1_1ResourceManager.md
+// https://docs.ros.org/en/rolling/p/hardware_interface/generated/structhardware__interface_1_1HardwareInfo.md
 
 #include <unistd.h>
 

@@ -1,14 +1,16 @@
+> **Historical record / 历史记录**：本页描述其记录日期的状态；当前运行以[中文指南](../docs/getting-started.zh-CN.md) / [English guide](../docs/getting-started.md)为准。Historical failures and paths are not current release claims.
+
 # Isaac OCS 工程迁移收尾报告（2026-07-24）
 
 ## 结论
 
-`/home/gtk/Trajectory`、`/home/gtk/ros2_ws` 和 `/home/gtk/ros2_log`
-的数据入口已统一到 `/home/gtk/isaac_ocs_project`。前两者继续作为观察期兼容
+`/home/gtk/teleoperation`、`/home/gtk/ros2_ws` 和 `/home/gtk/ros2_log`
+的数据入口已统一到 `${PROJECT_ROOT}`。前两者继续作为观察期兼容
 链接；旧日志实体目录已在逐文件核验后删除并替换为兼容链接。
 
 当前唯一运行场景：
 
-`/home/gtk/isaac_ocs_project/assets/scenes/scene.usd`
+`${PROJECT_ROOT}/assets/scenes/scene.usd`
 
 最终 SHA-256：
 
@@ -27,7 +29,7 @@
 - 九条 `00_CURRENT_ACTIVE` 链接均为工程内部相对链接。
 - 三条历史 `latest` 链接均已恢复，`data/ros2_log` 内失效链接数为 0。
 - `/home/gtk/ros2_log` 现指向
-  `/home/gtk/isaac_ocs_project/data/ros2_log`。
+  `${PROJECT_ROOT}/data/ros2_log`。
 - 删除的旧实体目录不再可单独恢复；其有效内容已经过比较并保存在工程目录，
   旧目录独有的 14 个文件全部是 Python 字节码缓存。
 
@@ -37,11 +39,11 @@
 - 场景内左右夹爪 ScriptNode 的内嵌脚本已迁移，复查待迁移项为 0。
 - 修改场景前备份：
   `backups/scene_runtime_paths_20260724/scene.usd.20260724_151817.bak`。
-- 独立 `projects/Trajectory/robot/r1_fixed.urdf` 的 31 个唯一 mesh URI
+- 独立 `projects/teleoperation/robot/r1_fixed.urdf` 的 31 个唯一 mesh URI
   已改为 `package://r1_description/meshes/...`；31 个资源全部存在，
   `check_urdf` 解析通过。
 - Script Editor 辅助脚本已统一打开 `assets/scenes/scene.usd`，不再执行
-  `/home/gtk/Trajectory/...`。
+  `/home/gtk/teleoperation/...`。
 
 ## Docker
 
@@ -83,6 +85,6 @@
 
 打开当前场景时仍有一条资产级警告：
 `/World/Robot/base_link/visuals` 引用的
-`615scene_20260723/configuration/513_physics.usd</visuals/base_link>`
+`r1_workcell/configuration/physics.usd</visuals/base_link>`
 无法解析。该依赖目录因此继续保留；此警告不影响本次路径和日志迁移结论，
 但应作为后续场景资产修复任务处理。

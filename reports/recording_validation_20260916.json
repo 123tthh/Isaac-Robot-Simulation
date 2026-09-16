@@ -1,0 +1,25 @@
+{
+  "source": "outputs/sessions/auto10s_synced_20260916",
+  "rows": 491,
+  "wall_duration_s": 9.801016330718994,
+  "simulation_duration_s": 6.316666996999999,
+  "events": {
+    "tick": 191,
+    "validation_base_forward": 100,
+    "validation_translation": 199,
+    "duration_complete": 1
+  },
+  "terminal_tool_error_m": {
+    "left": 0.00041861763301247586,
+    "right": 0.000953417034295082
+  },
+  "base_displacement_m": 2.5836028008411082e-05,
+  "camera_frames": {
+    "head_rgb": 376,
+    "head_depth": 375,
+    "left_rgb": 376,
+    "left_depth": 375,
+    "right_rgb": 376,
+    "right_depth": 376
+  }
+}

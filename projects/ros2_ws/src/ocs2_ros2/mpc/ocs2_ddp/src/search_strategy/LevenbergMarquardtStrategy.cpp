@@ -34,7 +34,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "ocs2_ddp/DDP_HelperFunctions.h"
 
 #include <ocs2_oc/oc_problem/OptimalControlProblemHelperFunction.h>
-#include <ocs2_oc/trajectory_adjustment/TrajectorySpreadingHelperFunctions.h>
+#include <ocs2_oc/trajectory_adjustment/teleoperationSpreadingHelperFunctions.h>
 
 namespace ocs2 {
     LevenbergMarquardtStrategy::LevenbergMarquardtStrategy(const search_strategy::Settings &baseSettings,

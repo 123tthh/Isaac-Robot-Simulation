@@ -1,0 +1,173 @@
+#usda 1.0
+(
+    customLayerData = {
+        dictionary cameraSettings = {
+            dictionary Front = {
+                double3 position = (5, 0, 0)
+                double radius = 5
+            }
+            dictionary Perspective = {
+                double3 position = (-14.623047546843992, 7.663301579473368, 7.4454911562668205)
+                double3 target = (-14.621706590980327, 7.662455599436824, 7.444815661251317)
+            }
+            dictionary Right = {
+                double3 position = (0, -5, 0)
+                double radius = 5
+            }
+            dictionary Top = {
+                double3 position = (0, 0, 5)
+                double radius = 5
+            }
+            string boundCamera = "/Camera"
+        }
+        dictionary metricsAssembler = {
+            dictionary "/World/equipment" = {
+            }
+            int version = 1
+        }
+        dictionary omni_layer = {
+            string authoring_layer = "./scene.usd"
+            dictionary locked = {
+            }
+            dictionary muteness = {
+            }
+        }
+        dictionary physicsSettings = {
+            int "/persistent/simulation/minFrameRate" = 60
+        }
+        dictionary renderSettings = {
+        }
+    }
+    defaultPrim = "r1"
+    endTimeCode = 1000000
+    metersPerUnit = 1
+    startTimeCode = 0
+    subLayers = [
+        @scene.usd@
+    ]
+    timeCodesPerSecond = 60
+    upAxis = "Z"
+)
+
+over "World"
+{
+    over "Robot"
+    {
+        over "camera_H_link"
+        {
+            over "Realsense_H"
+            {
+                over "RSD455"
+                {
+                    over "Looks"
+                    {
+                        over "Aluminum_Anodized"
+                        {
+                            over "Shader"
+                            {
+                                uniform asset info:mdl:sourceAsset = @OmniPBR.mdl@
+                                uniform token info:mdl:sourceAsset:subIdentifier = "OmniPBR"
+                            }
+                        }
+
+                        over "Aluminum_Cast"
+                        {
+                            over "Shader"
+                            {
+                                uniform asset info:mdl:sourceAsset = @OmniPBR.mdl@
+                                uniform token info:mdl:sourceAsset:subIdentifier = "OmniPBR"
+                            }
+                        }
+
+                        over "Plastic_ABS"
+                        {
+                            over "Shader"
+                            {
+                                uniform asset info:mdl:sourceAsset = @OmniPBR.mdl@
+                                uniform token info:mdl:sourceAsset:subIdentifier = "OmniPBR"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        over "camera_L_link"
+        {
+            over "Realsense_L"
+            {
+                over "RSD455"
+                {
+                    over "Looks"
+                    {
+                        over "Aluminum_Anodized"
+                        {
+                            over "Shader"
+                            {
+                                uniform asset info:mdl:sourceAsset = @OmniPBR.mdl@
+                                uniform token info:mdl:sourceAsset:subIdentifier = "OmniPBR"
+                            }
+                        }
+
+                        over "Aluminum_Cast"
+                        {
+                            over "Shader"
+                            {
+                                uniform asset info:mdl:sourceAsset = @OmniPBR.mdl@
+                                uniform token info:mdl:sourceAsset:subIdentifier = "OmniPBR"
+                            }
+                        }
+
+                        over "Plastic_ABS"
+                        {
+                            over "Shader"
+                            {
+                                uniform asset info:mdl:sourceAsset = @OmniPBR.mdl@
+                                uniform token info:mdl:sourceAsset:subIdentifier = "OmniPBR"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        over "camera_R_link"
+        {
+            over "Realsense_R"
+            {
+                over "RSD455"
+                {
+                    over "Looks"
+                    {
+                        over "Aluminum_Anodized"
+                        {
+                            over "Shader"
+                            {
+                                uniform asset info:mdl:sourceAsset = @OmniPBR.mdl@
+                                uniform token info:mdl:sourceAsset:subIdentifier = "OmniPBR"
+                            }
+                        }
+
+                        over "Aluminum_Cast"
+                        {
+                            over "Shader"
+                            {
+                                uniform asset info:mdl:sourceAsset = @OmniPBR.mdl@
+                                uniform token info:mdl:sourceAsset:subIdentifier = "OmniPBR"
+                            }
+                        }
+
+                        over "Plastic_ABS"
+                        {
+                            over "Shader"
+                            {
+                                uniform asset info:mdl:sourceAsset = @OmniPBR.mdl@
+                                uniform token info:mdl:sourceAsset:subIdentifier = "OmniPBR"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

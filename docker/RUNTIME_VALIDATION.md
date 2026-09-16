@@ -1,7 +1,7 @@
 # Docker 当前验收记录
 
-> 验收日期：2026-07-30  
-> 项目：`/home/gtk/isaac_ocs_project`  
+> 验收日期：2026-07-30
+> 项目：`${PROJECT_ROOT}`
 > 结论：当前 Docker 版本通过已实现功能的构建与运行态验收。
 
 本文只记录当前有效状态，不记录已清理的中间结果。
@@ -83,10 +83,10 @@ docker run --rm --user "$(id -u):$(id -g)" \
   -e ROS2_INSTALL_BASE=/workspace/projects/ros2_ws/install_docker_acceptance_20260730 \
   -e ROS2_LOG_BASE=/workspace/projects/ros2_ws/log_docker_acceptance_20260730 \
   -e COLCON_HOME=/tmp/isaac_ocs_colcon_home \
-  -v /home/gtk/isaac_ocs_project:/workspace \
+  -v ${PROJECT_ROOT}:/workspace \
   -w /workspace \
   issac_ocs_docker:5.1.0-repro \
-  /bin/bash /workspace/scripts/docker_build_ros2_ws_20260730.sh
+  /bin/bash /workspace/scripts/build_ros_workspace_docker.sh
 ```
 
 ## 4. Docker GUI、Stage 与 Play
@@ -106,7 +106,7 @@ Timeline 进入 Play，ROS 2 Bridge 和 Simulation Control 服务可用。验收
 
 ## 5. 六路相机
 
-启动时执行 `scripts/rebuild_six_camera_render_products_20260730.py`。六个
+启动时执行 `scripts/rebuild_camera_render_products.py`。六个
 RenderProduct 均在当前 Session Layer 创建，并将函数实际返回路径绑定到
 CameraHelper：
 

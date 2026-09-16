@@ -24,22 +24,22 @@ CMakeFiles/
 # Runtime output, logs, backups and retained datasets are packaged separately
 outputs/*
 !outputs/.gitkeep
+**/outputs/
+/.agents/
+/.codex/
 data/ros2_log/*
 !data/ros2_log/.gitkeep
 backups/
-projects/Trajectory/SIM1/trace_data/
-projects/Trajectory/SIM1/trace_data_backup_*/
+projects/teleoperation/sim1/trace_data/
+projects/teleoperation/sim1/trace_data_backup_*/
 
 # Duplicate/optional source trees; see dependencies/repositories.lock.yaml
 projects/IsaacLab-Arena/
-projects/Trajectory/robot/
+projects/teleoperation/robot/
 
 # Historical migration/repair scripts are retained locally; current workflows live in scripts/.
 scripts/archive/
 
-# Retain the project's portable analysis environment; ignore other local environments.
-!物理仿真与参数获取/.venv/
-!物理仿真与参数获取/.venv/**
 
 # Image archives are distributed outside Git; use Dockerfile and the documented workflow.
 *.tar
@@ -69,3 +69,7 @@ reproducibility/artifacts/*.tar
 reproducibility/artifacts/*.tar.*
 reproducibility/artifacts/*.zst
 reproducibility/artifacts/*.oci
+
+# Machine-local dependency overlay and evaluation runtime scratch files
+.runtime/
+evaluations/omnisim/worlds/.harness_*

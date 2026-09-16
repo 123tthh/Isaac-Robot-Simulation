@@ -1,3 +1,5 @@
+> **Historical record / 历史记录**：本页描述其记录日期的状态；当前运行以[中文指南](../docs/getting-started.zh-CN.md) / [English guide](../docs/getting-started.md)为准。Historical failures and paths are not current release claims.
+
 # 615scene 六路相机录制/展示诊断（2026-07-23）
 
 ## 结论
@@ -29,7 +31,7 @@
 
 ## 运行前检查
 
-1. 用 `615scene.usd` 启动 Isaac Sim。
+1. 用 `workcell.usd` 启动 Isaac Sim。
 2. 进入 Play，使 `/World/ActionGraphs/Camera_Publish_Graph` 执行。
 3. 运行 `./game_control.sh camera-grid`，确认六格状态从 `pub=0/no publisher` 变为 `pub=1` 并出现帧计数。
 4. 再运行 `teach --record-cameras --open-camera-grid`。如果仍为 0，保留该轨迹的 metadata/log 作为失败诊断，不纳入有效数据集。
@@ -45,13 +47,13 @@ Failed to find rigid body at .../Realsense_H/RSD455
 Provided pattern list did not match any rigid bodies
 ```
 
-这是 `615scene.usd` 中 RealSense 远程 S3 引用未解析导致的级联故障；仅调整 ROS QoS 不能修复该问题。现在已下载官方 Isaac Sim 5.1 `rsd455.usd` 到 `assets/scenes/615scene_20260723/isaac_assets/`，并把三个引用改成相对本地引用 `./isaac_assets/rsd455.usd`。场景仍保留 `513_base.usd` 内已知的 `base_link/visuals` 未解析 prim 警告，但不再依赖 RealSense 网络资产。
+这是 `workcell.usd` 中 RealSense 远程 S3 引用未解析导致的级联故障；仅调整 ROS QoS 不能修复该问题。现在已下载官方 Isaac Sim 5.1 `rsd455.usd` 到 `assets/scenes/r1_workcell/isaac_assets/`，并把三个引用改成相对本地引用 `./isaac_assets/rsd455.usd`。场景仍保留 `base.usd` 内已知的 `base_link/visuals` 未解析 prim 警告，但不再依赖 RealSense 网络资产。
 
 修复后必须关闭旧 Isaac Sim 进程，重新用目标场景启动并按 Play；旧进程不会自动重新组合已打开的 USD 层。
 
 ## 修复后只读验证
 
-`project_control_20260723.sh inspect-usd ... --show-camera-attributes` 已确认六个
+`project_control.sh inspect-usd ... --show-camera-attributes` 已确认六个
 `isaacsim.ros2.bridge.ROS2CameraHelper` 节点仍存在且 `inputs:enabled=True`：
 
 - `head_cam/color/image_raw`、`head_cam/depth/image_rect_raw`
@@ -60,7 +62,7 @@ Provided pattern list did not match any rigid bodies
 
 验证退出码为 0；本次无 GPU 的 headless 检查只验证 USD 组合与图配置，不替代桌面 Isaac Sim 按 Play 后的实时 ROS topic 验收。
 
-## 2026-07-24 `615scene.usd` 运行时复核
+## 2026-07-24 `workcell.usd` 运行时复核
 
 通过 Isaac Sim 5.1.0 Kit 运行时重新检查后，发现原始问题不是六个相机
 Prim 或 RenderProduct 路径，而是 `/World/ActionGraphs/Camera_Publish_Graph`
@@ -76,7 +78,7 @@ OmniGraph 调度，因此 ROS 2 camera writer 没有挂载。
 - `cam_right_rgb`、`cam_right_depth`
 
 修复前的场景备份：
-`backups/615scene_camera_repair_20260723/615scene.usd.before_camera_graph_schema_20260724`
+`backups/615scene_camera_repair_20260723/workcell.usd.before_camera_graph_schema_20260724`
 
 修复后的 Kit 日志已出现六路 `isaacsim.ros2.bridge.ROS2PublishImage`
 `Attaching`，对应话题为：
@@ -85,18 +87,18 @@ OmniGraph 调度，因此 ROS 2 camera writer 没有挂载。
 `left_cam/{color/image_raw,depth/image_rect_raw}`、
 `right_cam/{color/image_raw,depth/image_rect_raw}`。
 
-因此当前目标确实是 `assets/scenes/615scene_20260723/615scene.usd`，且六路
+因此当前目标确实是 `assets/scenes/r1_workcell/workcell.usd`，且六路
 相机发布图已修复。日志中的 `RSD455` PhysX tensor rigid-body pattern 错误
 仍是原场景中嵌套刚体配置的独立问题；强行给三个 RSD455 增加刚体会造成嵌套
-刚体错误，所以未采用该方式。`513_base.usd` 的未解析视觉引用和部分 MDL
+刚体错误，所以未采用该方式。`base.usd` 的未解析视觉引用和部分 MDL
 缺失也属于独立的显示/材质警告。
 
 ## Script Editor 操作入口
 
 可在 Isaac Sim 的 Script Editor 打开并执行：
-`scripts/inspect_repair_615scene_camera_script_editor_20260724.py`。
+`scripts/repair_scene_cameras.py`。
 
-脚本默认 `APPLY_REPAIR = False`，只读取当前已打开的 `615scene.usd`，并生成
+脚本默认 `APPLY_REPAIR = False`，只读取当前已打开的 `workcell.usd`，并生成
 `reports/615scene_camera_script_editor_20260724.md`。确认报告后，将脚本顶部
 改为 `APPLY_REPAIR = True` 再执行，会先创建带时间戳的 USD 备份，再补齐缺失的
 `NodeGraphNodeAPI`；修复后关闭并重新打开场景。

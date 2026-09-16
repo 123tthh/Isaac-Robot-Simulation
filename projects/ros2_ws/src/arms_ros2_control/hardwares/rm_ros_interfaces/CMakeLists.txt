@@ -67,8 +67,8 @@ set(msg_files
   msg/RobotInfo.msg
   # msg/Rmversion.msg
   msg/Flowchartrunstate.msg
-  msg/Trajectoryinfo.msg
-  msg/Trajectorylist.msg
+  msg/teleoperationinfo.msg
+  msg/teleoperationlist.msg
   msg/Modbustcpmasterinfo.msg
   msg/Modbustcpmasterupdata.msg
   msg/Modbustcpmasterlist.msg

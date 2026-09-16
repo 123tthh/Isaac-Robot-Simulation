@@ -240,18 +240,20 @@ inputCost
   }
 }
 
+; Tracking weights prioritise commanded tool pose over the joint-limit barrier.
+; Validated with bounded SIM1 keyboard motions; keep joint limits enabled.
 endEffector
 {
   dualArmMode                 true
   leftArm
   {
-    muPosition                10.0
-    muOrientation              5.0
+    muPosition                1000.0
+    muOrientation              100.0
   }
   rightArm
   {
-    muPosition                10.0
-    muOrientation              5.0
+    muPosition                1000.0
+    muOrientation              100.0
   }
 }
 
@@ -260,13 +262,13 @@ finalEndEffector
   dualArmMode                 true
   leftArm
   {
-    muPosition                10.0
-    muOrientation              5.0
+    muPosition                1000.0
+    muOrientation              100.0
   }
   rightArm
   {
-    muPosition                10.0
-    muOrientation              5.0
+    muPosition                1000.0
+    muOrientation              100.0
   }
 }
 

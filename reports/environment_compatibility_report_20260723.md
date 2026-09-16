@@ -1,3 +1,5 @@
+> **Historical record / 历史记录**：本页描述其记录日期的状态；当前运行以[中文指南](../docs/getting-started.zh-CN.md) / [English guide](../docs/getting-started.md)为准。Historical failures and paths are not current release claims.
+
 # Environment Compatibility Report (2026-07-23)
 
 Date: 2026-07-23
@@ -22,15 +24,15 @@ treated as unsupported until separately validated.
 
 References:
 
-- `/home/gtk/ai_docs/docs.isaacsim.omniverse.nvidia.com/5.1.0/installation/install_ros.md`
-- `/home/gtk/ai_docs/docs.ros.org/en/rolling/Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment.md`
+- `https://docs.isaacsim.omniverse.nvidia.com/5.1.0/installation/install_ros.md`
+- `https://docs.ros.org/en/rolling/Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment.md`
 
 ## MCP documentation mount
 
 The persistent MCP configuration now mounts:
 
-- `/home/gtk/ai_docs/docs.isaacsim.omniverse.nvidia.com/5.1.0`
-- `/home/gtk/ai_docs/docs.ros.org/en/rolling`
+- `https://docs.isaacsim.omniverse.nvidia.com/5.1.0`
+- `https://docs.ros.org/en/rolling`
 
 The MCP process already attached to the current conversation still retains its
 old 6.0.1 filesystem allowlist. A new Codex session is required for the updated

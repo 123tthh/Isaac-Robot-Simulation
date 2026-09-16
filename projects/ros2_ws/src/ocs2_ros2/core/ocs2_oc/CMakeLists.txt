@@ -47,7 +47,7 @@ add_library(${PROJECT_NAME}
         src/synchronized_module/LoopshapingSynchronizedModule.cpp
         src/synchronized_module/SolverObserver.cpp
         src/search_strategy/FilterLinesearch.cpp
-        src/trajectory_adjustment/TrajectorySpreading.cpp
+        src/trajectory_adjustment/teleoperationSpreading.cpp
 )
 
 target_include_directories(${PROJECT_NAME}
@@ -118,7 +118,7 @@ if (BUILD_TESTING)
     target_link_libraries(test_change_of_variables ${PROJECT_NAME})
 
 
-    ament_add_gtest(test_trajectory_spreading test/trajectory_adjustment/TrajectorySpreadingTest.cpp)
+    ament_add_gtest(test_trajectory_spreading test/trajectory_adjustment/teleoperationSpreadingTest.cpp)
     ament_target_dependencies(test_trajectory_spreading ${dependencies})
     target_link_libraries(test_trajectory_spreading ${PROJECT_NAME})
 

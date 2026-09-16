@@ -1,14 +1,16 @@
+> **Historical record / 历史记录**：本页描述其记录日期的状态；当前运行以[中文指南](../docs/getting-started.zh-CN.md) / [English guide](../docs/getting-started.md)为准。Historical failures and paths are not current release claims.
+
 # Project Inventory (2026-07-23)
 
 Date: 2026-07-23
 
-Normalized root: `/home/gtk/isaac_ocs_project`
+Normalized root: `${PROJECT_ROOT}`
 
 ## Main content
 
 | Path | Approximate size | Purpose |
 | --- | ---: | --- |
-| `projects/Trajectory` | 247 GB | Canonical SIM1 code, retained traces, robot and trajectory tools |
+| `projects/teleoperation` | 247 GB | Canonical SIM1 code, retained traces, robot and trajectory tools |
 | `data/ros2_log` | 17 GB | Historical logs and older independent trace archive |
 | `projects/ros2_ws` | 2.4 GB | ROS 2/OCS2 sources plus integrated `r1_lerobot_sim` |
 | `projects/IsaacLab-Arena` | 2.1 GB | Full Arena repository and Isaac Lab submodule |
@@ -17,7 +19,7 @@ Normalized root: `/home/gtk/isaac_ocs_project`
 
 The canonical SIM1 trace tree contains 234,494 regular files in 90
 directories and occupies approximately 247 GB. The old path
-`/home/gtk/Trajectory/SIM1/trace_data` is now a compatibility symlink to this
+`/home/gtk/teleoperation/sim1/trace_data` is now a compatibility symlink to this
 tree. No `.partial_migration` files remain.
 
 ## Final data policy

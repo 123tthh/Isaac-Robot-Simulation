@@ -2,7 +2,9 @@
 
 项目代码、场景和数据保留在宿主目录，通过 `/workspace` 挂载到容器；镜像只提供固定的软件环境。
 
-## 当前基线
+## 2026-07-30 镜像基线
+
+下表是原机器的 Docker 验收记录；本机未安装 Docker，尚未重新构建或运行这些镜像。当前宿主机测试见 [本机报告](../reports/LOCAL_VALIDATION_20260915.md)。
 
 | 项目 | 值 |
 | --- | --- |
@@ -14,16 +16,12 @@
 | 工作区 | `/workspace/projects/ros2_ws` |
 | Docker overlay | `build_docker`、`install_docker`、`log_docker` |
 
-本地官方参考：
-
-- `/home/gtk/ai_docs/docs.isaacsim.omniverse.nvidia.com/5.1.0/installation/install_container.md`
-- `/home/gtk/ai_docs/docs.isaacsim.omniverse.nvidia.com/5.1.0/installation/install_ros.md`
-- `/home/gtk/ai_docs/docs.ros.org/en/rolling/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.md`
+原 Docker 验收记录见 [RUNTIME_VALIDATION.md](RUNTIME_VALIDATION.md)。
 
 ## 构建镜像
 
 ```bash
-cd /home/gtk/isaac_ocs_project
+cd /path/to/Isaac-Robot-Simulation-main
 docker build --no-cache \
   -t issac_ocs_docker:5.1.0-repro \
   -f docker/Dockerfile .
@@ -35,6 +33,7 @@ Dockerfile 包含 ROS 2 Jazzy、Gazebo Harmonic、MoveIt、Grid Map、ros2_contr
 ## 完整编译 ROS 2 工作区
 
 ```bash
+cd /path/to/Isaac-Robot-Simulation-main
 docker run --rm --user "$(id -u):$(id -g)" \
   -e ROS_DISTRO_TARGET=jazzy \
   -e GZ_VERSION=harmonic \
@@ -43,10 +42,10 @@ docker run --rm --user "$(id -u):$(id -g)" \
   -e ROS2_INSTALL_BASE=/workspace/projects/ros2_ws/install_docker_acceptance_20260730 \
   -e ROS2_LOG_BASE=/workspace/projects/ros2_ws/log_docker_acceptance_20260730 \
   -e COLCON_HOME=/tmp/isaac_ocs_colcon_home \
-  -v /home/gtk/isaac_ocs_project:/workspace \
+  -v "$PWD:/workspace" \
   -w /workspace \
   issac_ocs_docker:5.1.0-repro \
-  /bin/bash /workspace/scripts/docker_build_ros2_ws_20260730.sh
+  /bin/bash /workspace/scripts/build_ros_workspace_docker.sh
 ```
 
 工作区共 119 个包；脚本构建 116 个。三个需要单独 Raisim SDK/许可证的包会被明确跳过：
@@ -60,7 +59,7 @@ docker run --rm --user "$(id -u):$(id -g)" \
 ## 启动
 
 ```bash
-cd /home/gtk/isaac_ocs_project
+cd /path/to/Isaac-Robot-Simulation-main
 export ROS_DOMAIN_ID=73
 bash docker/run_isaac_ocs_docker.sh --replace
 docker exec -it demo_vla bash
@@ -87,7 +86,7 @@ sim1_convert
 - 本地：`projects/ros2_ws/{build,install,log}`
 - Docker：`projects/ros2_ws/{build_docker,install_docker,log_docker}`
 
-## 当前验证范围
+## 2026-07-30 验证范围
 
 已验证无缓存镜像重建、官方 compatibility checker、116 包完整编译、
 Docker GUI + Stage + Play、OCS2 launch、机械臂运动、左右夹爪、差速底盘实际

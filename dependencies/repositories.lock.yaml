@@ -53,12 +53,12 @@ optional:
 runtime:
   isaac_sim:
     version: 5.1.0
-    host_default: /home/gtk/isaac-sim-5.1
+    host_default: null  # Set ISAAC_SIM_ROOT for the external installation.
     configurable_environment: ISAAC_SIM_ROOT
   ros:
-    host_runtime_distribution: humble
+    host_runtime_distribution: jazzy
     strict_docker_distribution: jazzy
-    documentation_distribution: rolling
+    documentation_distribution: jazzy
   docker:
     required_base:
       reference: nvcr.io/nvidia/isaac-sim:5.1.0

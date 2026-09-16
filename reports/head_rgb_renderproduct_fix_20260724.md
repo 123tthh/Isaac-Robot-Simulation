@@ -1,3 +1,5 @@
+> **Historical record / 历史记录**：本页描述其记录日期的状态；当前运行以[中文指南](../docs/getting-started.zh-CN.md) / [English guide](../docs/getting-started.md)为准。Historical failures and paths are not current release claims.
+
 # head_rgb RenderProduct 修复报告（2026-07-24）
 
 执行状态：`未执行；等待人工确认`
@@ -6,7 +8,7 @@
 
 - 修复脚本：`scripts/repair_head_rgb_renderproduct_20260724.py`
 - 默认开关：`DRY_RUN = True`
-- 目标 USD：`assets/scenes/615scene_20260723/615scene.usd`
+- 目标 USD：`assets/scenes/r1_workcell/workcell.usd`
 - 目标节点：`/World/ActionGraphs/Camera_Publish_Graph/cam_head_rgb`
 
 ## 计划的唯一修改

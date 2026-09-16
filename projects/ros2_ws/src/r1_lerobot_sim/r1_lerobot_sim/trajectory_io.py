@@ -1,5 +1,5 @@
-# Reference: /home/gtk/ai_docs/docs.ros.org/en/rolling/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher-py.md
-# Reference: /home/gtk/ai_docs/docs.ros.org/en/rolling/Tutorials/Intermediate/Launch/Creating-Launch-Files.md
+# Reference: https://docs.ros.org/en/rolling/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher-py.md
+# Reference: https://docs.ros.org/en/rolling/Tutorials/Intermediate/Launch/Creating-Launch-Files.md
 
 from __future__ import annotations
 
