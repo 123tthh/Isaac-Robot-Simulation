@@ -5,6 +5,14 @@
 Isaac Sim 5.1 / ROS 2 Jazzy / OCS2 framework for R1 dual-arm and gripper
 teleoperation, differential base control, three RGB-D cameras and local LeRobot exports.
 
+## Simulation previews
+
+Selected excerpts from the original demonstrations, cropped to the viewport and played at **4× speed**. Click a preview to open the full video.
+
+[![Simulation demonstration 1](docs/demo/simulation_part1.gif)](docs/demo/test_part1.mp4)
+
+[![Simulation demonstration 2](docs/demo/simulation_part2.gif)](docs/demo/test_part2.mp4)
+
 ## Start here
 
 - **Project introduction and layout:** [Overview](docs/overview.md)

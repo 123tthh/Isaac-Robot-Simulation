@@ -5,6 +5,14 @@
 基于 Isaac Sim 5.1、ROS 2 Jazzy 与 OCS2 的 R1 双臂/夹爪、差速底盘示教工程，
 包含头部和双腕三组 RGB-D 相机、六路采集及本地 LeRobot 转换。
 
+## 仿真演示
+
+以下为原始演示的精选片段，裁切至仿真视口并以 **4 倍速**播放。点击预览可打开完整视频。
+
+[![仿真演示 1](docs/demo/simulation_part1.gif)](docs/demo/test_part1.mp4)
+
+[![仿真演示 2](docs/demo/simulation_part2.gif)](docs/demo/test_part2.mp4)
+
 ## 从这里开始
 
 - **项目介绍与目录说明**：[项目介绍](docs/overview.zh-CN.md)
