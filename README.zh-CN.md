@@ -81,8 +81,7 @@ IsaacLab-Arena 为可选组件。历史记录保留日期标识，执行命令�
 
 ## Cross-simulator validation / 跨仿真器验证
 
-见[独立测试目录](evaluations/omnisim/README.md)。邮件指出的 LFS 指针和 ROS
-package URI 问题已复现并处理。OmniSim 8.5.1 还需要固定父链兼容变体；
+见[独立测试目录](evaluations/omnisim/README.md)。OmniSim 8.5.1 需要固定父链兼容变体；
 ROS/Isaac 继续使用原始运动学描述。夹爪固定周期、接触查询、版本和测试限制
 均保留实测结果。模型能导入或夹爪能移动不等于已完成物体抓取。
 夹爪闭合误差实测 1.803–1.859 mm；移除 R1 后的方块/地面对照仍失败，
