@@ -91,9 +91,8 @@ and indexed; use the current operation guide for commands.
 
 ## Cross-simulator validation
 
-See [the isolated evaluation](evaluations/omnisim/README.md). The email's LFS
-pointer and ROS package-URI issues were reproduced and addressed. OmniSim 8.5.1
-also requires a fixed-parent compatibility variant; normal ROS/Isaac imports keep
+See [the isolated evaluation](evaluations/omnisim/README.md). OmniSim 8.5.1
+requires a fixed-parent compatibility variant; normal ROS/Isaac imports keep
 the original kinematic description. Fixed gripper-cycle measurements, contact
 queries, versions and limitations are reported there. Successful import or finger
 motion is not evidence of a completed object grasp.

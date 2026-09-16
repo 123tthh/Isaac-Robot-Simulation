@@ -14,7 +14,7 @@ recording was made. This is not a matched Isaac-versus-OmniSim grasp benchmark.
 **兼容 URDF 能导入，左夹爪固定开合周期通过 3 mm 端点误差阈值；物体接触与抓取
 尚未验证通过。** 测试在核心冻结后独立进行，不新增 Isaac 录制，不改变冻结源码。
 
-## Email findings / 邮件问题
+## URDF portability / URDF 可移植性
 
 1. Git LFS pointers are not meshes. The local assets were hydrated; reproduction
    requires `git lfs install` and `git lfs pull`. A source ZIP alone is insufficient.
@@ -28,7 +28,7 @@ recording was made. This is not a matched Isaac-versus-OmniSim grasp benchmark.
    ROS/Isaac keep their original model. This is an importer workaround, not proof
    of equivalent mass, collision or control behavior.
 
-邮件中的 LFS 与路径问题成立，但不能据此将所有导入失败归因于缺失网格：
+网格与路径可移植性检查不能代替物理体注册检查：
 本机补齐网格后仍复现父物理体注册错误，固定父链兼容变体才完成导入。
 保留原始模型，兼容模型仅供此处测试。
 
