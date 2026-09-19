@@ -28,6 +28,15 @@ recording was made. This is not a matched Isaac-versus-OmniSim grasp benchmark.
    ROS/Isaac keep their original model. This is an importer workaround, not proof
    of equivalent mass, collision or control behavior.
 
+   Exact fatal line after mesh hydration and relative-path conversion:
+
+   ```text
+   FATAL: [newton-enforce] A joint's parent body 'left_base_link' resolved to Newton but never registered a Newton body, so the joint would be silently inert -- and Newton is the only backend, so that part of the articulation would run with no physics at all. Fix the model so the body registers with Newton.
+   ```
+
+   Asset origins and unresolved redistribution terms are recorded separately in
+   the [`r1_description` provenance audit](../../projects/ros2_ws/src/robot/PROVENANCE.md).
+
 网格与路径可移植性检查不能代替物理体注册检查：
 本机补齐网格后仍复现父物理体注册错误，固定父链兼容变体才完成导入。
 保留原始模型，兼容模型仅供此处测试。

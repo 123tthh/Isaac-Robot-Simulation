@@ -6,6 +6,10 @@ install (
 	DIRECTORY launch meshes xacro rviz urdf config
 	DESTINATION share/${PROJECT_NAME}
 )
+install(FILES
+  PROVENANCE.md
+  DESTINATION share/${PROJECT_NAME}
+)
 install(PROGRAMS
   scripts/odom_to_tf.py
   scripts/joint_state_fill.py
