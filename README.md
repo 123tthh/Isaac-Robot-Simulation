@@ -91,6 +91,10 @@ and indexed; use the current operation guide for commands.
 
 ## Cross-simulator validation
 
+The [public OmniSim v9.0.0-rc.2 follow-up](sim2sim/followup/README.md) verifies the original portable URDF import, joint-7 motion and limit changes; its robot-free thin-floor contact test still fails at 16 ms. Earlier v8.5.1 evaluation below is retained as a pinned baseline.
+
+[公开 OmniSim v9.0.0-rc.2 复核](sim2sim/followup/README.md)已验证原始 URDF 导入及第七关节运动；16 ms 薄地板接触对照仍失败。下文 v8.5.1 结果为历史基线。
+
 See [the isolated evaluation](evaluations/omnisim/README.md). OmniSim 8.5.1
 requires a fixed-parent compatibility variant; normal ROS/Isaac imports keep
 the original kinematic description. Fixed gripper-cycle measurements, contact

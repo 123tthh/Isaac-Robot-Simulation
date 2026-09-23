@@ -1,0 +1,332 @@
+{
+  "mode": "range",
+  "dt_ms": 8,
+  "limits": [
+    {
+      "name": "j_inside_motor",
+      "type": "HingeJoint",
+      "position": 0.0,
+      "min_stop": -2.0,
+      "max_stop": 2.0,
+      "has_motor": true,
+      "motor_name": "j_inside_motor",
+      "motor_min": 0.0,
+      "motor_max": 0.0
+    },
+    {
+      "name": "j_full_motor",
+      "type": "HingeJoint",
+      "position": 0.0,
+      "min_stop": 0.0,
+      "max_stop": 0.0,
+      "has_motor": true,
+      "motor_name": "j_full_motor",
+      "motor_min": -6.283,
+      "motor_max": 6.283
+    },
+    {
+      "name": "j_asym_motor",
+      "type": "HingeJoint",
+      "position": 0.0,
+      "min_stop": -3.13159,
+      "max_stop": 0.785,
+      "has_motor": true,
+      "motor_name": "j_asym_motor",
+      "motor_min": 0.0,
+      "motor_max": 0.0
+    }
+  ],
+  "harness_snapshot": {
+    "robot": "R1",
+    "joints": [
+      {
+        "name": "j_inside_motor",
+        "type": "HingeJoint",
+        "position": 0.0,
+        "velocity": null,
+        "lower": -2.0,
+        "upper": 2.0,
+        "hit_limit": null
+      },
+      {
+        "name": "j_full_motor",
+        "type": "HingeJoint",
+        "position": 0.0,
+        "velocity": null,
+        "lower": 0.0,
+        "upper": 0.0,
+        "hit_limit": null
+      },
+      {
+        "name": "j_asym_motor",
+        "type": "HingeJoint",
+        "position": 0.0,
+        "velocity": null,
+        "lower": -3.13159,
+        "upper": 0.785,
+        "hit_limit": null
+      }
+    ]
+  },
+  "motor_device_limits": {
+    "j_inside_motor": {
+      "min": 0.0,
+      "max": 0.0
+    },
+    "j_full_motor": {
+      "min": -6.283,
+      "max": 6.283
+    },
+    "j_asym_motor": {
+      "min": 0.0,
+      "max": 0.0
+    }
+  },
+  "phases": [
+    {
+      "target": 0,
+      "goals": {
+        "j_inside_motor": 0,
+        "j_full_motor": 0,
+        "j_asym_motor": 0
+      },
+      "t": 8.0,
+      "sensor_positions": {
+        "j_inside_motor": 0.0,
+        "j_full_motor": 0.0,
+        "j_asym_motor": 0.0
+      },
+      "endpoint_orientation": {
+        "j_inside_motor": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "j_full_motor": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "j_asym_motor": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "target": -2,
+      "goals": {
+        "j_inside_motor": -2,
+        "j_full_motor": -2,
+        "j_asym_motor": -2
+      },
+      "t": 16.0,
+      "sensor_positions": {
+        "j_inside_motor": -2.0,
+        "j_full_motor": -2.0,
+        "j_asym_motor": -2.0
+      },
+      "endpoint_orientation": {
+        "j_inside_motor": [
+          -0.4161468997772317,
+          0.909297397887951,
+          0.0,
+          -0.909297397887951,
+          -0.4161468997772317,
+          -0.0,
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "j_full_motor": [
+          -0.4161468997772317,
+          0.909297397887951,
+          0.0,
+          -0.909297397887951,
+          -0.4161468997772317,
+          -0.0,
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "j_asym_motor": [
+          -0.4161468997772317,
+          0.909297397887951,
+          0.0,
+          -0.909297397887951,
+          -0.4161468997772317,
+          -0.0,
+          -0.0,
+          0.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "target": -3.5,
+      "goals": {
+        "j_inside_motor": -2,
+        "j_full_motor": -3.5,
+        "j_asym_motor": -3.5
+      },
+      "t": 24.0,
+      "sensor_positions": {
+        "j_inside_motor": -2.0,
+        "j_full_motor": -3.4999992847442627,
+        "j_asym_motor": -3.131589889526367
+      },
+      "endpoint_orientation": {
+        "j_inside_motor": [
+          -0.4161468997772317,
+          0.909297397887951,
+          0.0,
+          -0.909297397887951,
+          -0.4161468997772317,
+          -0.0,
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "j_full_motor": [
+          -0.936456934912204,
+          -0.350782566634718,
+          -0.0,
+          0.350782566634718,
+          -0.936456934912204,
+          0.0,
+          0.0,
+          -0.0,
+          1.0
+        ],
+        "j_asym_motor": [
+          -0.9999842809447274,
+          -0.005606947784362364,
+          -0.0,
+          0.005606947784362364,
+          -0.9999842809447274,
+          0.0,
+          0.0,
+          -0.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "target": -6.283,
+      "goals": {
+        "j_inside_motor": -2,
+        "j_full_motor": -6.283,
+        "j_asym_motor": -6.283
+      },
+      "t": 32.0,
+      "sensor_positions": {
+        "j_inside_motor": -2.0,
+        "j_full_motor": -6.282998561859131,
+        "j_asym_motor": -3.131589889526367
+      },
+      "endpoint_orientation": {
+        "j_inside_motor": [
+          -0.4161468997772317,
+          0.909297397887951,
+          0.0,
+          -0.909297397887951,
+          -0.4161468997772317,
+          -0.0,
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "j_full_motor": [
+          1.0,
+          -2.4492935982947064e-16,
+          -0.0,
+          2.4492935982947064e-16,
+          1.0,
+          0.0,
+          0.0,
+          -0.0,
+          1.0
+        ],
+        "j_asym_motor": [
+          -0.9999842809447274,
+          -0.005606947784362364,
+          -0.0,
+          0.005606947784362364,
+          -0.9999842809447274,
+          0.0,
+          0.0,
+          -0.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "target": 0,
+      "goals": {
+        "j_inside_motor": 0,
+        "j_full_motor": 0,
+        "j_asym_motor": 0
+      },
+      "t": 40.0,
+      "sensor_positions": {
+        "j_inside_motor": -0.0,
+        "j_full_motor": -0.0,
+        "j_asym_motor": -0.0
+      },
+      "endpoint_orientation": {
+        "j_inside_motor": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "j_full_motor": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "j_asym_motor": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    }
+  ]
+}

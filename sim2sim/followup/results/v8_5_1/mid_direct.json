@@ -1,0 +1,207 @@
+{
+  "mode": "merge",
+  "dt_ms": 8,
+  "limits": [
+    {
+      "name": "j_mid_motor",
+      "type": "HingeJoint",
+      "position": 0.0,
+      "min_stop": -2.0,
+      "max_stop": 2.0,
+      "has_motor": true,
+      "motor_name": "j_mid_motor",
+      "motor_min": 0.0,
+      "motor_max": 0.0
+    },
+    {
+      "name": "j_arm_motor",
+      "type": "HingeJoint",
+      "position": 0.0,
+      "min_stop": -2.0,
+      "max_stop": 2.0,
+      "has_motor": true,
+      "motor_name": "j_arm_motor",
+      "motor_min": 0.0,
+      "motor_max": 0.0
+    }
+  ],
+  "harness_snapshot": {
+    "robot": "R1",
+    "joints": [
+      {
+        "name": "j_mid_motor",
+        "type": "HingeJoint",
+        "position": 0.0,
+        "velocity": null,
+        "lower": -2.0,
+        "upper": 2.0,
+        "hit_limit": null
+      },
+      {
+        "name": "j_arm_motor",
+        "type": "HingeJoint",
+        "position": 0.0,
+        "velocity": null,
+        "lower": -2.0,
+        "upper": 2.0,
+        "hit_limit": null
+      }
+    ]
+  },
+  "motor_device_limits": {
+    "j_mid_motor": {
+      "min": 0.0,
+      "max": 0.0
+    },
+    "j_arm_motor": {
+      "min": 0.0,
+      "max": 0.0
+    }
+  },
+  "phases": [
+    {
+      "target": 0,
+      "goals": {
+        "j_mid_motor": 0,
+        "j_arm_motor": 0
+      },
+      "t": 1.504,
+      "sensor_positions": {
+        "j_mid_motor": 0.0,
+        "j_arm_motor": 0.0
+      },
+      "endpoint_orientation": {
+        "j_mid_motor": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "j_arm_motor": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "target": 0.25,
+      "goals": {
+        "j_mid_motor": 0.25,
+        "j_arm_motor": 0.25
+      },
+      "t": 3.008,
+      "sensor_positions": {
+        "j_mid_motor": 0.25,
+        "j_arm_motor": 0.25
+      },
+      "endpoint_orientation": {
+        "j_mid_motor": [
+          0.9689125215849757,
+          -0.2474035681146173,
+          0.0,
+          0.2474035681146173,
+          0.9689125215849757,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "j_arm_motor": [
+          0.8775830288777074,
+          -0.4794246837886312,
+          0.0,
+          0.4794246837886312,
+          0.8775830288777074,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "target": -0.25,
+      "goals": {
+        "j_mid_motor": -0.25,
+        "j_arm_motor": -0.25
+      },
+      "t": 4.5120000000000005,
+      "sensor_positions": {
+        "j_mid_motor": -0.25,
+        "j_arm_motor": -0.25
+      },
+      "endpoint_orientation": {
+        "j_mid_motor": [
+          0.9689125215849757,
+          0.2474035681146173,
+          0.0,
+          -0.2474035681146173,
+          0.9689125215849757,
+          -0.0,
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "j_arm_motor": [
+          0.8775830288777074,
+          0.4794246837886312,
+          0.0,
+          -0.4794246837886312,
+          0.8775830288777074,
+          -0.0,
+          -0.0,
+          0.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "target": 0,
+      "goals": {
+        "j_mid_motor": 0,
+        "j_arm_motor": 0
+      },
+      "t": 6.016,
+      "sensor_positions": {
+        "j_mid_motor": -1.0303264301171578e-15,
+        "j_arm_motor": -1.2380270614760296e-15
+      },
+      "endpoint_orientation": {
+        "j_mid_motor": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "j_arm_motor": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    }
+  ]
+}

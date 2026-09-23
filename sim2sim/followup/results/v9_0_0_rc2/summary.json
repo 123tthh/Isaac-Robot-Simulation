@@ -1,0 +1,115 @@
+{
+  "commit": "661100a19f8d3f98f952f757409ca8ad99547e61",
+  "import": {
+    "mid_empty": {
+      "pass": true,
+      "census": [
+        "INFO: [OmNewtonBackend] registered 2 dynamic + 1 static Newton bodies (0 of the statics on the world body) (+3 this pass) (statics: merge_probe)",
+        "INFO: [OmNewtonBackend] inertia provenance: 2 declared, 0 from geometry, 0 from the mass preset"
+      ]
+    },
+    "mid_direct": {
+      "pass": true,
+      "census": [
+        "INFO: [OmNewtonBackend] registered 2 dynamic + 1 static Newton bodies (0 of the statics on the world body) (+3 this pass) (statics: merge_probe)",
+        "INFO: [OmNewtonBackend] inertia provenance: 2 declared, 0 from geometry, 0 from the mass preset"
+      ]
+    },
+    "root_empty": {
+      "pass": true,
+      "census": [
+        "INFO: [OmNewtonBackend] registered 3 dynamic + 0 static Newton bodies (0 of the statics on the world body) (+3 this pass) (statics: )",
+        "INFO: [OmNewtonBackend] inertia provenance: 2 declared, 0 from geometry, 1 from the mass preset (preset: merge_probe)"
+      ]
+    },
+    "r1_portable_joint7": {
+      "pass": true,
+      "census": [
+        "INFO: [OmNewtonBackend] registered 27 dynamic + 1 static Newton bodies (0 of the statics on the world body) (+28 this pass) (statics: r1)",
+        "INFO: [OmNewtonBackend] inertia provenance: 27 declared, 0 from geometry, 0 from the mass preset"
+      ]
+    },
+    "r1_omnisim_joint7": {
+      "pass": true,
+      "census": [
+        "INFO: [OmNewtonBackend] registered 26 dynamic + 1 static Newton bodies (0 of the statics on the world body) (+27 this pass) (statics: r1)",
+        "INFO: [OmNewtonBackend] inertia provenance: 26 declared, 0 from geometry, 0 from the mass preset"
+      ]
+    }
+  },
+  "joint7": {
+    "r1_portable_joint7": {
+      "targets_rad": [
+        0,
+        0.25,
+        -0.25,
+        0
+      ],
+      "max_abs_sensor_error_rad": 0.00010006896627601236,
+      "motor_bounds_rad": [
+        -6.283,
+        6.283
+      ],
+      "harness_bounds_rad": [
+        0,
+        0
+      ]
+    },
+    "r1_omnisim_joint7": {
+      "targets_rad": [
+        0,
+        0.25,
+        -0.25,
+        0
+      ],
+      "max_abs_sensor_error_rad": 4.470348358154297e-08,
+      "motor_bounds_rad": [
+        -6.283,
+        6.283
+      ],
+      "harness_bounds_rad": [
+        0,
+        0
+      ]
+    }
+  },
+  "limits": {
+    "motor_bounds": {
+      "j_inside_motor": {
+        "min": -2.0,
+        "max": 2.0
+      },
+      "j_full_motor": {
+        "min": -6.283,
+        "max": 6.283
+      },
+      "j_asym_motor": {
+        "min": -6.283,
+        "max": 0.785
+      }
+    },
+    "negative_end_readback": {
+      "j_inside_motor": -2.0,
+      "j_full_motor": -6.2829999923706055,
+      "j_asym_motor": -6.2829999923706055
+    }
+  },
+  "contact": {
+    "thin_16ms": {
+      "z_m": -31.54631805419922,
+      "contact_points": 0,
+      "supported_at_end": false
+    },
+    "thin_8ms": {
+      "z_m": 0.044892244040966034,
+      "contact_points": 4,
+      "supported_at_end": true
+    },
+    "thin_16ms_sub4": {
+      "z_m": 0.044892244040966034,
+      "contact_points": 4,
+      "supported_at_end": true
+    }
+  },
+  "binary_sha256": "f7fede50c71897c88794b26f5969833d981acad5809ab5952dec925f6d0ff58c"
+}

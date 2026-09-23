@@ -1,0 +1,131 @@
+{
+  "mode": "merge",
+  "dt_ms": 8,
+  "limits": [
+    {
+      "name": "j_arm_motor",
+      "type": "HingeJoint",
+      "position": 0.0,
+      "min_stop": -2.0,
+      "max_stop": 2.0,
+      "has_motor": true,
+      "motor_name": "j_arm_motor",
+      "motor_min": -2.0,
+      "motor_max": 2.0
+    }
+  ],
+  "harness_snapshot": {
+    "robot": "R1",
+    "joints": [
+      {
+        "name": "j_arm_motor",
+        "type": "HingeJoint",
+        "position": 0.0,
+        "velocity": null,
+        "lower": -2.0,
+        "upper": 2.0,
+        "hit_limit": null
+      }
+    ]
+  },
+  "motor_device_limits": {
+    "j_arm_motor": {
+      "min": -2.0,
+      "max": 2.0
+    }
+  },
+  "phases": [
+    {
+      "target": 0,
+      "goals": {
+        "j_arm_motor": 0
+      },
+      "t": 1.504,
+      "sensor_positions": {
+        "j_arm_motor": 0.0
+      },
+      "endpoint_orientation": {
+        "j_arm_motor": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "target": 0.25,
+      "goals": {
+        "j_arm_motor": 0.25
+      },
+      "t": 3.008,
+      "sensor_positions": {
+        "j_arm_motor": 0.25
+      },
+      "endpoint_orientation": {
+        "j_arm_motor": [
+          0.05366853810890336,
+          -0.9985588054878156,
+          -1.0254729084708985e-17,
+          0.9985588054878156,
+          0.05366853810890336,
+          1.236824795935597e-17,
+          -1.1800066589592425e-17,
+          -1.0903735812375226e-17,
+          1.0
+        ]
+      }
+    },
+    {
+      "target": -0.25,
+      "goals": {
+        "j_arm_motor": -0.25
+      },
+      "t": 4.5120000000000005,
+      "sensor_positions": {
+        "j_arm_motor": -0.25
+      },
+      "endpoint_orientation": {
+        "j_arm_motor": [
+          0.9672155832962733,
+          0.2539567195977492,
+          -1.3836583096152972e-17,
+          -0.2539567195977492,
+          0.9672155832962733,
+          -1.77511863832234e-17,
+          8.874925727321307e-18,
+          2.068311734539096e-17,
+          1.0
+        ]
+      }
+    },
+    {
+      "target": 0,
+      "goals": {
+        "j_arm_motor": 0
+      },
+      "t": 6.016,
+      "sensor_positions": {
+        "j_arm_motor": -1.5460717685687373e-15
+      },
+      "endpoint_orientation": {
+        "j_arm_motor": [
+          0.9314737508486317,
+          -0.36380853684318787,
+          -1.887922985089328e-17,
+          0.36380853684318787,
+          0.9314737508486317,
+          4.660960853876494e-17,
+          6.285335570231919e-19,
+          -5.028405187996951e-17,
+          1.0
+        ]
+      }
+    }
+  ]
+}

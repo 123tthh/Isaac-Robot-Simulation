@@ -1,0 +1,8 @@
+{
+  "started_at_utc": "2026-09-22T09:59:40.608571+00:00",
+  "returncode": 0,
+  "world_sha256": "61627040a783fcfcaf334e9c74a582150688374a2f1367f8e21e29e1ebce2b73",
+  "omnisim_commit": "0b9b07f5b646295bf4599a06e30f616b99090581",
+  "world": "worlds/thin_16ms.omniworld",
+  "fixture_sha256_note": "Hash of the published relative-path fixture; runtime geometry is unchanged from the local measurement."
+}

@@ -1,5 +1,9 @@
 # R1 sim2sim checks / 跨仿真器检查
 
+**Current public OmniSim follow-up:** [joint 7, original URDF import and contact probes](followup/README.md) compare v8.5.1 with v9.0.0-rc.2. The simple-motion claim below is the earlier v8.5.1 baseline.
+
+**当前公开版复核：**[第七关节、原始 URDF 导入与接触探针](followup/README.md)对比了 v8.5.1 和 v9.0.0-rc.2；下述简单运动结果属于旧版基线。
+
 [Validation claim / 验证声明](CLAIM.md)
 
 **Current result: simple fixed-base motion PASS.** The folder name describes the

@@ -1,5 +1,8 @@
 # Cross-simulator validation / 跨仿真器验证
 
+> This page documents the v8.5.1 evaluation. [Current public-release follow-up](../../sim2sim/followup/README.md) tests v9.0.0-rc.2 separately.
+> 本页为 v8.5.1 历史评估；[新公开版本复核](../../sim2sim/followup/README.md)另行记录 v9.0.0-rc.2。
+
 > New bounded motion check / 新增简单运动检查：
 > [sim2sim](../../sim2sim/README.md) · [CLAIM](../../sim2sim/CLAIM.md).
 > Fixed-base arm/finger motion passes; earlier contact limitations below remain unresolved.

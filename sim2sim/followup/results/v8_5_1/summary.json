@@ -1,0 +1,130 @@
+{
+  "scope": "Unpatched public OmniSim v8.5.1 at 0b9b07f5; no claim about the unpublished email patch",
+  "import": {
+    "mid_empty": {
+      "loaded_and_finalised": false,
+      "expected_on_public_baseline": false
+    },
+    "mid_direct": {
+      "loaded_and_finalised": true,
+      "expected_on_public_baseline": true
+    },
+    "root_empty": {
+      "loaded_and_finalised": true,
+      "expected_on_public_baseline": true
+    },
+    "r1_portable_joint7": {
+      "loaded_and_finalised": false,
+      "expected_on_public_baseline": false
+    },
+    "r1_omnisim_joint7": {
+      "loaded_and_finalised": true,
+      "expected_on_public_baseline": true
+    }
+  },
+  "contacts": {
+    "thin_16ms": {
+      "end_z_m": -31.54631805419922,
+      "end_vertical_velocity_m_s": -25.113601684570312,
+      "end_contacts": 0,
+      "frames_with_contacts": 1,
+      "stable_at_end": false
+    },
+    "thin_8ms": {
+      "end_z_m": 0.044892244040966034,
+      "end_vertical_velocity_m_s": -3.799443832469551e-12,
+      "end_contacts": 4,
+      "frames_with_contacts": 272,
+      "stable_at_end": true
+    },
+    "thin_4ms": {
+      "end_z_m": 0.044892244040966034,
+      "end_vertical_velocity_m_s": -4.0654130470690845e-17,
+      "end_contacts": 4,
+      "frames_with_contacts": 543,
+      "stable_at_end": true
+    },
+    "thick_16ms": {
+      "end_z_m": 0.044742535799741745,
+      "end_vertical_velocity_m_s": -1.1959787327153748e-10,
+      "end_contacts": 4,
+      "frames_with_contacts": 129,
+      "stable_at_end": true
+    },
+    "thin_16ms_sub4": {
+      "end_z_m": 0.044892244040966034,
+      "end_vertical_velocity_m_s": -1.2024925735008336e-16,
+      "end_contacts": 4,
+      "frames_with_contacts": 136,
+      "stable_at_end": true
+    },
+    "no_floor_16ms": {
+      "end_z_m": -31.54631805419922,
+      "end_vertical_velocity_m_s": -25.113601684570312,
+      "end_contacts": 0,
+      "frames_with_contacts": 0,
+      "stable_at_end": false
+    }
+  },
+  "joint7": {
+    "max_abs_error_rad": 4.470348358154297e-08,
+    "motor_device_bounds": [
+      -6.283,
+      6.283
+    ],
+    "harness_snapshot_bounds": [
+      0,
+      0
+    ],
+    "commands_rad": [
+      0,
+      0.25,
+      -0.25,
+      0
+    ],
+    "zero_gravity": true,
+    "fixed_base": true,
+    "full_r1_range_tested": false,
+    "endpoint_orientation_changes": true
+  },
+  "range_probe": {
+    "authored_limits": {
+      "j_inside": [
+        -2,
+        2
+      ],
+      "j_full": [
+        -6.283,
+        6.283
+      ],
+      "j_asym": [
+        -6.283,
+        0.785
+      ]
+    },
+    "motor_device_limits": {
+      "j_inside_motor": {
+        "min": 0.0,
+        "max": 0.0
+      },
+      "j_full_motor": {
+        "min": -6.283,
+        "max": 6.283
+      },
+      "j_asym_motor": {
+        "min": 0.0,
+        "max": 0.0
+      }
+    },
+    "requested_phase": {
+      "j_inside_motor": -2,
+      "j_full_motor": -6.283,
+      "j_asym_motor": -6.283
+    },
+    "achieved_phase": {
+      "j_inside_motor": -2.0,
+      "j_full_motor": -6.282998561859131,
+      "j_asym_motor": -3.131589889526367
+    }
+  }
+}

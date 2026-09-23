@@ -1,0 +1,55 @@
+{
+  "r1_omnisim_joint7": [
+    "WARNING: URDF link 'trunk_link': collision mesh '../meshes/base_link_lite.STL' has scale 1.05 1.05 1.05 which cannot be applied inside a boundingObject; it will be loaded at unit scale.",
+    "WARNING: URDF link 'body_link': collision mesh '../meshes/body_link.STL' has scale 1.05 1.05 1.05 which cannot be applied inside a boundingObject; it will be loaded at unit scale.",
+    "WARNING: URDF link 'trunk_link': collision mesh '../meshes/base_link_lite.STL' has scale 1.05 1.05 1.05 which cannot be applied inside a boundingObject; it will be loaded at unit scale.",
+    "WARNING: URDF link 'body_link': collision mesh '../meshes/body_link.STL' has scale 1.05 1.05 1.05 which cannot be applied inside a boundingObject; it will be loaded at unit scale.",
+    "INFO: [OmNewtonBackend] registered 26 dynamic + 1 static Newton bodies (0 of the statics on the world body) (+27 this pass) (statics: r1)",
+    "INFO: [OmNewtonBackend] inertia provenance: 26 declared, 0 from geometry, 0 from the mass preset",
+    "INFO: [OmNewtonBackend] world finalised (solver=MuJoCo (cpu/mj_step, WorldInfo.newtonSolver))"
+  ],
+  "mid_empty": [
+    "INFO: [OmNewtonBackend] registered 2 dynamic + 1 static Newton bodies (0 of the statics on the world body) (+3 this pass) (statics: merge_probe)",
+    "INFO: [OmNewtonBackend] inertia provenance: 2 declared, 0 from geometry, 0 from the mass preset",
+    "INFO: [OmNewtonBackend] world finalised (solver=MuJoCo (cpu/mj_step, WorldInfo.newtonSolver))"
+  ],
+  "thin_16ms_sub4": [
+    "INFO: [OmNewtonBackend] registered 1 dynamic + 1 static Newton bodies (1 of the statics on the world body) (+2 this pass) (statics: solid)",
+    "INFO: [OmNewtonBackend] inertia provenance: 0 declared, 1 from geometry, 0 from the mass preset",
+    "INFO: [OmNewtonBackend] world finalised (solver=MuJoCo (cpu/mj_step, WorldInfo.newtonSolver))"
+  ],
+  "mid_direct": [
+    "INFO: [OmNewtonBackend] registered 2 dynamic + 1 static Newton bodies (0 of the statics on the world body) (+3 this pass) (statics: merge_probe)",
+    "INFO: [OmNewtonBackend] inertia provenance: 2 declared, 0 from geometry, 0 from the mass preset",
+    "INFO: [OmNewtonBackend] world finalised (solver=MuJoCo (cpu/mj_step, WorldInfo.newtonSolver))"
+  ],
+  "range_probe": [
+    "INFO: [OmNewtonBackend] registered 3 dynamic + 1 static Newton bodies (0 of the statics on the world body) (+4 this pass) (statics: range_probe)",
+    "INFO: [OmNewtonBackend] inertia provenance: 3 declared, 0 from geometry, 0 from the mass preset",
+    "INFO: [OmNewtonBackend] world finalised (solver=MuJoCo (cpu/mj_step, WorldInfo.newtonSolver))"
+  ],
+  "thin_8ms": [
+    "INFO: [OmNewtonBackend] registered 1 dynamic + 1 static Newton bodies (1 of the statics on the world body) (+2 this pass) (statics: solid)",
+    "INFO: [OmNewtonBackend] inertia provenance: 0 declared, 1 from geometry, 0 from the mass preset",
+    "INFO: [OmNewtonBackend] world finalised (solver=MuJoCo (cpu/mj_step, WorldInfo.newtonSolver))"
+  ],
+  "root_empty": [
+    "INFO: [OmNewtonBackend] registered 3 dynamic + 0 static Newton bodies (0 of the statics on the world body) (+3 this pass) (statics: )",
+    "INFO: [OmNewtonBackend] inertia provenance: 2 declared, 0 from geometry, 1 from the mass preset (preset: merge_probe)",
+    "INFO: [OmNewtonBackend] world finalised (solver=MuJoCo (cpu/mj_step, WorldInfo.newtonSolver))"
+  ],
+  "thin_16ms": [
+    "INFO: [OmNewtonBackend] registered 1 dynamic + 1 static Newton bodies (1 of the statics on the world body) (+2 this pass) (statics: solid)",
+    "INFO: [OmNewtonBackend] inertia provenance: 0 declared, 1 from geometry, 0 from the mass preset",
+    "INFO: [OmNewtonBackend] world finalised (solver=MuJoCo (cpu/mj_step, WorldInfo.newtonSolver))"
+  ],
+  "r1_portable_joint7": [
+    "WARNING: URDF link 'body_link': collision mesh '../meshes/body_link.STL' has scale 1.05 1.05 1.05 which cannot be applied inside a boundingObject; it will be loaded at unit scale.",
+    "WARNING: URDF link 'trunk_link': collision mesh '../meshes/base_link_lite.STL' has scale 1.05 1.05 1.05 which cannot be applied inside a boundingObject; it will be loaded at unit scale.",
+    "WARNING: URDF link 'body_link': collision mesh '../meshes/body_link.STL' has scale 1.05 1.05 1.05 which cannot be applied inside a boundingObject; it will be loaded at unit scale.",
+    "WARNING: URDF link 'trunk_link': collision mesh '../meshes/base_link_lite.STL' has scale 1.05 1.05 1.05 which cannot be applied inside a boundingObject; it will be loaded at unit scale.",
+    "INFO: [OmNewtonBackend] registered 27 dynamic + 1 static Newton bodies (0 of the statics on the world body) (+28 this pass) (statics: r1)",
+    "INFO: [OmNewtonBackend] inertia provenance: 27 declared, 0 from geometry, 0 from the mass preset",
+    "INFO: [OmNewtonBackend] world finalised (solver=MuJoCo (cpu/mj_step, WorldInfo.newtonSolver))"
+  ]
+}

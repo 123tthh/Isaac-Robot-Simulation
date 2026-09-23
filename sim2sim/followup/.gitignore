@@ -1,0 +1,4 @@
+# OmniSim viewport and harness files generated while running local probes
+worlds/.*.omniperspective
+worlds/.harness_*
+worlds/..harness_*

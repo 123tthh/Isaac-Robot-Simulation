@@ -1,5 +1,9 @@
 # Validation claim / 验证声明
 
+This document records the v8.5.1 baseline. The [public v9.0.0-rc.2 follow-up](followup/README.md) independently imports the original portable URDF and probes joint 7 and primitive contact.
+
+本文保存 v8.5.1 历史基线；[v9.0.0-rc.2 复核](followup/README.md)已验证原始 URDF 导入、第七关节小幅运动和基本几何接触。
+
 **PASS: the R1 OmniSim compatibility model supports the tested fixed-base arm and
 finger motions in the local OmniSim build.** This is a measured joint-motion claim,
 not a claim of full sim-to-sim equivalence or successful grasping.
